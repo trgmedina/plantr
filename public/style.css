@@ -1,18 +1,48 @@
-body{
-  width: 100%;
+html, body {
   height: 100%;
+}
+
+body{
   font-family: 'Lato', sans-serif;
   background-color: #e8fff2;
   color: #18bc9c;
+  height: 100vh;
 }
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -40px;
+  /* Pad bottom by footer height */
+  padding: 0 0 40px;
+}
+
+#content-wrapper {
+  min-height: 80vh;
 }
 
 h1 {
   font-family: 'Yellowtail', cursive;
+}
+
+.weekdays-selector input {
+  display: none!important;
+}
+
+.weekdays-selector > [type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 30px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekdays-selector >[type=checkbox]:checked + label {
+  background: #2AD705;
+  color: #ffffff;
 }
