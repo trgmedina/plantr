@@ -32,10 +32,10 @@ module.exports = (
     <Route path="/" component={Main}>
 
       {/* If user selects Search or Saved show the appropriate component */}
-      <Route path="reminders" component={Reminders} />
-      <Route path="addplant" component={AddPlant} />
-      <Route path="calendar" component={Calendar} />
-      <Route path="plants" component={Plants} />
+      <Route path="Reminders" component={Reminders} />
+      <Route path="AddPlant" component={AddPlant} />
+      <Route path="Calendar" component={Calendar} />
+      <Route path="Plants" component={Plants} />
 
       {/* If user selects any other path... we get the Home Route */}
       <IndexRoute component={Reminders} />

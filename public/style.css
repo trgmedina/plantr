@@ -18,19 +18,39 @@ body{
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -40px;
+  margin: 0 auto -30px;
   /* Pad bottom by footer height */
-  padding: 0 0 40px;
+  padding: 0 0 30px;
 }
 
 #content-wrapper {
-  min-height: 80vh;
+  height: 85vh;
+}
+
+footer {
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 h1 {
   font-family: 'Yellowtail', cursive;
 }
 
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+span > i {
+  padding-right: 5px;
+}
+
+/*Add Plant Form*/
 .weekdays-selector input {
   display: none!important;
 }
@@ -54,7 +74,6 @@ h1 {
 
 
 /*Reminders*/
-
 .reminder-img {
   position: relative;
   width: 50px;
@@ -69,4 +88,62 @@ h1 {
 .panel-footer {
   color: #04b3db;
   background-color: #d7fafe;
-};
+}
+
+/*Plants Page*/
+.panel-collapse {
+  height: 0px;
+  font-size: 12px;
+}
+
+.plant-panel, .panel-group {
+  margin-bottom: 0px;
+}
+.plant-panel {
+  position: relative;
+  width: 30%;
+  height: auto;
+}
+
+.plant-panel-body {
+  padding: 0;
+}
+
+.plantpg-name, .fa-minus-square {
+  position: absolute;
+  z-index: 100;
+  top: 5px;
+}
+
+.plantpg-name {
+  left: 5px;
+  color: white;
+}
+.fa-minus-square {
+  cursor: pointer;
+  right: 5px;
+  color: #ff3f3f;
+}
+
+.plantpg-img {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: transparent;
+    border-color: transparent;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    left: 0px;
+}
+
+.fa-chevron-circle-down {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}

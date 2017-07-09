@@ -12,47 +12,39 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" href="../../public/style.css">
+
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row" id="header">
-			<div class="col-xs-10">
-				<h1 class="navbar-left">Plant App</h1>
-			</div>
-			<div class="col-xs-2">
-				<a href="#" class="navbar-right">LOGOUT</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-1" id="navbar">
-				<div>
-					<a href="#"><i class="fa fa-exclamation fa-2x" aria-hidden="true"></i></a>
+	
+	<script type="text/javascript">
+		$('.collapse').collapse()
+	</script>
+
+	<div class="panel panel-default plant-panel">
+  		<div class="panel-body">
+    		Panel content
+  		</div>
+		<div class="panel-group" role="tablist">
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+					<h4 class="panel-title">
+						<a href="#collapseListGroup1" class="collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> Collapsible list group </a>
+					</h4>
 				</div>
-				<div>
-					<a href="#"><i class="fa fa-calendar fa-2x" aria-hidden="true"></i></a>
+				<div class="panel-collapse collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false" style="height: 0px;">
+					<ul class="list-group">
+						<li class="list-group-item">Bootply</li>
+						<li class="list-group-item">One itmus ac facilin</li>
+						<li class="list-group-item">Second eros</li>
+					</ul>
+					<div class="panel-footer">Footer</div>
 				</div>
-				<div>
-					<a href="#"><i class="fa fa-leaf fa-2x" aria-hidden="true"></i></a>
-				</div>
-				<div>
-					<a href="#"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>
-				</div>
-			</div>
-			<div class="col-xs-11" id="content-wrapper">
-				
-			</div>
-			<div class="row">
-				<footer class="footer">
-					<div class="col-xs-offset-4 col-xs-4">
-						<p class="text-center">&copy; 2017 Plant App</p>
-					</div>
-					<div class="col-xs-4">
-						<span class="pull-right">
-							<a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
-						</span>
-					</div>
-				</footer>
 			</div>
 		</div>
 	</div>
