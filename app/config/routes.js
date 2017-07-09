@@ -19,7 +19,7 @@ var browserHistory = router.browserHistory;
 
 // Reference the high-level components
 var Main = require("../components/Main");
-var Alerts = require("../components/Alerts");
+var Reminders = require("../components/Reminders");
 var AddPlant = require("../components/AddPlant");
 var Calendar = require("../components/Calendar");
 var Plants = require("../components/Plants");
@@ -32,13 +32,13 @@ module.exports = (
     <Route path="/" component={Main}>
 
       {/* If user selects Search or Saved show the appropriate component */}
-      <Route path="Alerts" component={Alerts} />
-      <Route path="AddPlant" component={AddPlant} />
-      <Route path="Calendar" component={Calendar} />
-      <Route path="Plants" component={Plants} />
+      <Route path="reminders" component={Reminders} />
+      <Route path="addplant" component={AddPlant} />
+      <Route path="calendar" component={Calendar} />
+      <Route path="plants" component={Plants} />
 
       {/* If user selects any other path... we get the Home Route */}
-      <IndexRoute component={Alerts} />
+      <IndexRoute component={Reminders} />
 
     </Route>
   </Router>

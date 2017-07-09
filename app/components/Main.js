@@ -25,16 +25,16 @@ var Main = React.createClass({
             <div className="row">
               <div className="col-xs-1" id="navbar">
                 <div>
-                  <Link to="/Alerts"><i className="fa fa-exclamation fa-2x" aria-hidden="true"></i></Link>
+                  <Link to="/reminders"><i className="fa fa-exclamation fa-2x" aria-hidden="true"></i></Link>
                 </div>
                 <div>
-                  <Link to="/Calendar"><i className="fa fa-calendar fa-2x" aria-hidden="true"></i></Link>
+                  <Link to="/calendar"><i className="fa fa-calendar fa-2x" aria-hidden="true"></i></Link>
                 </div>
                 <div>
-                  <Link to="/Plants"><i className="fa fa-leaf fa-2x" aria-hidden="true"></i></Link>
+                  <Link to="/plants"><i className="fa fa-leaf fa-2x" aria-hidden="true"></i></Link>
                 </div>
                 <div>
-                  <Link to="/AddPlant"><i className="fa fa-plus fa-2x" aria-hidden="true"></i></Link>
+                  <Link to="/addplant"><i className="fa fa-plus fa-2x" aria-hidden="true"></i></Link>
                 </div>
               </div>
             <div className="col-xs-11" id="content-wrapper">

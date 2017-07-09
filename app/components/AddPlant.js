@@ -69,7 +69,7 @@ var AddPlant = React.createClass({
                         </div>
                       </div>
                     </div>
-                    <h5 className="text-center">Create an Alert (optional)</h5>
+                    <h5 className="text-center">Create a Water Reminder (optional)</h5>
                     <div className="row">
                       <div className="col-md-6 col-xs-12">
                         <div className="weekdays-selector form-group">

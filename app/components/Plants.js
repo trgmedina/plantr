@@ -12,7 +12,7 @@ var Plants = React.createClass({
     	<div className="container-fluid">
 	        <div className="row">
 	          	<div className="col-xs-12 text-center">
-	          		<h2>Plants</h2>
+	          		<h2>My Plants</h2>
 	          	</div>
 	        </div>
 	        <div className="row">
