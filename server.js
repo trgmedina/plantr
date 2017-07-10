@@ -12,7 +12,7 @@ var Plant = require("./models/plant");
 
 // Create a new express app
 var app = express();
-// Sets an initial port. We'll use this later in our listener
+// Sets an initial port
 var PORT = process.env.PORT || 3000;
 
 // Run Morgan for Logging
@@ -24,10 +24,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
-// -------------------------------------------------
-
 // MongoDB configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://heroku_xhbt3904:7d1rrnn3t24utbteltp03veelr@ds153392.mlab.com:53392/heroku_xhbt3904");
+mongoose.connect("mongodb://localhost/plantsdb");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
@@ -36,6 +34,21 @@ db.on("error", function(err) {
 
 db.once("open", function() {
   console.log("Mongoose connection successful.");
+});
+
+//Gets Plant data
+app.get("/api", function(req, res) {
+
+  // This GET request will search all the plant data
+  Plant.find({}).exec(function(err, doc) {
+
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
 });
 
 // Starting our express server
