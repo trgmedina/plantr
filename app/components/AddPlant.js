@@ -16,7 +16,7 @@ var AddPlant = React.createClass({
               </div>
           </div>
           <div className="row">
-              <div className="col-xs-8 col-xs-offset-2">
+              <div className="col-xs-10 col-xs-offset-1">
                 <form>
                   <div id="addPlant-search">
                       <div className="input-group">
@@ -69,9 +69,20 @@ var AddPlant = React.createClass({
                         </div>
                       </div>
                     </div>
-                    <h5 className="text-center">Create a Water Reminder (optional)</h5>
+                    <h4 className="text-center">Create a Reminder (optional)</h4>
                     <div className="row">
-                      <div className="col-md-6 col-xs-12">
+                      <div className="col-md-4 col-xs-12">
+                        <div className="form-group">
+                          <label htmlFor="frequency">Type</label>
+                          <select className="form-control" id="frequency-input">
+                            <option></option>
+                            <option>Water</option>
+                            <option>Fertilize</option>
+                            <option>Prune</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className="col-md-4 col-xs-12">
                         <div className="weekdays-selector form-group">
                           <label htmlFor="light">Day(s) of the week</label><br></br>
                           <input type="checkbox" id="weekday-mon" className="weekday" />
@@ -90,7 +101,7 @@ var AddPlant = React.createClass({
                           <label htmlFor="weekday-sun">S</label>
                         </div>
                       </div>
-                      <div className="col-md-6 col-xs-12">
+                      <div className="col-md-4 col-xs-12">
                         <div className="form-group">
                           <label htmlFor="frequency">Frequency</label>
                           <select className="form-control" id="frequency-input">
@@ -103,7 +114,7 @@ var AddPlant = React.createClass({
                         </div>
                       </div>
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-success">Submit</button>
                   </div>
               </form>          
             </div>
