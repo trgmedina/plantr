@@ -4,6 +4,9 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+// Set mongoose to leverage built in JavaScript ES6 Promises
+mongoose.Promise = Promise;
+
 // Require Plant schema
 var Plant = require("./models/plant");
 
@@ -24,7 +27,7 @@ app.use(express.static("./public"));
 // -------------------------------------------------
 
 // MongoDB configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://localhost/plantapp");
+mongoose.connect("mongodb://heroku_xhbt3904:7d1rrnn3t24utbteltp03veelr@ds153392.mlab.com:53392/heroku_xhbt3904");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
