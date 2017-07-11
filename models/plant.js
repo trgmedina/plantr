@@ -28,6 +28,9 @@ var PlantSchema = new Schema({
   },
   specialCare: {
   	type: String
+  },
+  imageURL: {
+  	type: String
   }
 });
 
