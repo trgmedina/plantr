@@ -5,7 +5,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
-mongoose.Promise = Promise;
+// mongoose.Promise = Promise;
 
 // Require Plant schema
 var Plant = require("./models/plant");
@@ -25,7 +25,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("./public"));
 
 // MongoDB configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://localhost/plantsdb");
+// mongoose.connect("mongodb://heroku_6hktlx01:9r0nhq6bqf0cf7efnncpb4jtla@ds153732.mlab.com:53732/heroku_6hktlx01");
+mongoose.connect("mongodb://localhost/plantsdb")
 var db = mongoose.connection;
 
 db.on("error", function(err) {
