@@ -20,6 +20,10 @@ var UserSchema = new Schema({
   password: {
   	type: String,
     required: true
+  },
+  plant: {
+    type: Schema.Types.ObjectId,
+    ref: "Plant"
   }
 });
 

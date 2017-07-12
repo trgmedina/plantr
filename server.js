@@ -8,7 +8,7 @@ var mongoose = require("mongoose");
 // mongoose.Promise = Promise;
 
 // Require Plant schema
-var Plant = require("./models/plant");
+var Plant = require("./models/Plant");
 
 // Create a new express app
 var app = express();
