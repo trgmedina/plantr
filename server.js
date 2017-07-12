@@ -52,6 +52,13 @@ app.get("/api", function(req, res) {
   });
 });
 
+//test Google OAuth
+app.get("/login", function(req, res){
+  console.log("hey!");
+  res.sendFile(__dirname + "/public/login.html");
+
+});
+
 // Starting our express server
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
