@@ -69,6 +69,10 @@ var AddPlant = React.createClass({
                         </div>
                       </div>
                     </div>
+                    <div className="form-group">
+                      <label htmlFor="additional">Additional Special Care Instructions</label>
+                      <textarea className="form-control" id="additional-input" rows="3"></textarea>
+                    </div>
                     <h4 className="text-center">Create a Reminder (optional)</h4>
                     <div className="row">
                       <div className="col-md-4 col-xs-12">
