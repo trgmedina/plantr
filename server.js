@@ -7,8 +7,9 @@ var mongoose = require("mongoose");
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // mongoose.Promise = Promise;
 
-// Require Plant schema
+// Require Plant and User schema
 var Plant = require("./models/Plant");
+var User = require("./models/User");
 
 // Create a new express app
 var app = express();
