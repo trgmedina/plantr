@@ -21,10 +21,11 @@ var UserSchema = new Schema({
   	type: String,
     required: true
   },
-  plant: {
+  //an array that holds the ObjectIds for plants; references the Plant model
+  plants: [{
     type: Schema.Types.ObjectId,
     ref: "Plant"
-  }
+  }]
 });
 
 // Create the Model
