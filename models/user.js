@@ -24,6 +24,7 @@ var UserSchema = new Schema({
   //an array that holds the ObjectIds for plants; references the Plant model
   plants: [{
     type: Schema.Types.ObjectId,
+    nickname: String,
     ref: "Plant"
   }]
 });

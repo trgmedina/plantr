@@ -6,6 +6,19 @@ var helpers = require("../utils/helpers");
 
 // Create the Main component
 var AddPlant = React.createClass({
+
+  getInitialState: function() {
+    return {
+      name: "",
+      description: "",
+      origin: "",
+      sunlightAmt: "",
+      waterSchedule: "",
+      imageURL: "",
+      nickname: ""
+    }
+  },
+
   render: function() {
 
     return (
