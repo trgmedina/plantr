@@ -5,18 +5,21 @@ require('moment-recur');
 	// global variables
 	var recurrence;
 
-	//array of test alert objects
+	//array of test alert objects - what we would return from DB query
 	var testAlerts = [
 		{
+			plant: "cactus",
 			createdAt: "6-7-2017",
-			type: "fertilizer",
+			type: "water",
 			days: [
 				"Wednesday"
 				],
 
-			frequency: 3
+			frequency: 3,
+			dates:[]
 		},
 		{
+			plant: "tulip",
 			createdAt: "4-24-2017",
 			type: "water",
 			days: [
@@ -25,9 +28,11 @@ require('moment-recur');
 				"Saturday"
 				],
 
-			frequency: 0
+			frequency: 0,
+			dates:[]
 		},
 		{
+			plant : "ivy",
 			createdAt: "7-01-2017",
 			type: "prune",
 			days: [
@@ -35,32 +40,51 @@ require('moment-recur');
 				"Wednesday"
 				],
 
-			frequency: 1
+			frequency: 1,
+			dates:[]
 		},
-	]
+	];
+
+	var displayAlerts = [];
 
 	// grab today's date
 	var todaysDate = moment().format()
 
-	// call the setReminder function for each item in testAlerts array and pass object data to function
-	for (var i = 0; i<testAlerts.length; i++) {
-		setReminder(testAlerts[i].createdAt, testAlerts[i].days, testAlerts[i].frequency)
+	function createAlertObject() {
+		// loop through results from DB and call the setReminder funtion to generate dates
+		for (var i = 0; i<testAlerts.length; i++) {
+			
+			setReminder(testAlerts[i].createdAt, testAlerts[i].days, testAlerts[i].frequency, i);
+			
+			for (var j = 0; j<testAlerts[i].dates.length; j++) {
+				var newAlert = {
+					plant: testAlerts[i].plant,
+					type: testAlerts[i].type,
+					date: testAlerts[i].dates[j]
+				}
+
+				displayAlerts.push(newAlert);
+			}
+		}
+
+		console.log(displayAlerts)
 	}
 
+	createAlertObject()
 	// function to grab reminder dates based on user settings
 	// currently only weekly, biweekly and monthly frequencies are working
-	function setReminder(createdDate, days, frequency) {
+	function setReminder(createdDate, days, frequency, index) {
 		// format the alert created date for moment
 		var startDate = moment(createdDate,"MM-DD-YYYY");
 		// find the day of the week for that date
 		var day = moment(createdDate,"MM-DD-YYYY").format("ddd");
 		// and what week in the month it occurs (1-4)
 		var week = moment(startDate).monthWeek()
-		console.log("----Start Date Information-----")
-		console.log("Date: ", startDate)
-		console.log("Day: ", day)
-		console.log("Week: ", week)
-		console.log("===============================")
+		// console.log("----Start Date Information-----")
+		// console.log("Date: ", startDate)
+		// console.log("Day: ", day)
+		// console.log("Week: ", week)
+		// console.log("===============================")
 
 		// this test works
 		if (frequency===0) {
@@ -70,8 +94,13 @@ require('moment-recur');
 			recurrence.fromDate(todaysDate);
 			// generate next three dates in recurrence
 			nextDates = recurrence.next(3, "L")
-			// call logger function to display the recurrence dates
+			// loop through resulting array and push to the alert object
+			for (var i = 0; i < nextDates.length; i++) {
+				testAlerts[index].dates.push(nextDates[i])
+			}
+			// dev function logs the generated recurrence dates
 			logger(days, frequency, nextDates)
+
 		// this test works
 		}else if (frequency===1){
 			// setting variable for which weeks the alerts should occur
@@ -90,6 +119,10 @@ require('moment-recur');
 	        cal.fromDate(todaysDate);
 	        // generate next three dates in recurrence
 	        nextDates = cal.next(3, "L")
+	        // loop through resulting array and push to the alert object
+			for (var i = 0; i < nextDates.length; i++) {
+				testAlerts[index].dates.push(nextDates[i])
+			}
 	        // call logger function to display the recurrence dates
 			logger(days, frequency, nextDates)
 	    //  test for every third week - not working
@@ -117,6 +150,10 @@ require('moment-recur');
 	        cal.fromDate(todaysDate);
 	        // generate next three dates in recurrence
 	        nextDates = cal.next(3, "L")
+	        // loop through resulting array and push to the alert object
+			for (var i = 0; i < nextDates.length; i++) {
+				testAlerts[index].dates.push(nextDates[i])
+			}
 			// call logger function to display the recurrence dates
 			logger(days, frequency, nextDates)
 		}
@@ -130,7 +167,4 @@ require('moment-recur');
 		console.log("===============================")
 	}
 
-	// function displayAlerts {
-
-	// }
 // });
