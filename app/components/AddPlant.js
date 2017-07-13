@@ -2,7 +2,7 @@
 var React = require("react");
 
 // Include the Helper (for the saved recall)
-// var helpers = require("../utils/helpers");
+var helpers = require("../utils/helpers");
 
 // Create the Main component
 var AddPlant = React.createClass({
