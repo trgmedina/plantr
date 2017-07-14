@@ -14,10 +14,18 @@ var AddPlant = React.createClass({
       origin: "",
       sunlightAmt: "",
       waterSchedule: "",
-      imageURL: "",
-      nickname: ""
+      imageURL: ""
     }
   },
+
+  handleChange: function(event) {
+    const.target = event.target;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    })
+  }
 
   render: function() {
 
@@ -40,24 +48,53 @@ var AddPlant = React.createClass({
                       </div>
                   </div>
                   <div id="addPlant-remaining">
-                    <div className="form-group">
-                      <label htmlFor="nickname">Nickname</label>
-                      <input type="text" className="form-control" id="nickname-input" aria-describedby="nickname" placeholder="Nickname"></input>
-                      <small id="nickname-help" className="form-text text-muted">We'll use this name for your plant if you prefer.</small>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="plant-image">Image URL</label>
-                      <input type="text" className="form-control" id="image-input" aria-describedby="image" placeholder="Nickname" required></input>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="description">Description</label>
-                      <textarea className="form-control" id="description-input" rows="3"></textarea>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="origin">Plant Origin</label>
-                      <input type="text" className="form-control" id="origin-input" aria-describedby="origin" placeholder="Origin"></input>
-                    </div>
-                    <div className="row">
+                      <label>
+                        Nickname
+                        <input 
+                          name="nickname" 
+                          type="text"
+                          className="form-control"
+                          id="nickname-input"
+                          onChange={this.handleChange}
+                          placeholder="Nickname">
+                        </input>
+                        <small id="nickname-help" className="form-text text-muted">We'll use this name for your plant if you prefer.</small>
+                      </label>
+                      <label>
+                        Image URL
+                        <input 
+                          name="imageURL"
+                          type="text" 
+                          className="form-control" 
+                          id="image-input" 
+                          placeholder="Image URL" 
+                          required
+                        </input>
+                      </label>
+                      <label>
+                        Description
+                        <textarea
+                          name="description"
+                          type="text"
+                          className="form-control" 
+                          id="description-input" 
+                          placeholder="Add Description Here"
+                          rows="3"
+                          required
+                        </textarea>
+                      </label>
+                      <label>
+                        Plant Origin
+                        <input 
+                          name="origin"
+                          type="text" 
+                          className="form-control" 
+                          id="origin-input" 
+                          placeholder="Origin"
+                        </input>
+                      </label>
+
+                    <div className="row">x
                       <div className="col-md-6 col-xs-12">
                         <div className="form-group">
                           <label htmlFor="light">Preferred Light</label>
