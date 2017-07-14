@@ -1,19 +1,6 @@
 var moment = require('moment');
 require('moment-recur');
 
-
-
-var week1 = moment("08/01/2017","MM-DD-YYYY").monthWeek()
-var week2 = moment("08/08/2017","MM-DD-YYYY").monthWeek()
-var week3 = moment("08/15/2017","MM-DD-YYYY").monthWeek()
-var week4 = moment("08/22/2017","MM-DD-YYYY").monthWeek()
-var week5 = moment("08/29/2017","MM-DD-YYYY").monthWeek()
-console.log("Week: ", week1)
-console.log("Week: ", week2)
-console.log("Week: ", week3)
-console.log("Week: ", week4)
-console.log("Week: ", week5)
-
 	// global variables
 	var recurrence;
 
@@ -114,11 +101,11 @@ console.log("Week: ", week5)
 			// setting variable for which weeks the alerts should occur
 			var weeks;
 			// if the alert created at date falls in week 0, 1 or 3, set the frequency for same weeks
-			if (week === 0 || 1 || 3) {
-				weeks = [1,3]
+			if (week === 0 || 2 ) {
+				weeks = [0,2]
 			// else, set the frequency for weeks 2 & 4
 			}else {
-				weeks = [2,4]
+				weeks = [1,3]
 			}
 			// setting a cal recurrence based on days of week and weeks variable determined above
 			cal = startDate.recur().every(days).daysOfWeek()
@@ -152,13 +139,13 @@ console.log("Week: ", week5)
 		}
 	}
 	// function created for development purposes to test accuracy
-	// function logger (days, frequency, dates) {
-	// 	console.log("-----Reminder Information-----")
-	// 	console.log("Days of the Week: ", days)
-	// 	console.log("Frequency: ", frequency)
-	// 	console.log("Reminder Dates: ", dates)
-	// 	console.log("===============================")
-	// }
+	function logger (days, frequency, dates) {
+		console.log("-----Reminder Information-----")
+		console.log("Days of the Week: ", days)
+		console.log("Frequency: ", frequency)
+		console.log("Reminder Dates: ", dates)
+		console.log("===============================")
+	}
 
 	function createSortedAlertArray() {
 		for (var i = 0; i<displayAlerts.length; i++) {
@@ -166,9 +153,9 @@ console.log("Week: ", week5)
 			for (var j = 0; j<displayAlerts[i].dates.length; j++) {
 				var date = displayAlerts[i].dates[j]
 				var newObject = {
-				plant: displayAlerts[i].plant,
-				type: displayAlerts[i].type,
-				date: date
+					plant: displayAlerts[i].plant,
+					type: displayAlerts[i].type,
+					date: date
 				}
 				sortedDisplayAlerts.push(newObject);
 			}
@@ -177,5 +164,11 @@ console.log("Week: ", week5)
 		sortedDisplayAlerts.sort(function(a,b) { 
     		return new Date(a.date).getTime() - new Date(b.date).getTime() 
 		});
-		console.log(sortedDisplayAlerts)
+		displayAlerts(sortedDisplayAlerts);
+	}
+
+	function displayAlerts(alerts){
+		var $current = $("#current-reminders")
+		var $upcoming = $("#upcoming-reminders")
+		
 	}
