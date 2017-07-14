@@ -5,7 +5,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
-// mongoose.Promise = Promise;
+mongoose.Promise = Promise;
 
 // Require Plant and User schema
 var Plant = require("./models/Plant");
@@ -38,12 +38,15 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
+// Main "/" Route. This will redirect the user to our rendered React application
+app.get("/", function(req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
 //Gets Plant data
 app.get("/api", function(req, res) {
-
   // This GET request will search all the plant data
   Plant.find({}).exec(function(err, doc) {
-
     if (err) {
       console.log(err);
     }
@@ -51,6 +54,37 @@ app.get("/api", function(req, res) {
       res.send(doc);
     }
   });
+});
+
+// The route we will send POST requests to save new plants.
+app.post("/api", function(req, res) {
+
+  var newPlant = new Plant(req.body);
+  
+  newPlant.save(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send("Saved New Plant");
+    }
+  });
+
+  //   Plant.create({
+  //   name: req.body.name,
+  //   description: req.body.description,
+  //   origin: req.body.origin,
+  //   sunlightAmt: req.body.sunlightAmt,
+  //   waterSchedule: req.body.waterSchedule,
+  //   imageURL: req.body.imageURL
+  // }, function(err) {
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  //   else {
+  //     res.send("Saved New Plant");
+  //   }
+  // });
 });
 
 // Starting our express server

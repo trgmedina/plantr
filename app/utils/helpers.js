@@ -3,12 +3,12 @@ var axios = require("axios");
 
 // Exporting an object with methods for retrieving and posting data to our API
 module.exports = {
-  // Returns a promise object we can .then() off inside our Parent component
+
   getPlants: function() {
     return axios.get("/api");
   },
-  // Also returns a promise object we can .then() off inside our Parent component
-  // This method takes in an argument for what to post to the database
+
+  // Takes in an argument for what to post to the database
   savePlant: function(plantData) {
     return axios.post("/api", plantData);
   }
