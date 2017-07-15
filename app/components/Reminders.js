@@ -15,8 +15,7 @@ var Reminders = React.createClass({
   componentDidMount: function() {
     reminderHelpers.getReminders().then(function(reminderData) {
       console.log("reminder data ", reminderData)
-      this.setState({ reminders: reminderData.data.reminders[0] });
-      console.log("reminder.data ", reminderData.data.reminders[0]);
+      this.setState({ reminders: reminderData });
     }.bind(this));
   },
 
@@ -40,15 +39,14 @@ var Reminders = React.createClass({
           <div className="panel panel-default">
             <div className="panel-body">
               <span>
-                <img src="{reminder.imageUrl}" alt="{reminder.plant}" className="img-rounded reminder-img"></img>
+                <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img"></img>
                 <p>{reminder.plant}</p>
               </span>
-              <i className="fa fa-check" aria-hidden="true"></i>
             </div>
             <div className="panel-footer">
               <span>
                 <i className="fa fa-tint" aria-hidden="true"></i>
-                Reminder to {reminder.type} on {reminder.day}, {reminder.date}
+                Reminder to {reminder.type} on {reminder.days}, {reminder.date}
               </span>
             </div>
           </div>

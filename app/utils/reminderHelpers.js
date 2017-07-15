@@ -10,8 +10,8 @@ var reminderHelpers = {
   getReminders: function() {
     return axios.get("/api/reminders")
       .then(function(results) {
-        console.log("axios results", results);
-        return results.data[0];
+        console.log("axios results data 0", results.data[0].reminders[0]);
+        return results.data[0].reminders;
     });
   }
 

@@ -62,15 +62,23 @@ app.get("/login", function(req, res){
 
 // TO DO: ROUTE TO GRAB ALL USER'S ALERTS FROM DB
 app.get("/api/reminders", function(req, res) {
+  //query with mongoose
+    var query = Plant.find().select('reminders -_id');
 
-  Plant.find({}, {'_id': 0, 'reminders': { exists: true, ne: [] }}, function(err, doc) {
+    query.exec(function (err, doc) {
+        if (err) return next(err);
+        res.send(doc);
+    });
+  // Plant.find({reminders:1, _id:0})
+  //   .exec(function(err, doc) {
 
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(doc);
-    }
-  });
+  //     if (err) {
+  //       console.log(err);
+  //     }
+  //     else {
+  //       res.send(doc);
+  //     }
+  //   });
 });
 
 // Starting our express server
