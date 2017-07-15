@@ -62,7 +62,7 @@ require('moment-recur');
 			setReminder(testReminders[i].createdAt, testReminders[i].days, testReminders[i].frequency, i);
 		}
 
-		// console.log(displayReminders)
+		console.log(displayReminders)
 		createSortedReminderArrays();
 	}
 
@@ -165,33 +165,15 @@ require('moment-recur');
 		sortedDisplayReminders.sort(function(a,b) { 
     		return new Date(a.date).getTime() - new Date(b.date).getTime() 
 		});
-		
-		for (var i = 0; i<sortedDisplayReminders.length; i++) {
-			if(sortedDisplayReminders[i].date.getTime()===todaysDate.getTime()) {
-				displayTodaysReminders(sortedDisplayReminders[i]);
-			}
+		console.log(sortedDisplayReminders)
+		// for (var i = 0; i<sortedDisplayReminders.length; i++) {
+		// 	if(sortedDisplayReminders[i].date.getTime()===todaysDate.getTime()) {
+		// 		displayTodaysReminders(sortedDisplayReminders[i]);
+		// 	}
 
-			// else if (sortedDisplayReminders[i]<(moment(todaysDate).day(7)) {
-			// 	// displayUpcomingReminders(sortedDisplayReminders[i]);
-			// }
-		}
+		// 	// else if (sortedDisplayReminders[i]<(moment(todaysDate).day(7)) {
+		// 	// 	// displayUpcomingReminders(sortedDisplayReminders[i]);
+		// 	// }
+		// }
 	}
-
-	function displayTodaysReminders(reminders){
-		for (var i = 0; i<reminders.length; i++) {
-			var wrapper = $('<div class="panel panel-default">')
-			var image = $('<span><img class="img-rounded reminder-img">').src('lala')
-			var plant = $('<p>').text(reminders[i].plant)
-			var icon = $('<i className="fa fa-tint" aria-hidden="true">')
-			// var reminderText = $('<p>').text('Reminder to '+ reminders[i].type + ' on ' + moment(reminders[i]).format('dddd') + ", " + reminders[i]).date);
-
-			var body = $('<div class="panel-body"><span>').image.append(plant);
-			var footer = $('<div class="panel-footer"><span>').append(icon).append(reminderText)
-			var $newReminder = wrapper.append(body).append(footer);
-
-			$('#current-reminders').append($newReminder);
-
-		};
-	}
-
 
