@@ -1,11 +1,11 @@
 module.exports = function(app, passport) {
 
 // normal routes ===============================================================
-
-    // show the home page (will also have our login links)
-    app.get('/home', function(req, res) {
-        res.render('index.ejs');
-    });
+    
+// Main "/" Route. This will redirect the user to our rendered React application
+  app.get('/app', isLoggedIn, function(req, res) {
+      res.sendFile(__dirname + "/index.html");
+  });
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
@@ -17,7 +17,7 @@ module.exports = function(app, passport) {
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
         req.logout();
-        res.redirect('/home');
+        res.redirect('/');
     });
 
 // =============================================================================
@@ -33,7 +33,7 @@ module.exports = function(app, passport) {
 
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/app', // redirect to the secure profile section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -46,7 +46,7 @@ module.exports = function(app, passport) {
 
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/app', // redirect to the secure profile section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -59,7 +59,7 @@ module.exports = function(app, passport) {
         // handle the callback after facebook has authenticated the user
         app.get('/auth/facebook/callback',
             passport.authenticate('facebook', {
-                successRedirect : '/profile',
+                successRedirect : '/app',
                 failureRedirect : '/'
             }));
 
@@ -71,7 +71,7 @@ module.exports = function(app, passport) {
         // handle the callback after twitter has authenticated the user
         app.get('/auth/twitter/callback',
             passport.authenticate('twitter', {
-                successRedirect : '/profile',
+                successRedirect : '/app',
                 failureRedirect : '/'
             }));
 
@@ -84,8 +84,8 @@ module.exports = function(app, passport) {
         // the callback after google has authenticated the user
         app.get('/auth/google/callback',
             passport.authenticate('google', {
-                successRedirect : '/profile',
-                failureRedirect : '/home'
+                successRedirect : '/app',
+                failureRedirect : '/'
             }));
 
 // =============================================================================
@@ -97,7 +97,7 @@ module.exports = function(app, passport) {
             res.render('connect-local.ejs', { message: req.flash('loginMessage') });
         });
         app.post('/connect/local', passport.authenticate('local-signup', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/', // redirect to the secure profile section
             failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -110,8 +110,8 @@ module.exports = function(app, passport) {
         // handle the callback after facebook has authorized the user
         app.get('/connect/facebook/callback',
             passport.authorize('facebook', {
-                successRedirect : '/profile',
-                failureRedirect : '/home'
+                successRedirect : '/app',
+                failureRedirect : '/'
             }));
 
     // twitter --------------------------------
@@ -122,8 +122,8 @@ module.exports = function(app, passport) {
         // handle the callback after twitter has authorized the user
         app.get('/connect/twitter/callback',
             passport.authorize('twitter', {
-                successRedirect : '/profile',
-                failureRedirect : '/home'
+                successRedirect : '/app',
+                failureRedirect : '/'
             }));
 
 
@@ -135,8 +135,8 @@ module.exports = function(app, passport) {
         // the callback after google has authorized the user
         app.get('/connect/google/callback',
             passport.authorize('google', {
-                successRedirect : '/profile',
-                failureRedirect : '/home'
+                successRedirect : '/app',
+                failureRedirect : '/'
             }));
 
 // =============================================================================
@@ -183,7 +183,11 @@ module.exports = function(app, passport) {
         });
     });
 
-
+  // show the home page (will also have our login links)
+    app.get('/', function(req, res) {
+        res.render('index.ejs');
+    });
+   
 };
 
 // route middleware to ensure user is logged in
@@ -191,5 +195,5 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
 
-    res.redirect('/home');
+    res.redirect('/');
 }
