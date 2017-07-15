@@ -81,7 +81,7 @@ app.get("/api", function(req, res) {
 // The route we will send POST requests to save new plants.
 app.post("/api", function(req, res) {
 
-  var newPlant = new userPlants(req.body);
+  var newPlant = new UserPlant(req.body);
   
   newPlant.save(function(err, doc) {
     if (err) {
