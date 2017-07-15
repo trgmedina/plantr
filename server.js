@@ -1,20 +1,21 @@
-var express  = require('express');
-var app      = express();
-var port     = process.env.PORT || 8080;
-var mongoose = require('mongoose');
+// Include Server Dependencies
+var express = require("express");
+var bodyParser = require("body-parser");
+var logger = require("morgan");
+var mongoose = require("mongoose");
+var flash = require('connect-flash');
 var passport = require('passport');
-var flash    = require('connect-flash');
-
-var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
+// Create a new express app
+var app = express();
+// Sets an initial port
+var PORT = process.env.PORT || 3000;
 
 require('./config/passport')(passport); // pass passport for configuration
 
 // set up our express application
-app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,25 +35,12 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-// Include Server Dependencies
-var express = require("express");
-var bodyParser = require("body-parser");
-var logger = require("morgan");
-var mongoose = require("mongoose");
-var flash = require('connect-flash');
-var passport = require('passport');
-
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // mongoose.Promise = Promise;
 
 // Require Plant and User schema
-var Plant = require("./models/Plant");
-var User = require("./models/User");
-
-// Create a new express app
-var app = express();
-// Sets an initial port
-var PORT = process.env.PORT || 3000;
+var Plant = require("./models/plant");
+var User = require("./models/user");
 
 // Run Morgan for Logging
 app.use(logger("dev"));
