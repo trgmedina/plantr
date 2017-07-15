@@ -1,35 +1,44 @@
-// Include the Mongoose Dependencies
-var mongoose = require("mongoose");
+// load the things we need
+var mongoose = require('mongoose');
+var bcrypt   = require('bcrypt-nodejs');
 
-var Schema = mongoose.Schema;
+// define the schema for our user model
+var userSchema = mongoose.Schema({
 
-// Create a Schema for user info. 
-var UserSchema = new Schema({
-  firstname: {
-    type: String,
-    required: true
-  },
-  lastname: {
-    type: String,
-    required: true
-  },
-  username: {
-  	type: String,
-    required: true
-  },
-  password: {
-  	type: String,
-    required: true
-  },
-  //an array that holds the ObjectIds for plants; references the Plant model
-  plants: [{
-    type: Schema.Types.ObjectId,
-    ref: "Plant"
-  }]
+    local            : {
+        email        : String,
+        password     : String
+    },
+    myplants         : [],
+    facebook         : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
+    },
+    twitter          : {
+        id           : String,
+        token        : String,
+        displayName  : String,
+        username     : String
+    },
+    google           : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
+    },
 });
 
-// Create the Model
-var User = mongoose.model("User", UserSchema);
+// generating a hash
+userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
 
-// Export it for use elsewhere
-module.exports = User;
+// checking if password is valid
+userSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.local.password);
+};
+
+// create the model for users and expose it to our app
+module.exports = mongoose.model('User', userSchema);
