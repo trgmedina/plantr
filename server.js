@@ -27,6 +27,10 @@ require('./config/passport')(passport); // pass passport for configuration
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+app.use(express.static("./public"));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
@@ -40,24 +44,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-// routes ======================================================================
-require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// mongoose.Promise = Promise;
-
-// Require Plant and User schema
-var Plant = require("./models/plant");
-var User = require("./models/user");
-
-// Run Morgan for Logging
-app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-app.use(express.static("./public"));
+require('./app/loginRoutes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // MongoDB configuration (Change this URL to your own DB)
 // mongoose.connect("mongodb://heroku_6hktlx01:9r0nhq6bqf0cf7efnncpb4jtla@ds153732.mlab.com:53732/heroku_6hktlx01");
