@@ -45,8 +45,6 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-require('./app/loginRoutes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-
 // MongoDB configuration (Change this URL to your own DB)
 // mongoose.connect("mongodb://heroku_6hktlx01:9r0nhq6bqf0cf7efnncpb4jtla@ds153732.mlab.com:53732/heroku_6hktlx01");
 mongoose.connect("mongodb://localhost:27017/plantsdb")
@@ -58,11 +56,6 @@ db.on("error", function(err) {
 
 db.once("open", function() {
   console.log("Mongoose connection successful.");
-});
-
-// Main "/" Route. This will redirect the user to our rendered React application
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
 });
 
 //Gets Plant data
@@ -110,7 +103,7 @@ app.post("/api", function(req, res) {
 });
 
 //test Google OAuth
-app.get("/login", function(req, res){
+app.get("/logintest", function(req, res){
   console.log("hey!");
   res.sendFile(__dirname + "/public/login.html");
 });
@@ -135,6 +128,9 @@ app.get("/api/reminders", function(req, res) {
   //     }
   //   });
 });
+
+ // load our routes and pass in our app and fully configured passport
+require('./app/loginRoutes.js')(app, passport);
 
 // Starting our express server
 app.listen(PORT, function() {
