@@ -4,14 +4,14 @@ require('moment-recur');
 	// global variables
 	var recurrence;
 
-	//array of test alert objects - what we would return from DB query
-	var testAlerts = [
+	//array of test reminder objects - what we would return from DB query
+	var testReminders = [
 		{
 			plant: "cactus",
 			createdAt: "6-7-2017",
 			type: "water",
 			days: [
-				"Wednesday"
+				"Friday"
 				],
 
 			frequency: 3
@@ -22,7 +22,7 @@ require('moment-recur');
 			type: "water",
 			days: [
 				"Tuesday", 
-				"Thursday",
+				"Friday",
 				"Saturday"
 				],
 
@@ -41,35 +41,35 @@ require('moment-recur');
 		},
 	];
 
-	var displayAlerts = [];
-	var sortedDisplayAlerts = [];
+	var displayReminders = [];
+	var sortedDisplayReminders = [];
 
 	// grab today's date
 	var todaysDate = moment().format()
 
-	function createAlertArray() {
+	function createReminderArray() {
 		// loop through results from DB and call the setReminder funtion to generate dates
-		for (var i = 0; i<testAlerts.length; i++) {
-			var newAlert = {
-					plant: testAlerts[i].plant,
-					type: testAlerts[i].type,
+		for (var i = 0; i<testReminders.length; i++) {
+			var newReminder = {
+					plant: testReminders[i].plant,
+					type: testReminders[i].type,
 					dates: []
 				}
 
-			displayAlerts.push(newAlert);
+			displayReminders.push(newReminder);
 			
-			setReminder(testAlerts[i].createdAt, testAlerts[i].days, testAlerts[i].frequency, i);
+			setReminder(testReminders[i].createdAt, testReminders[i].days, testReminders[i].frequency, i);
 		}
 
-		// console.log(displayAlerts)
-		createSortedAlertArray();
+		// console.log(displayReminders)
+		createSortedReminderArrays();
 	}
 
-	createAlertArray()
+	createReminderArray()
 	// function to grab reminder dates based on user settings
 	// currently only weekly, biweekly and monthly frequencies are working
 	function setReminder(createdDate, days, frequency, index) {
-		// format the alert created date for moment
+		// format the reminder created date for moment
 		var startDate = moment(createdDate,"MM-DD-YYYY");
 		// find the day of the week for that date
 		var day = moment(createdDate,"MM-DD-YYYY").format("ddd");
@@ -83,24 +83,24 @@ require('moment-recur');
 
 		// this test works
 		if (frequency===0) {
-			// using alert created date, set the weekly recurrence based on selected days 
+			// using reminder created date, set the weekly recurrence based on selected days 
 			recurrence = startDate.recur().every(days).daysOfWeek();
 			// grab dates starting from current date
 			recurrence.fromDate(todaysDate);
 			// generate next three dates in recurrence
 			nextDates = recurrence.next(3, "L")
-			// loop through resulting array and push to the alert object
+			// loop through resulting array and push to the reminder object
 			for (var i = 0; i < nextDates.length; i++) {
-				displayAlerts[index].dates.push(nextDates[i])
+				displayReminders[index].dates.push(nextDates[i])
 			}
 			// dev function logs the generated recurrence dates
 			// logger(days, frequency, nextDates)
 
 		// this test works
 		}else if (frequency===1){
-			// setting variable for which weeks the alerts should occur
+			// setting variable for which weeks the reminders should occur
 			var weeks;
-			// if the alert created at date falls in week 0, 1 or 3, set the frequency for same weeks
+			// if the reminder created at date falls in week 0, 1 or 3, set the frequency for same weeks
 			if (week === 0 || 2 ) {
 				weeks = [0,2]
 			// else, set the frequency for weeks 2 & 4
@@ -114,9 +114,9 @@ require('moment-recur');
 	        cal.fromDate(todaysDate);
 	        // generate next three dates in recurrence
 	        nextDates = cal.next(3, "L")
-	        // loop through resulting array and push to the alert object
+	        // loop through resulting array and push to the reminder object
 			for (var i = 0; i < nextDates.length; i++) {
-				displayAlerts[index].dates.push(nextDates[i])
+				displayReminders[index].dates.push(nextDates[i])
 			}
 	        // call logger function to display the recurrence dates
 			// logger(days, frequency, nextDates)
@@ -130,9 +130,9 @@ require('moment-recur');
 	        cal.fromDate(todaysDate);
 	        // generate next three dates in recurrence
 	        nextDates = cal.next(3, "L")
-	        // loop through resulting array and push to the alert object
+	        // loop through resulting array and push to the reminder object
 			for (var i = 0; i < nextDates.length; i++) {
-				displayAlerts[index].dates.push(nextDates[i])
+				displayReminders[index].dates.push(nextDates[i])
 			}
 			// call logger function to display the recurrence dates
 			// logger(days, frequency, nextDates)
@@ -147,28 +147,53 @@ require('moment-recur');
 		console.log("===============================")
 	}
 
-	function createSortedAlertArray() {
-		for (var i = 0; i<displayAlerts.length; i++) {
+	function createSortedReminderArrays() {
+		for (var i = 0; i<displayReminders.length; i++) {
 			
-			for (var j = 0; j<displayAlerts[i].dates.length; j++) {
-				var date = displayAlerts[i].dates[j]
+			for (var j = 0; j<displayReminders[i].dates.length; j++) {
+				var date = displayReminders[i].dates[j]
 				var newObject = {
-					plant: displayAlerts[i].plant,
-					type: displayAlerts[i].type,
+					plant: displayReminders[i].plant,
+					type: displayReminders[i].type,
 					date: date
 				}
-				sortedDisplayAlerts.push(newObject);
+				sortedDisplayReminders.push(newObject);
 			}
-			
 		}
-		sortedDisplayAlerts.sort(function(a,b) { 
+		
+		sortedDisplayReminders.sort(function(a,b) { 
     		return new Date(a.date).getTime() - new Date(b.date).getTime() 
 		});
-		displayAlerts(sortedDisplayAlerts);
+		
+		for (var i = 0; i<sortedDisplayReminders.length; i++) {
+			if(sortedDisplayReminders[i].date.getTime()===todaysDate.getTime()) {
+				displayTodaysReminders(sortedDisplayReminders[i]);
+			}
+
+			// else if (sortedDisplayReminders[i]<(moment(todaysDate).day(7)) {
+			// 	// displayUpcomingReminders(sortedDisplayReminders[i]);
+			// }
+		}
 	}
 
-	function displayAlerts(alerts){
-		var $current = $("#current-reminders")
-		var $upcoming = $("#upcoming-reminders")
-		
+	function displayTodaysReminders(reminders){
+		for (var i = 0; i<reminders.length; i++) {
+			var wrapper = $('<div class="panel panel-default">')
+			var image = $('<span><img class="img-rounded reminder-img">').src('lala')
+			var plant = $('<p>').text(reminders[i].plant)
+			var icon = $('<i className="fa fa-tint" aria-hidden="true">')
+			// var reminderText = $('<p>').text('Reminder to '+ reminders[i].type + ' on ' + moment(reminders[i]).format('dddd') + ", " + reminders[i]).date);
+
+			var body = $('<div class="panel-body"><span>').image.append(plant);
+			var footer = $('<div class="panel-footer"><span>').append(icon).append(reminderText)
+			var $newReminder = wrapper.append(body).append(footer);
+
+			$('#current-reminders').append($newReminder);
+
+		};
 	}
+
+	function displayUpcomingReminders(reminders){
+
+	}
+

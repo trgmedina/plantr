@@ -60,6 +60,21 @@ app.get("/login", function(req, res){
 
 });
 
+// TO DO: ROUTE TO GRAB ALL USER'S ALERTS FROM DB
+app.get("/api/reminders", function(req, res) {
+
+  Plant.find({field: "reminders"})
+    .exec(function(err, doc) {
+
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+});
+
 // Starting our express server
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
