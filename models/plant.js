@@ -31,7 +31,26 @@ var PlantSchema = new Schema({
   },
   imageURL: {
   	type: String
-  }
+  },
+  reminders: [{
+    plant: {
+      type: String,
+      required: true
+    },
+    days: {
+      type: [String],
+      required: true
+    },
+    frequency: {
+      type: Number,
+      required: true
+    },
+    imageURL: {
+      type: String,
+      required: true
+    },
+
+  }]
 });
 
 // Create the Model

@@ -13,9 +13,10 @@ var Reminders = React.createClass({
   },
     // When this component mounts, get all reminders
   componentDidMount: function() {
-    reminderHelpers.setReminders().then(function(reminderData) {
-      this.setState({ reminders: reminderData.data });
-      console.log("reminders ", reminderData.data);
+    reminderHelpers.getReminders().then(function(reminderData) {
+      console.log("reminder data ", reminderData)
+      this.setState({ reminders: reminderData.data.reminders[0] });
+      console.log("reminder.data ", reminderData.data.reminders[0]);
     }.bind(this));
   },
 
