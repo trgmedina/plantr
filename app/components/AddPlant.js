@@ -183,48 +183,99 @@ var AddPlant = React.createClass({
                       <label htmlFor="additional">Additional Special Care Instructions</label>
                       <textarea className="form-control" id="additional-input" rows="3"></textarea>
                     </div>
-                    <h4 className="text-center">Create a Reminder (optional)</h4>
+                    <h4 className="text-center">Create a Reminder</h4>
                     <div className="row">
                       <div className="col-md-4 col-xs-12">
                         <div className="form-group">
-                          <label htmlFor="frequency">Type</label>
-                          <select className="form-control" id="frequency-input">
-                            <option></option>
-                            <option>Water</option>
-                            <option>Fertilize</option>
-                            <option>Prune</option>
-                          </select>
+                          <label>Type
+                            <select 
+                              name="reminderType"
+                              className="form-control" 
+                              id="frequency-input"
+                              onChange={this.handleChange}
+                              value={this.state.value}>
+                              <option value="Water">Water</option>
+                              <option value="Fertilize">Fertilize</option>
+                              <option value="Prune">Prune</option>
+                            </select>
+                          </label>
                         </div>
                       </div>
                       <div className="col-md-4 col-xs-12">
                         <div className="weekdays-selector form-group">
-                          <label htmlFor="light">Day(s) of the week</label><br></br>
-                          <input type="checkbox" id="weekday-mon" className="weekday" />
+                          <label>Day(s) of the week</label><br></br>
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-mon" 
+                            className="weekday" 
+                            onChange={this.handleChange}
+                            value={this.state.value} />
                           <label htmlFor="weekday-mon">M</label>
-                          <input type="checkbox" id="weekday-tue" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-tue" 
+                            className="weekday" 
+                            onChange={this.handleChange}
+                            value={this.state.value} />
                           <label htmlFor="weekday-tue">T</label>
-                          <input type="checkbox" id="weekday-wed" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-wed" 
+                            className="weekday" 
+                            onChange={this.handleChange}
+                            value={this.state.value} />
                           <label htmlFor="weekday-wed">W</label>
-                          <input type="checkbox" id="weekday-thu" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-thu" 
+                            className="weekday" 
+                            onChange={this.handleChange}
+                            value={this.state.value} />
                           <label htmlFor="weekday-thu">T</label>
-                          <input type="checkbox" id="weekday-fri" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-fri" 
+                            className="weekday" 
+                            onChange={this.handleChange}
+                            value={this.state.value} />
                           <label htmlFor="weekday-fri">F</label>
-                          <input type="checkbox" id="weekday-sat" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-sat" 
+                            className="weekday" 
+                            onChange={this.handleChange}
+                            value={this.state.value} />
                           <label htmlFor="weekday-sat">S</label>
-                          <input type="checkbox" id="weekday-sun" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-sun" 
+                            className="weekday" 
+                            onChange={this.handleChange}
+                            value={this.state.value} />
                           <label htmlFor="weekday-sun">S</label>
                         </div>
                       </div>
                       <div className="col-md-4 col-xs-12">
                         <div className="form-group">
-                          <label htmlFor="frequency">Frequency</label>
-                          <select className="form-control" id="frequency-input">
-                            <option></option>
-                            <option>Every week</option>
-                            <option>Every other week</option>
-                            <option>Once every three weeks</option>
-                            <option>Once a Month</option>
-                          </select>
+                          <label>Frequency
+                            <select 
+                              name="frequency"
+                              className="form-control" 
+                              id="frequency-input"
+                              onChange={this.handleChange}
+                              value={this.state.value}>
+                              <option value="Every week">Every week</option>
+                              <option value="Every other week">Every other week</option>
+                              <option value="Once a month">Once a month</option>
+                            </select>
+                          </label>
                         </div>
                       </div>
                     </div>
