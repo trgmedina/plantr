@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Create a Schema for adding plants. 
-var UserPlant = new Schema({
+var UserPlantSchema = new Schema({
   name: {
     type: String,
     required: true
