@@ -29,7 +29,7 @@ var Plants = require("../components/Plants");
 module.exports = (
   // High level component is the Router component.
   <Router history={browserHistory}>
-    <Route path="/" component={Main}>
+    <Route path="/app" component={Main}>
 
       {/* If user selects Search or Saved show the appropriate component */}
       <Route path="Reminders" component={Reminders} />
@@ -38,7 +38,7 @@ module.exports = (
       <Route path="Plants" component={Plants} />
 
       {/* If user selects any other path... we get the Home Route */}
-      <IndexRoute component={Reminders} />
+    <IndexRoute component={Reminders} />
 
     </Route>
   </Router>
