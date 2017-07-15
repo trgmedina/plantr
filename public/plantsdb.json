@@ -6,7 +6,21 @@
     "waterSchedule" : "Once every 2-3 weeks",
     "height" : "1-2 ft.",
     "specialCare" : "Average room temperatures 65-75°F",
-    "imageURL" : "http://i.imgur.com/X8CLtJ6.jpg"
+    "imageURL" : "http://i.imgur.com/X8CLtJ6.jpg",
+    "reminders" : [
+        {
+        "plant": "Aloe Vera",
+        "days": ["Friday"],
+        "frequency": 1,
+        "imageURL": "http://i.imgur.com/X8CLtJ6.jpg"
+        },
+        {
+        "plant": "Aloe Vera",
+        "days": ["Saturday, Monday"],
+        "frequency": 2,
+        "imageURL": "http://i.imgur.com/X8CLtJ6.jpg"
+        }
+    ]
 }
 
 {

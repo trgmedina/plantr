@@ -99,6 +99,27 @@ app.get("/login", function(req, res){
   res.sendFile(__dirname + "/public/login.html");
 });
 
+// TO DO: ROUTE TO GRAB ALL USER'S ALERTS FROM DB
+app.get("/api/reminders", function(req, res) {
+  //query with mongoose
+    var query = Plant.find().select('reminders -_id');
+
+    query.exec(function (err, doc) {
+        if (err) return next(err);
+        res.send(doc);
+    });
+  // Plant.find({reminders:1, _id:0})
+  //   .exec(function(err, doc) {
+
+  //     if (err) {
+  //       console.log(err);
+  //     }
+  //     else {
+  //       res.send(doc);
+  //     }
+  //   });
+});
+
 // Starting our express server
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
