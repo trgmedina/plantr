@@ -10,7 +10,7 @@ mongoose.Promise = Promise;
 // Require Plant, User, and User's Plants schemas
 var Plant = require("./models/plant");
 var User = require("./models/user");
-var UserPlants = require("./models/userPlants")
+var UserPlant = require("./models/userPlant")
 
 var flash = require('connect-flash');
 var passport = require('passport');
