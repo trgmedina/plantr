@@ -1,11 +1,13 @@
 var moment = require('moment');
 require('moment-recur');
 
+
 	// global variables
 	var recurrence;
 
 	//array of test reminder objects - what we would return from DB query
 	var testReminders = [
+
 		{
 			plant: "cactus",
 			createdAt: "6-7-2017",
@@ -22,7 +24,6 @@ require('moment-recur');
 			type: "water",
 			days: [
 				"Tuesday", 
-				"Friday",
 				"Saturday"
 				],
 
@@ -193,7 +194,4 @@ require('moment-recur');
 		};
 	}
 
-	function displayUpcomingReminders(reminders){
-
-	}
 
