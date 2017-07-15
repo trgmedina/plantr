@@ -10,7 +10,7 @@ mongoose.Promise = Promise;
 // Require Plant, User, and User's Plants schemas
 var Plant = require("./models/plant");
 var User = require("./models/user");
-var UserPlants = require("./models/userPlants")
+var UserPlant = require("./models/userPlant")
 
 var flash = require('connect-flash');
 var passport = require('passport');
@@ -81,7 +81,7 @@ app.get("/api", function(req, res) {
 // The route we will send POST requests to save new plants.
 app.post("/api", function(req, res) {
 
-  var newPlant = new Plant(req.body);
+  var newPlant = new userPlants(req.body);
   
   newPlant.save(function(err, doc) {
     if (err) {

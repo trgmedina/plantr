@@ -4,10 +4,13 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Create a Schema for adding plants. 
-var UsersPlantSchema = new Schema({
+var UserPlant = new Schema({
   name: {
     type: String,
     required: true
+  },
+  nickname: {
+    type: String
   },
   description: {
   	type: String
@@ -23,19 +26,20 @@ var UsersPlantSchema = new Schema({
   	type: String,
   	required: true
   },
-  height: {
-  	type: String
-  },
-  specialCare: {
-  	type: String
-  },
   imageURL: {
   	type: String
-  }
+  },
+  reminders: [
+    {
+      reminderType: { type: String, required: true },
+      days: [{ type: String, required: true }],
+      frequency: { type: String, required: true }
+    }
+  ]
 });
 
 // Create the Model
-var UsersPlant = mongoose.model("UsersPlant", UsersPlantSchema);
+var UserPlant = mongoose.model("UserPlant", UserPlantSchema);
 
 // Export it for use elsewhere
-module.exports = UsersPlant;
+module.exports = UserPlant;
