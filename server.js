@@ -7,9 +7,10 @@ var mongoose = require("mongoose");
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
-// Require Plant and User schema
+// Require Plant, User, and User's Plants schemas
 var Plant = require("./models/plant");
 var User = require("./models/user");
+var UserPlants = require("./models/userPlants")
 
 var flash = require('connect-flash');
 var passport = require('passport');
