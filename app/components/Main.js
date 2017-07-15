@@ -17,7 +17,7 @@ var Main = React.createClass({
                 <h1 className="navbar-left">Plant App</h1>
               </div>
               <div className="col-xs-2">
-                <a href="#" className="navbar-right">LOGOUT</a>
+                <a href="/logout" className="navbar-right"><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i>LOGOUT</a>
               </div>
             </div>
 
