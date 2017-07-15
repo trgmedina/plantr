@@ -28,34 +28,6 @@ var userSchema = mongoose.Schema({
         email        : String,
         name         : String
     },
-
-<<<<<<< HEAD
-// Create a Schema for user info. 
-var UserSchema = new Schema({
-  firstname: {
-    type: String,
-    required: true
-  },
-  lastname: {
-    type: String,
-    required: true
-  },
-  username: {
-  	type: String,
-    required: true
-  },
-  password: {
-  	type: String,
-    required: true
-  },
-  //an array that holds the ObjectIds for plants; references the Plant model
-  plants: [{
-    type: Schema.Types.ObjectId,
-    nickname: String,
-    ref: "Plant"
-  }]
-=======
->>>>>>> 9a0ff025efb590336e605b14054aedef0588d426
 });
 
 // generating a hash

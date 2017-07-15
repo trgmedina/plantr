@@ -3,20 +3,18 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-<<<<<<< HEAD
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
 // Require Plant and User schema
-var Plant = require("./models/Plant");
-var User = require("./models/User");
-=======
+var Plant = require("./models/plant");
+var User = require("./models/user");
+
 var flash = require('connect-flash');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
->>>>>>> 9a0ff025efb590336e605b14054aedef0588d426
 
 // Create a new express app
 var app = express();
