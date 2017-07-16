@@ -34,7 +34,8 @@ var reminderHelpers = {
 				var newReminder = {
 						plant: data[i].plant,
 						type: data[i].type,
-						dates: []
+						dates: [],
+						imageURL: data[i].imageURL
 					}
 
 				displayReminders.push(newReminder);
@@ -51,7 +52,9 @@ var reminderHelpers = {
 					var newObject = {
 						plant: displayReminders[i].plant,
 						type: displayReminders[i].type,
-						date: date
+						day: moment(date,"MM-DD-YYYY").format("dddd"),
+						date: date,
+						imageURL: displayReminders[i].imageURL
 					}
 					sortedDisplayReminders.push(newObject);
 				}

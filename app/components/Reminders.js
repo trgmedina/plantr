@@ -39,14 +39,8 @@ var Reminders = React.createClass({
           <div className="panel panel-default">
             <div className="panel-body">
               <span>
-                <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img"></img>
-                <p>{reminder.plant}</p>
-              </span>
-            </div>
-            <div className="panel-footer">
-              <span>
-                <i className="fa fa-tint" aria-hidden="true"></i>
-                Reminder to {reminder.type} on {reminder.days}, {reminder.date}
+                <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
+                <p>Reminder to {reminder.type} {reminder.plant} on {reminder.day}, {reminder.date}</p>
               </span>
             </div>
           </div>
