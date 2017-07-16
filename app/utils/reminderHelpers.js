@@ -8,6 +8,8 @@ var sortedDisplayReminders = [];
 
 	// grab today's date
 var todaysDate = moment().format()
+var endDate = moment().add(7, 'days')
+var recurrence;
 
 var reminderHelpers = {
 	getReminders: function() {
@@ -73,7 +75,7 @@ function setReminder(createdDate, days, frequency, index) {
 		// this test works
 		if (frequency===0) {
 			// using reminder created date, set the weekly recurrence based on selected days 
-			recurrence = startDate.recur().every(days).daysOfWeek();
+			recurrence = startDate.recur(todaysDate, endDate).every(days).daysOfWeek();
 			// grab dates starting from current date
 			recurrence.fromDate(todaysDate);
 			// generate next three dates in recurrence
@@ -99,7 +101,7 @@ function setReminder(createdDate, days, frequency, index) {
 				weeks = [1,3]
 			}
 			// setting a cal recurrence based on days of week and weeks variable determined above
-			cal = startDate.recur().every(days).daysOfWeek()
+			cal = startDate.recur(todaysDate, endDate).every(days).daysOfWeek()
 	                    .every(weeks).weeksOfMonthByDay()
 	        // grab dates starting from current date
 	        cal.fromDate(todaysDate);
@@ -115,7 +117,7 @@ function setReminder(createdDate, days, frequency, index) {
 		// this test works!
 		}else {
 			// setting a cal recurrence based on days of week at monthly frequency
-			cal = startDate.recur().every(days).daysOfWeek()
+			cal = startDate.recur(todaysDate, endDate).every(days).daysOfWeek()
 	                    .every(week).weekOfMonth()
 	        // grab dates starting from current date
 	        cal.fromDate(todaysDate);
