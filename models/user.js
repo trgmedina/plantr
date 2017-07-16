@@ -9,7 +9,6 @@ var userSchema = mongoose.Schema({
         email        : String,
         password     : String
     },
-    myplants         : [],
     facebook         : {
         id           : String,
         token        : String,
@@ -27,7 +26,7 @@ var userSchema = mongoose.Schema({
         token        : String,
         email        : String,
         name         : String
-    },
+    }
 });
 
 // generating a hash
