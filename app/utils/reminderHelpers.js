@@ -7,7 +7,7 @@ var displayReminders = [];
 var sortedDisplayReminders = [];
 
 	// grab today's date
-var todaysDate = moment().format()
+var todaysDate = moment()
 var endDate = moment().add(7, 'days')
 var recurrence;
 
@@ -66,8 +66,10 @@ function setReminder(createdDate, days, frequency, index) {
 	var day = moment(createdDate,"MM-DD-YYYY").format("ddd");
 	// and what week in the month it occurs (1-4)
 	var week = moment(startDate).monthWeek()
-	console.log("----Start Date Information-----")
-	console.log("Date: ", startDate)
+	console.log("----Reminder Information-----")
+	console.log("Created Date: ", startDate)
+	console.log("Start Date: ", todaysDate)
+	console.log("End Date: ", endDate)
 	console.log("Day: ", day)
 	console.log("Week: ", week)
 	console.log("===============================")

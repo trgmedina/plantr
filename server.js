@@ -115,7 +115,7 @@ app.get("/logintest", function(req, res){
 // TO DO: ROUTE TO GRAB ALL USER'S ALERTS FROM DB
 app.get("/api/reminders", function(req, res) {
   //query with mongoose
-    var query = Plant.find().select('reminders -_id');
+    var query = UserPlant.find().select('reminders -_id');
 
     query.exec(function (err, doc) {
         if (err) return next(err);
