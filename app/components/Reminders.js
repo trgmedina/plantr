@@ -5,21 +5,24 @@ var React = require("react");
 var reminderHelpers = require("../utils/reminderHelpers");
 
 // Create the Main component
-var Reminders = React.createClass({
+class Reminders extends React.Component {
 
-  getInitialState: function() {
-    return { reminders: "" };
-  },
+  constructor(props) {
+    super(props);
+    this.state = {
+      reminders: []
+    };
+  }
+
     // When this component mounts, get all reminders
-  componentDidMount: function() {
+  componentDidMount() {
     reminderHelpers.getReminders().then(function(reminderData) {
-      console.log("reminder data ", reminderData)
-
+      // console.log("4. reminder data ", reminderData)
       this.setState({ reminders: reminderData });
     }.bind(this));
-  },
+  }
 
-   renderEmpty: function() {
+  renderEmpty() {
     return (
       <li className="list-group-item">
         <h3>
@@ -29,9 +32,9 @@ var Reminders = React.createClass({
         </h3>
       </li>
     );
-  },
+  }
 
-  renderReminders: function() {
+  renderReminders() {
     return this.state.reminders.map(function(reminder, index) {
 
       return (
@@ -47,9 +50,9 @@ var Reminders = React.createClass({
         </div>
       );
     }.bind(this));
-  },
+  }
 
-  renderContainer: function() {
+  renderContainer() {
     return (
         <div className="container-fluid">
 	        <div className="row">
@@ -65,9 +68,9 @@ var Reminders = React.createClass({
 	        </div>	        
         </div>
     );
-  },
+  }
   // Our render method. Utilizing a few helper methods to keep this logic clean
-  render: function() {
+  render() {
     // If we have no articles, we will return this.renderEmpty() which in turn returns some HTML
     if (!this.state.reminders) {
       return this.renderEmpty();
@@ -75,7 +78,7 @@ var Reminders = React.createClass({
     // If we have articles, return this.renderContainer() which in turn returns all saves articles
     return this.renderContainer();
   }
-});
+};
 
 // Export the module back to the route
 module.exports = Reminders;

@@ -3,20 +3,6 @@ var axios = require("axios");
 var moment = require('moment');
 require('moment-recur');
 
-
-// Helper Functions
-// var reminderHelpers = {
-//   // This will return any reminders from our database
-//   getReminders: function() {
-//     return axios.get("/api/reminders")
-//       .then(function(results) {
-//         console.log("axios results", results.data[0].reminders[0]);
-//         return results.data[0].reminders;
-//     });
-//   }
-
-// };
-
 var displayReminders = [];
 var sortedDisplayReminders = [];
 
@@ -152,33 +138,5 @@ function setReminder(createdDate, days, frequency, index) {
 		console.log("===============================")
 	}
 
-	// function createSortedReminderArrays() {
-	// 	for (var i = 0; i<displayReminders.length; i++) {
-			
-	// 		for (var j = 0; j<displayReminders[i].dates.length; j++) {
-	// 			var date = displayReminders[i].dates[j]
-	// 			var newObject = {
-	// 				plant: displayReminders[i].plant,
-	// 				type: displayReminders[i].type,
-	// 				date: date
-	// 			}
-	// 			sortedDisplayReminders.push(newObject);
-	// 		}
-	// 	}
-		
-	// 	sortedDisplayReminders.sort(function(a,b) { 
- //    		return new Date(a.date).getTime() - new Date(b.date).getTime() 
-	// 	});
-	// 	console.log(sortedDisplayReminders)
-	// 	// for (var i = 0; i<sortedDisplayReminders.length; i++) {
-	// 	// 	if(sortedDisplayReminders[i].date.getTime()===todaysDate.getTime()) {
-	// 	// 		displayTodaysReminders(sortedDisplayReminders[i]);
-	// 	// 	}
-
-	// 	// 	// else if (sortedDisplayReminders[i]<(moment(todaysDate).day(7)) {
-	// 	// 	// 	// displayUpcomingReminders(sortedDisplayReminders[i]);
-	// 	// 	// }
-	// 	// }
-	// }
 // We export the helpers function
 module.exports = reminderHelpers;
