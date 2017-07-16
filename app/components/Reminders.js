@@ -4,7 +4,6 @@ var React = require("react");
 // Include the Helper (for the saved recall)
 var reminderHelpers = require("../utils/reminderHelpers");
 
-
 // Create the Main component
 var Reminders = React.createClass({
 
@@ -15,6 +14,7 @@ var Reminders = React.createClass({
   componentDidMount: function() {
     reminderHelpers.getReminders().then(function(reminderData) {
       console.log("reminder data ", reminderData)
+
       this.setState({ reminders: reminderData });
     }.bind(this));
   },
