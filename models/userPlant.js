@@ -29,13 +29,12 @@ var UserPlantSchema = new Schema({
   imageURL: {
   	type: String
   },
-  reminders: [
-    {
+  reminders: {
       reminderType: { type: String, required: true },
       days: [{ type: String, required: true }],
-      frequency: { type: String, required: true }
-    }
-  ]
+      frequency: { type: String, required: true },
+      created: { type: Date }
+  }
 });
 
 // Create the Model

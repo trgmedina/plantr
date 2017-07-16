@@ -16,7 +16,13 @@ var AddPlant = React.createClass({
       origin: "",
       sunlightAmt: "",
       waterSchedule: "",
-      imageURL: ""
+      imageURL: "",
+      reminders: {
+        reminderType: "",
+        days: [],
+        frequency: "",
+        created: ""
+      }
     }
   },
 
@@ -30,6 +36,30 @@ var AddPlant = React.createClass({
     })
   },
 
+  handleReminders: function(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    let newReminder = Object.assign({}, this.state.reminders);
+
+    if (name === "reminderType") {
+      newReminder.reminderType = value;
+    }
+    else if (name === "days") {
+      newReminder.days.push(value);
+    }
+    else if (name === "frequency") {
+      newReminder.frequency = value;
+    }
+    else {
+      newReminder.created = new Date();
+    }
+
+    this.setState({
+      reminders: newReminder
+    })
+  },
+
   handleSubmit: function(event) {
     event.preventDefault();
 
@@ -39,7 +69,8 @@ var AddPlant = React.createClass({
       origin: this.state.origin,
       sunlightAmt: this.state.sunlightAmt,
       waterSchedule: this.state.waterSchedule,
-      imageURL: this.state.imageURL
+      imageURL: this.state.imageURL, 
+      reminders: this.state.reminders
     })
       .then(function() {
         console.log("Posted to MongoDB");
@@ -153,6 +184,7 @@ var AddPlant = React.createClass({
                               id="light-input" 
                               onChange={this.handleChange}
                               value={this.state.value}>
+                              <option></option>
                               <option value="Full Sun">Full Sun</option>
                               <option value="Partial Sun">Partial Sun</option>
                               <option value="Bright Light">Bright Light</option>
@@ -171,6 +203,7 @@ var AddPlant = React.createClass({
                               id="water-input"
                               onChange={this.handleChange}
                               value={this.state.value}>
+                              <option></option>
                               <option value="Once a Day">Once a Day</option>
                               <option value="Once a Week">Once a Week</option>
                               <option value="Every Other Week">Every Other Week</option>
@@ -185,48 +218,101 @@ var AddPlant = React.createClass({
                       <label htmlFor="additional">Additional Special Care Instructions</label>
                       <textarea className="form-control" id="additional-input" rows="3"></textarea>
                     </div>
-                    <h4 className="text-center">Create a Reminder (optional)</h4>
+                    <h4 className="text-center">Create a Reminder</h4>
                     <div className="row">
                       <div className="col-md-4 col-xs-12">
                         <div className="form-group">
-                          <label htmlFor="frequency">Type</label>
-                          <select className="form-control" id="frequency-input">
-                            <option></option>
-                            <option>Water</option>
-                            <option>Fertilize</option>
-                            <option>Prune</option>
-                          </select>
+                          <label>Type
+                            <select 
+                              name="reminderType"
+                              className="reminders form-control" 
+                              id="frequency-input"
+                              onChange={this.handleReminders}
+                              value={this.state.value}>
+                              <option></option>
+                              <option value="Water">Water</option>
+                              <option value="Fertilize">Fertilize</option>
+                              <option value="Prune">Prune</option>
+                            </select>
+                          </label>
                         </div>
                       </div>
                       <div className="col-md-4 col-xs-12">
                         <div className="weekdays-selector form-group">
-                          <label htmlFor="light">Day(s) of the week</label><br></br>
-                          <input type="checkbox" id="weekday-mon" className="weekday" />
+                          <label>Day(s) of the week</label><br></br>
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-mon" 
+                            className="reminders weekday" 
+                            onChange={this.handleReminders}
+                            value="Monday" />
                           <label htmlFor="weekday-mon">M</label>
-                          <input type="checkbox" id="weekday-tue" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-tue" 
+                            className="reminders weekday" 
+                            onChange={this.handleReminders}
+                            value="Tuesday" />
                           <label htmlFor="weekday-tue">T</label>
-                          <input type="checkbox" id="weekday-wed" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-wed" 
+                            className="reminders weekday" 
+                            onChange={this.handleReminders}
+                            value="Wednesday" />
                           <label htmlFor="weekday-wed">W</label>
-                          <input type="checkbox" id="weekday-thu" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-thu" 
+                            className="reminders weekday" 
+                            onChange={this.handleReminders}
+                            value="Thursday" />
                           <label htmlFor="weekday-thu">T</label>
-                          <input type="checkbox" id="weekday-fri" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-fri" 
+                            className="reminders weekday" 
+                            onChange={this.handleReminders}
+                            value="Friday" />
                           <label htmlFor="weekday-fri">F</label>
-                          <input type="checkbox" id="weekday-sat" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-sat" 
+                            className="reminders weekday" 
+                            onChange={this.handleReminders}
+                            value="Saturday" />
                           <label htmlFor="weekday-sat">S</label>
-                          <input type="checkbox" id="weekday-sun" className="weekday" />
+                          <input 
+                            name="days"
+                            type="checkbox" 
+                            id="weekday-sun" 
+                            className="reminders weekday" 
+                            onChange={this.handleReminders}
+                            value="Sunday" />
                           <label htmlFor="weekday-sun">S</label>
                         </div>
                       </div>
                       <div className="col-md-4 col-xs-12">
                         <div className="form-group">
-                          <label htmlFor="frequency">Frequency</label>
-                          <select className="form-control" id="frequency-input">
-                            <option></option>
-                            <option>Every week</option>
-                            <option>Every other week</option>
-                            <option>Once every three weeks</option>
-                            <option>Once a Month</option>
-                          </select>
+                          <label>Frequency
+                            <select 
+                              name="frequency"
+                              className="reminders form-control" 
+                              id="frequency-input"
+                              onChange={this.handleReminders}
+                              value={this.state.value}>
+                              <option></option>
+                              <option value="Every week">Every week</option>
+                              <option value="Every other week">Every other week</option>
+                              <option value="Once a month">Once a month</option>
+                            </select>
+                          </label>
                         </div>
                       </div>
                     </div>

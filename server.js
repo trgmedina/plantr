@@ -88,22 +88,6 @@ app.post("/api", function(req, res) {
       res.send("Saved New Plant");
     }
   });
-
-  //   Plant.create({
-  //   name: req.body.name,
-  //   description: req.body.description,
-  //   origin: req.body.origin,
-  //   sunlightAmt: req.body.sunlightAmt,
-  //   waterSchedule: req.body.waterSchedule,
-  //   imageURL: req.body.imageURL
-  // }, function(err) {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  //   else {
-  //     res.send("Saved New Plant");
-  //   }
-  // });
 });
 
 //test Google OAuth
