@@ -14,21 +14,21 @@ var recurrence;
 var reminderHelpers = {
 	getReminders: function() {
 	    return axios.get("/api/reminders").then(function(results) {
-	        console.log(" 1. axios results", results.data[0].reminders[0]);
-	        var data = results.data[0].reminders;
+	        console.log(" 1. axios results", results.data);
+	        var data = results.data;
 
 			// loop through results from DB and call the setReminder funtion to generate dates
 			for (var i = 0; i<data.length; i++) {
 				var newReminder = {
-						plant: data[i].plant,
-						type: data[i].type,
+						plant: data[i].name,
+						type: data[i].reminders.reminderType,
 						dates: [],
 						imageURL: data[i].imageURL
 					}
-
+				console.log("new reminder", newReminder)
 				displayReminders.push(newReminder);
 				
-				setReminder(data[i].createdAt, data[i].days, data[i].frequency, i);
+				setReminder(data[i].reminders.created, data[i].reminders.days, data[i].reminders.frequency, i);
 			}
 
 			console.log("2. display reminders", displayReminders)
