@@ -11,7 +11,6 @@
     "ejs": "^2.5.6",
     "express": "^4.13.4",
     "express-session": "^1.15.3",
-    "imports-loader": "^0.7.1",
     "method-override": "^2.3.9",
     "moment": "^2.18.1",
     "moment-recur": "^1.0.7",
