@@ -97,25 +97,25 @@ app.get("/logintest", function(req, res){
 });
 
 // TO DO: ROUTE TO GRAB ALL USER'S ALERTS FROM DB
-app.get("/api/reminders", function(req, res) {
-  //query with mongoose
-    var query = UserPlant.find({"reminders":{ $exists: true, $not: {$size: 0} }}).select('reminders name imageURL');
+// app.get("/api/reminders", function(req, res) {
+//   //query with mongoose
+//     var query = UserPlant.find({"reminders":{ $exists: true, $not: {$size: 0} }}).select('reminders name imageURL');
 
-    query.exec(function (err, doc) {
-        if (err) return next(err);
-        res.send(doc);
-    });
-  // Plant.find({reminders:1, _id:0})
-  //   .exec(function(err, doc) {
+//     query.exec(function (err, doc) {
+//         if (err) return next(err);
+//         res.send(doc);
+//     });
+//   // Plant.find({reminders:1, _id:0})
+//   //   .exec(function(err, doc) {
 
-  //     if (err) {
-  //       console.log(err);
-  //     }
-  //     else {
-  //       res.send(doc);
-  //     }
-  //   });
-});
+//   //     if (err) {
+//   //       console.log(err);
+//   //     }
+//   //     else {
+//   //       res.send(doc);
+//   //     }
+//   //   });
+// });
 
  // load our routes and pass in our app and fully configured passport
 require('./app/loginRoutes.js')(app, passport);

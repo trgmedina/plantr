@@ -91,9 +91,40 @@ var AddPlant = React.createClass({
                 <form onSubmit={this.handleSubmit}>
                   <div id="addPlant-search">
                       <div className="input-group">
-                        <input type="text" className="form-control" placeholder="Search for Plant Name..."></input>
+                        <input type="text" className="awesomplete form-control" list="mylist" placeholder="Search for Plant Name..."/>
+                            <datalist id="mylist">
+                                <option>Aloe Vera</option>
+                                <option>African Violet</option>
+                                <option>Arrowhead Plant</option>
+                                <option>Asparagus Fern</option>
+                                <option>Begonia</option>
+                                <option>Cactus</option>
+                                <option>Chinese Evergreen</option>
+                                <option>Elephant's Ear</option>
+                                <option>English Ivy</option>
+                                <option>Grape Ivy Plant</option>
+                                <option>Heartleaf Philodendron</option>
+                                <option>Holly Fern</option>
+                                <option>Geranium</option>
+                                <option>Iresine herbstii</option>
+                                <option>Lucky Bamboo</option>
+                                <option>Hawaiian Tropical Flowers</option>
+                                <option>Kentia Palm</option>
+                                <option>Ornamental Pepper Plant</option>
+                                <option>Papyrus Plant</option>
+                                <option>Rubber Plant</option>
+                                <option>Venus Fly Trap</option>
+                                <option>Zebra Plant</option>
+                                <option>Swedish Ivy</option>
+                                <option>Snapdragon (Antirrhinum)</option>
+                                <option>Wax Plant (Hoya Carnosa)</option>
+                                <option>Yucca</option>
+                                <option>Snake Plant</option>
+                                <option>ZZ Plant</option>
+                                <option>Weeping Fig Tree</option>
+                            </datalist>
                         <span className="input-group-btn">
-                          <button className="btn btn-default" type="button">Go!</button>
+                          <button className="btn btn-default" type="button">Add!</button>
                         </span>
                       </div>
                   </div>
