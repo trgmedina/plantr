@@ -5,32 +5,37 @@ require('moment-recur');
 
 var displayReminders = [];
 var sortedDisplayReminders = [];
-
-	// grab today's date
-var todaysDate = moment()
-var endDate = moment().add(7, 'days')
+var todaysDate = moment().format("MM-DD-YYYY")
+var endDate = moment().add(7, 'days').format("MM-DD-YYYY")
 var recurrence;
 
 var reminderHelpers = {
 	getReminders: function() {
 	    return axios.get("/api/reminders").then(function(results) {
 	        console.log(" 1. axios results", results.data);
+
 	        var data = results.data;
 
+	        var displayRemindersIndex = 0;
 			// loop through results from DB and call the setReminder funtion to generate dates
 			for (var i = 0; i<data.length; i++) {
-				var newReminder = {
-						plant: data[i].name,
-						type: data[i].reminders.reminderType,
-						dates: [],
-						imageURL: data[i].imageURL
-					}
-				console.log("new reminder", newReminder)
-				displayReminders.push(newReminder);
-				
-				setReminder(data[i].reminders.created, data[i].reminders.days, data[i].reminders.frequency, i);
-			}
+				for (var j = 0; j<data[i].reminders.length; j++) {
+					var newReminder = {
+							plant: data[i].name,
+							type: data[i].reminders[j].reminderType,
+							dates: [],
+							imageURL: data[i].imageURL
+						}
+					displayRemindersIndex++;
 
+					console.log("new reminder", newReminder)
+
+					displayReminders.push(newReminder);
+
+					setReminder(data[i].reminders[j].created, data[i].reminders[j].days, data[i].reminders[j].frequency, displayRemindersIndex);
+
+				}
+			}
 			console.log("2. display reminders", displayReminders)
 			
 			for (var i = 0; i<displayReminders.length; i++) {
@@ -60,14 +65,15 @@ var reminderHelpers = {
 // function to grab reminder dates based on user settings
 // currently only weekly, biweekly and monthly frequencies are working
 function setReminder(createdDate, days, frequency, index) {
+	
 	// format the reminder created date for moment
-	var startDate = moment(createdDate,"MM-DD-YYYY");
+	// var startDate = moment(createdDate,"MM-DD-YYYY");
 	// find the day of the week for that date
 	var day = moment(createdDate,"MM-DD-YYYY").format("ddd");
 	// and what week in the month it occurs (1-4)
-	var week = moment(startDate).monthWeek()
+	var week = moment(createdDate).monthWeek()
 	console.log("----Reminder Information-----")
-	console.log("Created Date: ", startDate)
+	console.log("Created Date: ", createdDate)
 	console.log("Start Date: ", todaysDate)
 	console.log("End Date: ", endDate)
 	console.log("Day: ", day)
