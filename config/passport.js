@@ -45,7 +45,7 @@ module.exports = function(passport) {
 
         // asynchronous
         process.nextTick(function() {
-            User.findOne({ 'local.email' :  email }, function(err, user) {
+            User.findOne({ 'local.email' :  email }).populate("plants").exec(function(err, user) {
                 // if there are any errors, return the error
                 if (err)
                     return done(err);

@@ -4,23 +4,23 @@
 module.exports = {
 
     'facebookAuth' : {
-        'clientID'        : 'your-secret-clientID-here', // your App ID
-        'clientSecret'    : 'your-client-secret-here', // your App Secret
-        'callbackURL'     : 'http://localhost:8080/auth/facebook/callback',
-        'profileURL': 'https://graph.facebook.com/v2.5/me?fields=first_name,last_name,email'
+        'clientID'        : '411025008986071', // your App ID
+        'clientSecret'    : '1f4ca627e86b95bd7af96bb38e12a350', // your App Secret
+        'callbackURL'     : 'http://localhost:3000/auth/facebook/callback',
+        'profileURL': 'https://graph.facebook.com/v2.4/me?fields=first_name,last_name,email'
 
     },
 
     'twitterAuth' : {
-        'consumerKey'        : 'your-consumer-key-here',
-        'consumerSecret'     : 'your-client-secret-here',
-        'callbackURL'        : 'http://localhost:8080/auth/twitter/callback'
+        'consumerKey'        : 'q7oiDtFuovUW7bYuONB5erj8H',
+        'consumerSecret'     : 'pKlOFwc1E8737tV4aifSAN9O1UFnOxgaswZdFNDDK2rAu3LnBq',
+        'callbackURL'        : 'http://localhost:3000/auth/twitter/callback'
     },
 
     'googleAuth' : {
-        'clientID'         : 'your-secret-clientID-here',
-        'clientSecret'     : 'your-client-secret-here',
-        'callbackURL'      : 'http://localhost:8080/auth/google/callback'
+        'clientID'         : '542620950462-qcv465k0sc50q0phvoj2l3m5lnase691.apps.googleusercontent.com',
+        'clientSecret'     : 'dy8R_gBDd9DWbMabQpC6Xpx4',
+        'callbackURL'      : 'http://localhost:3000/auth/google/callback'
     }
 
 };
