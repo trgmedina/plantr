@@ -11,8 +11,8 @@ var recurrence;
 
 var reminderHelpers = {
 	getReminders: function() {
-		// displayReminders = [];
-		// sortedDisplayReminders = [];
+		displayReminders = [];
+		sortedDisplayReminders = [];
 	    return axios.get("/app/reminders").then(function(results) {
 	        // console.log(" 1. axios results", results.data);
 
