@@ -2,6 +2,9 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
+// Create a Schema class with mongoose
+var Schema = mongoose.Schema;
+
 // define the schema for our user model
 var userSchema = mongoose.Schema({
 
@@ -9,6 +12,12 @@ var userSchema = mongoose.Schema({
         email        : String,
         password     : String
     },
+    plants           : [{
+    // Store ObjectIds in the array
+    type: Schema.Types.ObjectId,
+    // The ObjectIds will refer to the ids in the Note model
+    ref: "UserPlant"
+  }], 
     facebook         : {
         id           : String,
         token        : String,

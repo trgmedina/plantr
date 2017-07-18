@@ -58,10 +58,7 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-app.get("/api/user", function(req, res) {
-    
 
-});
 //Gets Plant data
 app.get("/api", function(req, res) {
   // This GET request will search all the plant data
@@ -76,19 +73,31 @@ app.get("/api", function(req, res) {
 });
 
 // The route we will send POST requests to save new plants.
-app.post("/api", function(req, res) {
+app.post("/userPlant", function(req, res) {
 
-  var newPlant = new UserPlant(req.body);
+  var newPlant = new UserPlant(req.body.plant);
   
   newPlant.save(function(err, doc) {
     if (err) {
-      console.log(err);
+      res.send(err);
     }
     else {
-      res.send("Saved New Plant");
-    }
-  });
+      User.findOneAndUpdate({ _id: req.body.userId}, { $push: { "plants": doc._id } }, { new: true }, function(err, newdoc) {
+                // Send any errors to the browser
+                if (err) {
+                    res.send(err);
+                }
+                // Or send the newdoc to the browser
+                else {
+                    res.send(newdoc);
+                }
+            });
+        }
+    });
 });
+
+
+
 
 //test Google OAuth
 app.get("/logintest", function(req, res){
