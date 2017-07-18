@@ -33,7 +33,7 @@ var UserPlantSchema = new Schema({
       reminderType: { type: String, required: true },
       days: [{ type: String, required: true }],
       frequency: { type: String, required: true },
-      created: { type: Date }
+      created: { type: String }
   }]
 });
 
