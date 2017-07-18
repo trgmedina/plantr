@@ -308,9 +308,9 @@ var AddPlant = React.createClass({
                               onChange={this.handleReminders}
                               value={this.state.value}>
                               <option></option>
-                              <option value="Every week">Every Week</option>
-                              <option value="Every other week">Every Other Week</option>
-                              <option value="Once a month">Once a Month</option>
+                              <option value="Every week">Every week</option>
+                              <option value="Every other week">Every other week</option>
+                              <option value="Once a month">Once a month</option>
                             </select>
                           </label>
                         </div>
