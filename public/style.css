@@ -124,8 +124,8 @@ span > i {
 /*Reminders*/
 .reminder-img {
   position: relative;
-  width: 40px;
-  height: auto;
+  width: 35px;
+  max-height: 35px;
   top: 2px;
   left: 2px;
 }
@@ -261,11 +261,10 @@ input:-webkit-autofill {
 
 @media screen and (max-width:767px) {
   
-  #nav-column { 
-    height: 30px;
-    display: flex; 
-    text-align: center; 
-    justify-content: center;
+  div#nav-column {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
   }
 
   .hvr-bounce-in {
@@ -298,11 +297,15 @@ input:-webkit-autofill {
     float: none;
     position: relative;
     text-align: center;
-    bottom: 10px;
-    font-size: 14px;
+    bottom: 20px;
+    font-size: 16px;
   }
 
   .calendar-day {
     margin-top: 15px;
+  }
+
+  .fa-github-alt {
+    float: none;
   }
 }
