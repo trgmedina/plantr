@@ -174,6 +174,7 @@ class Reminders extends React.Component {
 
   renderContainer() {
     return (
+
         <div className="container-fluid">
 	        <div className="row">
 	          	<div className="col-xs-12 text-center">
