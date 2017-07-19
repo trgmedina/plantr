@@ -1,5 +1,6 @@
 // Include React as a dependency
 var React = require("react");
+import Collapsible from "react-collapsible";
 
 // Include the Helper (for the saved recall)
 var helpers = require("../utils/helpers");
@@ -15,26 +16,26 @@ class Plants extends React.Component {
 	}
 
     // When this component mounts, get all user plants
-componentDidMount() {
-    helpers.getUserPlants().then(function(data) {
-    	console.log(data);
+	componentDidMount() {
+    	helpers.getUserPlants().then(function(data) {
+    		console.log(data);
 
-     	this.setState({ savedPlants: data });
+     		this.setState({ savedPlants: data });
 
-    }.bind(this));
-  }
+    	}.bind(this));
+  	}
 
-  renderEmpty() {
-    return (
-      <li className="list-group-item">
-        <h3>
-          <span>
-            <em>You have no plants.</em>
-          </span>
-        </h3>
-      </li>
-    );
-  }
+  	renderEmpty() {
+    	return (
+	      	<li className="list-group-item">
+	        	<h3>
+	          		<span>
+	            		<em>You have no plants.</em>
+	          		</span>
+	        	</h3>
+	      	</li>
+    	);
+  	}
 
 	renderSavedPlants() {
     	return this.state.savedPlants.map(function(plant, index) {
@@ -51,12 +52,7 @@ componentDidMount() {
 						</div>
 						<div className="panel-group" role="tablist">
 							<div className="panel panel-default">
-								<div className="panel-heading" role="tab" id="collapseListGroupHeading1">
-									<h4 className="panel-title">
-										<a href="#collapseListGroup1" className="collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> <i className="fa fa-chevron-circle-down  fa-2x" aria-hidden="true"></i> </a>
-									</h4>
-								</div>
-								<div className="panel-collapse collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
+								<Collapsible trigger="Test" className="fa fa-chevron-circle-down fa-2x">  
 									<ul className="list-group">
 										<li className="list-group-item plantpg-description">
 											<span>
@@ -88,7 +84,7 @@ componentDidMount() {
 											</span>
 										</li>
 									</ul>
-								</div>
+								</Collapsible>
 							</div>
 						</div>
 					</div>
@@ -107,22 +103,21 @@ componentDidMount() {
 		          		<h2>My Plants</h2>
 		          	</div>
 		        </div>
-		          	<div className="col-xs-12">
-		          		{this.renderSavedPlants()}
-		          	</div>      
+		        <div className="col-xs-12">
+		      		{this.renderSavedPlants()}
+		      	</div>      
 			</div>
 		);
 	}
 
-	 render() {
-    // If we have no articles, we will return this.renderEmpty() which in turn returns some HTML
-    if (this.state.savedPlants.length===0) {
-      
-      return this.renderEmpty();
-    }
-    // If we have articles, return this.renderContainer() which in turn returns all saves articles
-    return this.renderContainer();
-  }
+	render() {
+
+    	if (this.state.savedPlants.length===0) {
+    		return this.renderEmpty();
+    	}
+
+   		return this.renderContainer();
+ 	}
 };
 
 // Export the module back to the route
