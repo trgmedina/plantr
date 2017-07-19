@@ -5,6 +5,10 @@ var Schema = mongoose.Schema;
 
 // Create a Schema for adding plants. 
 var UserPlantSchema = new Schema({
+  user: {
+    type: Number, 
+    ref: 'userSchema'
+  },
   name: {
     type: String,
     required: true

@@ -96,34 +96,36 @@ app.post("/userPlant", function(req, res) {
     });
 });
 
-
-
-
 //test Google OAuth
 app.get("/logintest", function(req, res){
   console.log("hey!");
   res.sendFile(__dirname + "/public/login.html");
 });
 
-// TO DO: ROUTE TO GRAB ALL USER'S ALERTS FROM DB
 app.get("/app/reminders", function(req, res) {
-  //query with mongoose
-    var query = UserPlant.find({"reminders":{ $exists: true, $not: {$size: 0} }}).select('reminders name imageURL');
 
-    query.exec(function (err, doc) {
-        if (err) return next(err);
-        res.send(doc);
+  var userID = req.user._id;
+  var userQuery = User.findById(userID).select('plants');
+
+  userQuery.exec(function (err, doc) {
+    if (err) return next(err);
+
+      var plantQuery = UserPlant.find({
+      '_id':{ 
+        $in: doc.plants
+      }} , {
+        "reminders":{ 
+          $exists: true, 
+          $not: {
+            $size: 0
+          } 
+        }
+    }).select('reminders name imageURL');
+
+    plantQuery.exec(function (err, reminders) {
+      res.send(reminders);
     });
-//   // Plant.find({reminders:1, _id:0})
-//   //   .exec(function(err, doc) {
-
-//   //     if (err) {
-//   //       console.log(err);
-//   //     }
-//   //     else {
-//   //       res.send(doc);
-//   //     }
-//   //   });
+  });
 });
 
 // Route to get all of user's plants
