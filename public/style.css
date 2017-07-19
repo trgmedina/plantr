@@ -139,6 +139,7 @@ span > i {
 }
 
 .calendar {
+  position: relative;
   display: inline-block;
   width: 13.6%;
   margin-right: 5px;
@@ -235,4 +236,40 @@ span > i {
   margin: 0 auto;
   display: block;
   text-align: center;
+}
+
+/*FORMS*/
+.form-control, input {
+  border-width: 0px;
+  border: 1px solid rgba(24, 188, 156, 0.41)
+}
+
+.form-control:focus {
+  border: 1px solid #18bc9c;
+}
+
+.btn-default {
+  background-color: #18bc9c;
+  border-color: #18bc9c;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+@media screen and (max-width: 767px) {
+  #navbar { 
+    display: flex; 
+    text-align: center; 
+    justify-content: center;
+  }
+
+  .hvr-bounce-in {
+    width: 10%;
+    float: left;
+  }
+
+  h1 {
+    text-align: center;
+  }
 }
