@@ -160,6 +160,8 @@ span > i {
 }
 .plant-panel {
   position: relative;
+  float: left;
+  margin: 10px;
   width: 30%;
   height: auto;
   overflow: hidden;

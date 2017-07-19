@@ -36,66 +36,66 @@ componentDidMount() {
     );
   }
 
-  renderSavedPlants() {
-    return this.state.savedPlants.map(function(plant, index) {
-    	console.log(plant);
-    	console.log(index);
+	renderSavedPlants() {
+    	return this.state.savedPlants.map(function(plant, index) {
+    		// console.log(plant);
+    		// console.log(index);
 
-      return (
-        <div key={index}>
-          <div className="panel panel-default plant-panel">
-					  		<div className="panel-body plant-panel-body">
-					    		<h5 className="plantpg-name">{plant.name}</h5>
-					    		<img src={plant.imageURL} className="plantpg-img"></img>
-					    		<i className="fa fa-minus-square fa-lg" aria-hidden="true"></i>
-					  		</div>
-							<div className="panel-group" role="tablist">
-								<div className="panel panel-default">
-									<div className="panel-heading" role="tab" id="collapseListGroupHeading1">
-										<h4 className="panel-title">
-											<a href="#collapseListGroup1" className="collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> <i className="fa fa-chevron-circle-down  fa-2x" aria-hidden="true"></i> </a>
-										</h4>
-									</div>
-									<div className="panel-collapse collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
-										<ul className="list-group">
-											<li className="list-group-item plantpg-description">
-												<span>
-													<p></p>
-												</span>
-											</li>
-											<li className="list-group-item plantpg-origin">
-												<span>
-													<i className="fa fa-globe" aria-hidden="true"></i>
-													{plant.origin}
-												</span>
-											</li>										
-											<li className="list-group-item plantpg-sun">
-												<span>
-													<i className="fa fa-sun-o" aria-hidden="true"></i>
-													{plant.sunlightAmt}
-												</span>
-											</li>
-											<li className="list-group-item plantpg-water">
-												<span>
-													<i className="fa fa-tint" aria-hidden="true"></i>
-													{plant.waterSchedule}
-												</span>
-											</li>
-											<li className="list-group-item plantpg-reminder">
-												<span>
-													<i className="fa fa-exclamation" aria-hidden="true"></i>
-													{plant.reminders.frequency}
-												</span>
-											</li>
-										</ul>
-									</div>
+			return (
+	        	<div key={index}>
+	          		<div className="panel panel-default plant-panel">
+						<div className="panel-body plant-panel-body">
+						 	<h5 className="plantpg-name">{plant.name}</h5>
+							<img src={plant.imageURL} className="plantpg-img"></img>
+						    <i className="fa fa-minus-square fa-lg" aria-hidden="true"></i>
+						</div>
+						<div className="panel-group" role="tablist">
+							<div className="panel panel-default">
+								<div className="panel-heading" role="tab" id="collapseListGroupHeading1">
+									<h4 className="panel-title">
+										<a href="#collapseListGroup1" className="collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> <i className="fa fa-chevron-circle-down  fa-2x" aria-hidden="true"></i> </a>
+									</h4>
+								</div>
+								<div className="panel-collapse collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
+									<ul className="list-group">
+										<li className="list-group-item plantpg-description">
+											<span>
+											<p></p>
+											</span>
+										</li>
+										<li className="list-group-item plantpg-origin">
+											<span>
+												<i className="fa fa-globe" aria-hidden="true"></i>
+												{plant.origin}
+											</span>
+										</li>										
+										<li className="list-group-item plantpg-sun">
+											<span>
+												<i className="fa fa-sun-o" aria-hidden="true"></i>
+												{plant.sunlightAmt}
+											</span>
+										</li>
+										<li className="list-group-item plantpg-water">
+											<span>
+												<i className="fa fa-tint" aria-hidden="true"></i>
+												{plant.waterSchedule}
+											</span>
+										</li>
+										<li className="list-group-item plantpg-reminder">
+											<span>
+												<i className="fa fa-exclamation" aria-hidden="true"></i>
+												{plant.reminders.frequency}
+											</span>
+										</li>
+									</ul>
 								</div>
 							</div>
 						</div>
-        </div>
-      );
-    }.bind(this));
-  }
+					</div>
+	        	</div>
+	      	);
+    	}.bind(this));
+	}
 
 
 	renderContainer() {
@@ -107,11 +107,9 @@ componentDidMount() {
 		          		<h2>My Plants</h2>
 		          	</div>
 		        </div>
-		        <div className="row">
 		          	<div className="col-xs-12">
 		          		{this.renderSavedPlants()}
-		          	</div>
-				</div>	        
+		          	</div>      
 			</div>
 		);
 	}

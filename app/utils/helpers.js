@@ -59,6 +59,7 @@ module.exports = {
 
       return displayUserPlants;
     });
+  },
 
   searchPlant: function(plantName){
     //find the plant being passed from addPlant search input
@@ -71,7 +72,6 @@ module.exports = {
             }
           }     
       }); 
->>>>>>> master
   }
 
 };
