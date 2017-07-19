@@ -39,6 +39,12 @@ h1 {
   font-family: 'Yellowtail', cursive;
 }
 
+h2 {
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
 a:hover, a:focus {
   text-decoration: none;
 }
@@ -82,8 +88,8 @@ span > i {
 /*Reminders*/
 .reminder-img {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 .fa-check {
   position: absolute;
@@ -91,9 +97,27 @@ span > i {
   right: 5px;
   cursor: pointer;
 }
-.panel-footer {
-  color: #04b3db;
-  background-color: #d7fafe;
+
+.calendar-panel {
+  margin-bottom: 0;
+}
+
+.calendar {
+  display: inline-block;
+  width: 13.6%;
+  margin-right: 5px;
+}
+
+#calendar-wrap {
+  margin: 0 auto;
+}
+
+.calendar-day, .calendar-body {
+  padding: 0;
+}
+
+.calendar-body {
+  font-size: 12px;
 }
 
 /*Plants Page*/

@@ -102,14 +102,16 @@ app.get("/logintest", function(req, res){
   res.sendFile(__dirname + "/public/login.html");
 });
 
+// GET route to display reminders
 app.get("/app/reminders", function(req, res) {
-
+  // store logged in user's id
   var userID = req.user._id;
+  // mongo query to find user by id in the User collection of our DB
   var userQuery = User.findById(userID).select('plants');
-
+  // execute query
   userQuery.exec(function (err, doc) {
     if (err) return next(err);
-
+      // mongo query to find and user plant documents for the user and return any reminders they have saved
       var plantQuery = UserPlant.find({
       '_id':{ 
         $in: doc.plants
@@ -120,8 +122,9 @@ app.get("/app/reminders", function(req, res) {
             $size: 0
           } 
         }
+      // only return the reminders, plant name and image URL from the query
     }).select('reminders name imageURL');
-
+      // execute query and send result to front end
     plantQuery.exec(function (err, reminders) {
       res.send(reminders);
     });
