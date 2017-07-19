@@ -1,30 +1,30 @@
 // Include the Axios library for HTTP requests
-var axios = require("axios");
-var moment = require('moment');
+const axios = require("axios");
+const moment = require('moment');
 require('moment-recur');
 
-var displayReminders = [];
-var sortedDisplayReminders = [];
-var todaysDate = moment().format("MM-DD-YYYY")
-var endDate = moment().add(20, 'days').format("MM-DD-YYYY")
-var recurrence;
+let displayReminders = [];
+let sortedDisplayReminders = [];
+let todaysDate = moment().format("MM-DD-YYYY")
+let endDate = moment().add(7, 'days').format("MM-DD-YYYY")
+let recurrence;
 
-var reminderHelpers = {
+let reminderHelpers = {
 	getReminders: function() {
 		displayReminders = [];
 		sortedDisplayReminders = [];
 	    return axios.get("/app/reminders").then(function(results) {
 	        // console.log(" 1. axios results", results.data);
 
-	        var data = results.data;
+	        let data = results.data;
 
-	        var displayRemindersIndex = -1;
+	        let displayRemindersIndex = -1;
 			// loop through results from DB and call the setReminder funtion to generate dates
-			for (var i = 0; i<data.length; i++) {
-				for (var j = 0; j<data[i].reminders.length; j++) {
-					var newReminder = {
+			for (let i = 0; i<data.length; i++) {
+				for (let j = 0; j<data[i].reminders.length; j++) {
+					let newReminder = {
 							plant: data[i].name,
-							type: data[i].reminders[j].reminderType.toLowerCase(),
+							type: data[i].reminders[j].reminderType,
 							dates: [],
 							imageURL: data[i].imageURL
 						}
@@ -38,17 +38,17 @@ var reminderHelpers = {
 
 				}
 			}
-			console.log("2. display reminders", displayReminders)
+			// console.log("2. display reminders", displayReminders)
 			
-			for (var i = 0; i<displayReminders.length; i++) {
+			for (let i = 0; i<displayReminders.length; i++) {
 				
-				for (var j = 0; j<displayReminders[i].dates.length; j++) {
-					var date = displayReminders[i].dates[j]
-					var newObject = {
+				for (let j = 0; j<displayReminders[i].dates.length; j++) {
+					let date = displayReminders[i].dates[j]
+					let newObject = {
 						plant: displayReminders[i].plant,
 						type: displayReminders[i].type,
 						day: moment(date,"MM-DD-YYYY").format("dddd"),
-						date: date,
+						date: moment(date,"MM-DD-YYYY").format("MM/DD"),
 						imageURL: displayReminders[i].imageURL
 					}
 					// console.log(j, newObject)
@@ -70,10 +70,10 @@ var reminderHelpers = {
 function setReminder(createdDate, days, frequency, index) {
 
 	// find the day of the week for that date
-	var day = moment(createdDate,"MM-DD-YYYY").format("ddd");
-	var allDates;
+	let day = moment(createdDate,"MM-DD-YYYY").format("ddd");
+	let allDates;
 	// and what week in the month it occurs (1-4)
-	var week = moment(createdDate).monthWeek()
+	let week = moment(createdDate).monthWeek()
 	// console.log("----Reminder Information-----")
 	// console.log("Created Date: ", createdDate)
 	// console.log("Start Date: ", todaysDate)
@@ -86,12 +86,11 @@ function setReminder(createdDate, days, frequency, index) {
 		if (frequency==="Every week") {
 			// using reminder created date, set the weekly recurrence based on selected days 
 			recurrence = moment(createdDate).recur(todaysDate, endDate).every(days).daysOfWeek();
-			// grab dates starting from current date
-			// recurrence.fromDate(todaysDate);
+
 			// generate dates
 			allDates = recurrence.all("L");
 			// loop through resulting array and push to the reminder object
-			for (var i = 0; i < allDates.length; i++) {
+			for (let i = 0; i < allDates.length; i++) {
 				displayReminders[index].dates.push(allDates[i])
 			}
 			// dev function logs the generated recurrence dates
@@ -100,9 +99,9 @@ function setReminder(createdDate, days, frequency, index) {
 		// this test works
 		}else if (frequency==="Every other week"){
 			// setting variable for which weeks the reminders should occur
-			var weeks;
+			let weeks;
 			var cal;
-			var nextDates;
+			let nextDates;
 			// if the reminder created at date falls in week 0, 1 or 3, set the frequency for same weeks
 			if (week === 0 || 2 ) {
 				weeks = [0,2]
@@ -114,12 +113,10 @@ function setReminder(createdDate, days, frequency, index) {
 			// setting a cal recurrence based on days of week and weeks variable determined above
 			cal = moment(createdDate).recur(todaysDate, endDate).every(days).daysOfWeek()
 	                    .every(weeks).weeksOfMonthByDay()
-	        // grab dates starting from current date
-	        // cal.fromDate(todaysDate);
 	        // generate dates
 	        allDates = cal.all("L");
 	        // loop through resulting array and push to the reminder object
-			for (var i = 0; i < allDates.length; i++) {
+			for (let i = 0; i < allDates.length; i++) {
 				displayReminders[index].dates.push(allDates[i])
 			}
 	        // call logger function to display the recurrence dates
@@ -130,18 +127,17 @@ function setReminder(createdDate, days, frequency, index) {
 			// setting a cal recurrence based on days of week at monthly frequency
 			cal = moment(createdDate).recur(todaysDate, endDate).every(days).daysOfWeek()
 	                    .every(week).weekOfMonth()
-	        // grab dates starting from current date
-	        // cal.fromDate(todaysDate);
+
 	        // generate dates
 	        allDates = cal.all("L");
 	        // loop through resulting array and push to the reminder object
-			for (var i = 0; i < allDates.length; i++) {
+			for (let i = 0; i < allDates.length; i++) {
 				displayReminders[index].dates.push(allDates[i])
 			}
 			// call logger function to display the recurrence dates
 			// logger(days, frequency, allDates)
 		}
-	}
+}
 	// function created for development purposes to test accuracy
 	function logger (days, frequency, dates) {
 		console.log("-----Reminder Information-----")

@@ -39,6 +39,12 @@ h1 {
   font-family: 'Yellowtail', cursive;
 }
 
+h2 {
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
 a:hover, a:focus {
   text-decoration: none;
 }
@@ -49,6 +55,13 @@ a:focus {
 
 span > i {
   padding-right: 5px;
+}
+
+.panel {
+  margin-bottom: 0px;
+  box-shadow: none;
+  border: none;
+  border-radius: 2px;
 }
 
 /*Add Plant Form*/
@@ -69,7 +82,7 @@ span > i {
 }
 
 .weekdays-selector >[type=checkbox]:checked + label {
-  background: #2AD705;
+  background: #18bc9c;
   color: #ffffff;
 }
 
@@ -82,18 +95,58 @@ span > i {
 /*Reminders*/
 .reminder-img {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: auto;
+  top: 2px;
+  left: 2px;
 }
-.fa-check {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
+
+.calendar-panel {
+  height: 75px;
+  overflow: hidden;
+  border: 1px solid rgba(24, 188, 156, 0.19);
+  margin-top: 10px;
+  padding: 2px;
 }
-.panel-footer {
-  color: #04b3db;
-  background-color: #d7fafe;
+
+.calendar {
+  display: inline-block;
+  width: 13.6%;
+  margin-right: 5px;
+}
+
+#calendar-wrap {
+  margin: 0 auto;
+}
+
+.calendar-day {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 10px;
+  background-color: #18bc9c;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.calendar-body {
+  padding: 0;
+}
+
+.calendar-body {
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.reminder-date {
+  padding: 2px;
+}
+
+.reminder-type {
+  float: left;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /*Plants Page*/
@@ -109,10 +162,12 @@ span > i {
   position: relative;
   width: 30%;
   height: auto;
+  overflow: hidden;
 }
 
 .plant-panel-body {
   padding: 0;
+  overflow: hidden;
 }
 
 .plantpg-name, .fa-minus-square {
@@ -134,18 +189,17 @@ span > i {
 .plantpg-img {
   position: relative;
   width: 100%;
-  overflow: hidden;
   opacity: 0.9;
 }
 
 .panel-default>.panel-heading {
-    color: #fff;
-    background-color: transparent;
-    border-color: transparent;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    left: 0px;
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  left: 0px;
 }
 
 .fa-chevron-circle-down {

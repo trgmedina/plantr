@@ -60,6 +60,17 @@ var AddPlant = React.createClass({
     })
   },
 
+  handleSearchSubmit: function(event){
+    event.preventDefault();
+    var searchName = this.state.searchPlant;
+    var foundPlant;
+
+    helpers.searchPlant(searchName)
+    .then(function(res){
+           console.log(res);
+      });
+  },
+
   handleSubmit: function(event) {
     event.preventDefault();
 
@@ -91,7 +102,15 @@ var AddPlant = React.createClass({
                 <form onSubmit={this.handleSubmit}>
                   <div id="addPlant-search">
                       <div className="input-group">
-                        <input type="text" className="awesomplete form-control" list="mylist" placeholder="Search for Plant Name..."/>
+                        <input 
+                          name="searchPlant" 
+                          id="search-input" 
+                          onChange={this.handleChange}
+                          value={this.state.value} 
+                          type="text"
+                          className="awesomplete form-control" 
+                          list="mylist" 
+                          placeholder="Search for Plant Name..."/>
                             <datalist id="mylist">
                                 <option>Aloe Vera</option>
                                 <option>African Violet</option>
@@ -124,7 +143,7 @@ var AddPlant = React.createClass({
                                 <option>Weeping Fig Tree</option>
                             </datalist>
                           <span className="input-group-btn">
-                          <button className="btn btn-default" type="button">Add!</button>
+                          <button className="btn btn-default" onClick={this.handleSearchSubmit} type="button">Add!</button>
 
                         </span>
                       </div>

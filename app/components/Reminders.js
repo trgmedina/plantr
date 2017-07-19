@@ -1,8 +1,8 @@
 // Include React as a dependency
-var React = require("react");
+const React = require("react");
 
 // Include the Helper (for the saved recall)
-var reminderHelpers = require("../utils/reminderHelpers");
+const reminderHelpers = require("../utils/reminderHelpers");
 
 // Create the Main component
 class Reminders extends React.Component {
@@ -34,22 +34,141 @@ class Reminders extends React.Component {
     );
   }
 
-  renderReminders() {
+  renderSundayReminders() {
     return this.state.reminders.map(function(reminder, index) {
-      console.log(reminder);
-
-      return (
-        <div key={index}>
-          <div className="panel panel-default">
-            <div className="panel-body">
-              <span>
-                <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
-                <p>Reminder to {reminder.type} {reminder.plant} on {reminder.day}, {reminder.date}</p>
-              </span>
+      if(reminder.day==="Sunday"){
+        return (
+          <div key={index}>
+            <div className="panel panel-default calendar-panel">
+              <div className="panel-body calendar-body">
+                <span>
+                  <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type"><strong>{reminder.type}</strong> {reminder.plant}</p>
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      }
+    }.bind(this));
+  }
+
+  renderMondayReminders() {
+    return this.state.reminders.map(function(reminder, index) {
+      if(reminder.day==="Monday"){
+        return (
+          <div key={index}>
+            <div className="panel panel-default calendar-panel">
+              <div className="panel-body calendar-body">
+                <span>
+                  <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }.bind(this));
+  }
+  renderTuesdayReminders() {
+    return this.state.reminders.map(function(reminder, index) {
+      if(reminder.day==="Tuesday"){
+        return (
+          <div key={index}>
+            <div className="panel panel-default calendar-panel">
+              <div className="panel-body calendar-body">
+                <span>
+                  <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }.bind(this));
+  }
+
+  renderWednesdayReminders() {
+    return this.state.reminders.map(function(reminder, index) {
+      if(reminder.day==="Wednesday"){
+        return (
+          <div key={index}>
+            <div className="panel panel-default calendar-panel">
+              <div className="panel-body calendar-body">
+                <span>
+                  <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }.bind(this));
+  }
+
+  renderThursdayReminders() {
+    return this.state.reminders.map(function(reminder, index) {
+      if(reminder.day==="Thursday"){
+        return (
+          <div key={index}>
+            <div className="panel panel-default calendar-panel">
+              <div className="panel-body calendar-body">
+                <span>
+                  <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }.bind(this));
+  }
+
+  renderFridayReminders() {
+    return this.state.reminders.map(function(reminder, index) {
+      if(reminder.day==="Friday"){
+        return (
+          <div key={index}>
+            <div className="panel panel-default calendar-panel">
+              <div className="panel-body calendar-body">
+                <span>
+                  <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }.bind(this));
+  }
+  renderSaturdayReminders() {
+    return this.state.reminders.map(function(reminder, index) {
+      if(reminder.day==="Saturday"){
+        return (
+          <div key={index}>
+            <div className="panel panel-default calendar-panel">
+              <div className="panel-body calendar-body">
+                <span>
+                  <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      }
     }.bind(this));
   }
 
@@ -58,13 +177,44 @@ class Reminders extends React.Component {
         <div className="container-fluid">
 	        <div className="row">
 	          	<div className="col-xs-12 text-center">
-	          		<h2>This week's Plant Care Reminders</h2>
+	          		<h2>Your Upcoming Plant Care Reminders</h2>
 	          	</div>
 	        </div>
-	        <div className="row">
-	          <div className="col-md-offset-2 col-md-8 col-xs-12">
+	        <div className="row" id="calendar-wrap">
+            <div className="pull-left calendar">
+              <h5 className="calendar-day text-center">Su</h5>
+              {/*REMINDERS RENDER HERE*/}
+              {this.renderSundayReminders()}
+            </div>
+            <div className="pull-left calendar">
+              <h5 className="calendar-day text-center">M</h5>
+              {/*REMINDERS RENDER HERE*/}
+              {this.renderMondayReminders()}
+            </div>
+            <div className="pull-left calendar">
+              <h5 className="calendar-day text-center">Tu</h5>
+              {/*REMINDERS RENDER HERE*/}
+              {this.renderTuesdayReminders()}
+            </div>
+            <div className="pull-left calendar">
+              <h5 className="calendar-day text-center">W</h5>
+              {/*REMINDERS RENDER HERE*/}
+              {this.renderWednesdayReminders()}
+            </div>
+            <div className="pull-left calendar">
+              <h5 className="calendar-day text-center">Th</h5>
+              {/*REMINDERS RENDER HERE*/}
+              {this.renderThursdayReminders()}
+            </div>
+	          <div className="pull-left calendar">
+              <h5 className="calendar-day text-center">F</h5>
 	          	{/*REMINDERS RENDER HERE*/}
-              {this.renderReminders()}
+              {this.renderFridayReminders()}
+            </div>
+            <div className="pull-left calendar">
+              <h5 className="calendar-day text-center">S</h5>
+              {/*REMINDERS RENDER HERE*/}
+              {this.renderSaturdayReminders()}
             </div>
 	        </div>	        
         </div>
