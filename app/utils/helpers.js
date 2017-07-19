@@ -30,7 +30,21 @@ module.exports = {
     	   console.log(plantsNames); 
     	   return plantsNames;
        });
-    }
+    },
+
+  searchPlant: function(plantName){
+    //find the plant being passed from addPlant search input
+    var searchPlant = plantName;
+      return axios.get("/api").then(function(results){
+         for(var j=0; j < results.data.length; j++){
+          if (results.data[j].name = searchPlant){
+             return results.data[j]; 
+             break; 
+            }
+          }     
+      }); 
+  }
+
 };
 
 
