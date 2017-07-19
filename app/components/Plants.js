@@ -10,38 +10,17 @@ class Plants extends React.Component {
 	constructor(props) {
 		super(props);
 	    this.state = {
-	    	name: "",
-	    	description: "",
-	    	origin: "",
-	    	sunlightAmt: "",
-	    	waterSchedule: "",
-	    	imageURL: "",
-	    	reminders: {
-	    		reminderType: "",
-	    		days: [],
-	        	frequency: ""
-	    	}
+	    	savedPlants: []
 	    };
 	}
 
-    // When this component mounts, get all reminders
+    // When this component mounts, get all user plants
 componentDidMount() {
     helpers.getUserPlants().then(function(data) {
     	console.log(data);
 
-      this.setState({ 
-      		name: data.name,
-	    	description: data.description,
-	    	origin: data.origin,
-	    	sunlightAmt: data.sunlightAmt,
-	    	waterSchedule: data.waterSchedule,
-	    	imageURL: data.imageURL,
-	    	reminders: {
-	    		reminderType: data.reminders.reminderType,
-	    		days: data.reminders.days,
-	        	frequency: data.reminders.frequency
-	    	}
-      	 });
+     	this.setState({ savedPlants: data });
+
     }.bind(this));
   }
 
@@ -57,21 +36,16 @@ componentDidMount() {
     );
   }
 
+  renderSavedPlants() {
+    return this.state.savedPlants.map(function(plant, index) {
+    	console.log(plant);
+    	console.log(index);
 
-	render() {
-
-		return (
-	    	<div className="container-fluid">
-		        <div className="row">
-		          	<div className="col-xs-12 text-center">
-		          		<h2>My Plants</h2>
-		          	</div>
-		        </div>
-		        <div className="row">
-		          	<div className="col-xs-12">
-		          		<div className="panel panel-default plant-panel">
+      return (
+        <div key={index}>
+          <div className="panel panel-default plant-panel">
 					  		<div className="panel-body plant-panel-body">
-					    		<h5 className="plantpg-name">Plant Name</h5>
+					    		<h5 className="plantpg-name">{plant.name}</h5>
 					    		<img src="http://i.imgur.com/X8CLtJ6.jpg" className="plantpg-img"></img>
 					    		<i className="fa fa-minus-square fa-lg" aria-hidden="true"></i>
 					  		</div>
@@ -86,7 +60,7 @@ componentDidMount() {
 										<ul className="list-group">
 											<li className="list-group-item plantpg-description">
 												<span>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+													<p></p>
 												</span>
 											</li>
 											<li className="list-group-item plantpg-origin">
@@ -118,11 +92,39 @@ componentDidMount() {
 								</div>
 							</div>
 						</div>
+        </div>
+      );
+    }.bind(this));
+  }
+
+
+	renderContainer() {
+
+		return (
+	    	<div className="container-fluid">
+		        <div className="row">
+		          	<div className="col-xs-12 text-center">
+		          		<h2>My Plants</h2>
+		          	</div>
+		        </div>
+		        <div className="row">
+		          	<div className="col-xs-12">
+		          		{this.renderSavedPlants()}
 		          	</div>
 				</div>	        
 			</div>
 		);
 	}
+
+	 render() {
+    // If we have no articles, we will return this.renderEmpty() which in turn returns some HTML
+    if (this.state.savedPlants.length===0) {
+      
+      return this.renderEmpty();
+    }
+    // If we have articles, return this.renderContainer() which in turn returns all saves articles
+    return this.renderContainer();
+  }
 };
 
 // Export the module back to the route

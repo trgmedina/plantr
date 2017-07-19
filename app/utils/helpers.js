@@ -35,7 +35,30 @@ module.exports = {
   getUserPlants: function() {
     var displayUserPlants = [];
 
-    return axios.get("/user/plants");
+    return axios.get("/user/plants").then(function(results){
+      var data = results.data;
+
+      // loop through results from DB 
+      for (var i = 0; i < data.length; i++) {
+          var plantData = {
+            name: data[i].name,
+            description: data[i].description,
+            origin: data[i].origin,
+            sunlightAmt: data[i].sunlightAmt,
+            waterSchedule: data[i].waterSchedule,
+            imageURL: data[i].imageURL,
+            reminders: {
+              reminderType: data[i].reminders.reminderType,
+              days: data[i].reminders.days,
+              frequency: data[i].reminders.frequency
+            }
+          }
+
+          displayUserPlants.push(plantData);
+      }
+
+      return displayUserPlants;
+    });
   }
 
 };

@@ -36,6 +36,7 @@ class Reminders extends React.Component {
 
   renderReminders() {
     return this.state.reminders.map(function(reminder, index) {
+      console.log(reminder);
 
       return (
         <div key={index}>
