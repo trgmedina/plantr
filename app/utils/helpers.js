@@ -32,7 +32,6 @@ module.exports = {
        });
     },
 
-<<<<<<< HEAD
   getUserPlants: function() {
     var displayUserPlants = [];
 
@@ -60,7 +59,7 @@ module.exports = {
 
       return displayUserPlants;
     });
-=======
+
   searchPlant: function(plantName){
     //find the plant being passed from addPlant search input
     var searchPlant = plantName;
