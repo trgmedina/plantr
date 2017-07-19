@@ -17,8 +17,7 @@ var Main = React.createClass({
           </div>
           {/*Navigation*/}
           <div className="row">
-            <div className="col-lg-2 col-md-1 col-sm-12">
-              <div id="navbar">
+            <div className="col-lg-2 col-md-1 col-sm-12" id="nav-column">
                 <div className="nav-icon">
                   <Link to="/app/Reminders"><i className="fa fa-exclamation fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>
                 </div>
@@ -37,7 +36,6 @@ var Main = React.createClass({
                 <div className="nav-icon">
                   <a href="/logout" id="logout-btn"><i className="fa fa-sign-out fa-lg hvr-bounce-in" aria-hidden="true"></i></a>
                 </div>
-              </div>
             </div>
             <div className="col-lg-10 col-md-11 col-sm-12">
               <div id="content-wrapper">

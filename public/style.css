@@ -259,8 +259,10 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
-@media screen and (max-width: 767px) {
-  #navbar { 
+@media screen and (max-width:767px) {
+  
+  #nav-column { 
+    height: 30px;
     display: flex; 
     text-align: center; 
     justify-content: center;
@@ -269,9 +271,38 @@ input:-webkit-autofill {
   .hvr-bounce-in {
     width: 10%;
     float: left;
+    padding: 0;
   }
 
   h1 {
     text-align: center;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .calendar {
+    width: 100%;
+    margin-right: 0px;
+  }
+
+  .calendar-panel {
+    height: 50px;
+    margin-top: 0;
+    border: 1px solid rgba(24, 188, 156, 0.19);
+    border-bottom: none;
+  }
+
+  .reminder-type {
+    float: none;
+    position: relative;
+    text-align: center;
+    bottom: 10px;
+    font-size: 14px;
+  }
+
+  .calendar-day {
+    margin-top: 15px;
   }
 }

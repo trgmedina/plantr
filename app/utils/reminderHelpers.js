@@ -6,7 +6,7 @@ require('moment-recur');
 let displayReminders = [];
 let sortedDisplayReminders = [];
 let todaysDate = moment().format("MM-DD-YYYY")
-let endDate = moment().add(7, 'days').format("MM-DD-YYYY")
+let endDate = moment().add(6, 'days').format("MM-DD-YYYY")
 let recurrence;
 
 let reminderHelpers = {
