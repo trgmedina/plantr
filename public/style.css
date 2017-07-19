@@ -1,16 +1,21 @@
-html {
-  height: 100%;
-}
+
 
 body {
   font-family: 'Lato', sans-serif;
   background-color: #e8fff2;
   color: #18bc9c;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
-  height: 100vh;
 }
 
+.container-fluid {
+  padding: 0 10px;
+}
+
+.jumbotron {
+  background-color: transparent;
+}
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -22,26 +27,29 @@ body {
 }
 
 #wrap {
-  flex: 1 0 auto; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
-  padding: 20px;
-}
-
-#content-wrapper {
-  min-height: 80vh;
+  flex: 1;
+  height: 90vh;
 }
 
 footer {
-  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
-  padding: 20px;
+  /*flex-shrink: 0;  Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  height: 5vh;
+  margin-top: 5vh;
+}
+
+.fa-github-alt {
+  display: inline-block;
 }
 
 h1 {
   font-family: 'Yellowtail', cursive;
+  font-size: 44px;
+
 }
 
 h2 {
     font-size: 30px;
-    margin-top: 0px;
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
@@ -62,6 +70,27 @@ span > i {
   box-shadow: none;
   border: none;
   border-radius: 2px;
+}
+
+.fa {
+  padding: 10px;
+}
+
+/*Icon Hover Effects*/
+.hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
 
 /*Add Plant Form*/
