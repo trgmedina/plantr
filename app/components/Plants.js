@@ -46,7 +46,7 @@ componentDidMount() {
           <div className="panel panel-default plant-panel">
 					  		<div className="panel-body plant-panel-body">
 					    		<h5 className="plantpg-name">{plant.name}</h5>
-					    		<img src="http://i.imgur.com/X8CLtJ6.jpg" className="plantpg-img"></img>
+					    		<img src={plant.imageURL} className="plantpg-img"></img>
 					    		<i className="fa fa-minus-square fa-lg" aria-hidden="true"></i>
 					  		</div>
 							<div className="panel-group" role="tablist">
@@ -66,25 +66,25 @@ componentDidMount() {
 											<li className="list-group-item plantpg-origin">
 												<span>
 													<i className="fa fa-globe" aria-hidden="true"></i>
-													North America
+													{plant.origin}
 												</span>
 											</li>										
 											<li className="list-group-item plantpg-sun">
 												<span>
 													<i className="fa fa-sun-o" aria-hidden="true"></i>
-													Partial Sun
+													{plant.sunlightAmt}
 												</span>
 											</li>
 											<li className="list-group-item plantpg-water">
 												<span>
 													<i className="fa fa-tint" aria-hidden="true"></i>
-													Once a week
+													{plant.waterSchedule}
 												</span>
 											</li>
 											<li className="list-group-item plantpg-reminder">
 												<span>
 													<i className="fa fa-exclamation" aria-hidden="true"></i>
-													Tuesday, Friday, Every Week
+													{plant.reminders.frequency}
 												</span>
 											</li>
 										</ul>
