@@ -43,8 +43,8 @@ class Reminders extends React.Component {
               <div className="panel-body calendar-body">
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
-                  <p>{reminder.type} {reminder.plant}</p>
-                  <p>{reminder.date}</p>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type"><strong>{reminder.type}</strong> {reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -63,8 +63,8 @@ class Reminders extends React.Component {
               <div className="panel-body calendar-body">
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
-                  <p>{reminder.type} {reminder.plant}</p>
-                  <p>{reminder.date}</p>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -82,8 +82,8 @@ class Reminders extends React.Component {
               <div className="panel-body calendar-body">
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
-                  <p>{reminder.type} {reminder.plant}</p>
-                  <p>{reminder.date}</p>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -102,8 +102,8 @@ class Reminders extends React.Component {
               <div className="panel-body calendar-body">
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
-                  <p>{reminder.type} {reminder.plant}</p>
-                  <p>{reminder.date}</p>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -122,8 +122,8 @@ class Reminders extends React.Component {
               <div className="panel-body calendar-body">
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
-                  <p>{reminder.type} {reminder.plant}</p>
-                  <p>{reminder.date}</p>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -142,8 +142,8 @@ class Reminders extends React.Component {
               <div className="panel-body calendar-body">
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
-                  <p>{reminder.type} {reminder.plant}</p>
-                  <p>{reminder.date}</p>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -161,8 +161,8 @@ class Reminders extends React.Component {
               <div className="panel-body calendar-body">
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
-                  <p>{reminder.type} {reminder.plant}</p>
-                  <p>{reminder.date}</p>
+                  <p className="reminder-date text-right">{reminder.date}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
                 </span>
               </div>
             </div>

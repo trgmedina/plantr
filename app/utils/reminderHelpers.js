@@ -48,7 +48,7 @@ let reminderHelpers = {
 						plant: displayReminders[i].plant,
 						type: displayReminders[i].type,
 						day: moment(date,"MM-DD-YYYY").format("dddd"),
-						date: date,
+						date: moment(date,"MM-DD-YYYY").format("MM/DD"),
 						imageURL: displayReminders[i].imageURL
 					}
 					// console.log(j, newObject)
