@@ -30,7 +30,14 @@ module.exports = {
     	   console.log(plantsNames); 
     	   return plantsNames;
        });
-    }
+    },
+
+  getUserPlants: function() {
+    var displayUserPlants = [];
+
+    return axios.get("/user/plants");
+  }
+
 };
 
 

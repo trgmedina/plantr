@@ -126,6 +126,20 @@ app.get("/app/reminders", function(req, res) {
 //   //   });
 });
 
+// Route to get all of user's plants
+app.get("/user/plants", function(req, res){
+  
+  UserPlant.find({}).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
+
+});
+
  // load our routes and pass in our app and fully configured passport
 require('./app/loginRoutes.js')(app, passport);
 
