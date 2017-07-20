@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta name="viewport" content="width=device-width" />
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
 	
 	<title>Plantr</title>
@@ -20,21 +20,40 @@
 
 	<link rel="stylesheet" href="./style.css">
 
+	<link rel="stylesheet" href="./fakeLoader.css">
+
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="./fakeLoader.min.js"></script>
 
 </head>
 
 <body>
-	
+	<div id="fakeLoader"></div>
 	<!-- This is where React will deploy the contents it generates -->
 	<div id="app"></div>
+
+    <div class="row">
+        <footer class="footer col-xs-12">
+            <div class="text-center">
+                &copy; 2017 Plantr
+                <a href="#">
+                    <i class="fa fa-github-alt fa-lg hvr-bounce-in" aria-hidden="true"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
 
 	<!-- All of our JS code will be transpiled into this bundle.js file -->
 	<script src="bundle.js"></script>
 
 	<script type="text/javascript">
+
+		// $(".footer").hide()
+		$("#fakeLoader").fakeLoader()
+		// $(".footer").show()
+		
 		$('.collapse').collapse()
 
 	</script>

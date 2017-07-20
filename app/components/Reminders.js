@@ -44,7 +44,7 @@ class Reminders extends React.Component {
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
                   <p className="reminder-date text-right">{reminder.date}</p>
-                  <p className="reminder-type"><strong>{reminder.type}</strong> {reminder.plant}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -174,6 +174,7 @@ class Reminders extends React.Component {
 
   renderContainer() {
     return (
+
         <div className="container-fluid">
 	        <div className="row">
 	          	<div className="col-xs-12 text-center">

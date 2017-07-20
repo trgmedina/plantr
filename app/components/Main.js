@@ -11,57 +11,45 @@ var Main = React.createClass({
 
     return (
         <div className="container-fluid" id="wrap">
-            {/*header*/}
-            <div className="row" id="header">
-              <div className="col-xs-10">
-                <h1 className="navbar-left">Plantr</h1>
-              </div>
-              <div className="col-xs-2">
-                <a href="/logout" className="navbar-right"><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i>LOGOUT</a>
-              </div>
-            </div>
-
-            {/*Navigation*/}
-            <div className="row">
-              <div className="col-xs-1" id="navbar">
-                <div>
-                  <Link to="/app/Reminders"><i className="fa fa-exclamation fa-2x" aria-hidden="true"></i></Link>
-                </div>
-                <div>
-                  <Link to="/app/Calendar"><i className="fa fa-calendar fa-2x" aria-hidden="true"></i></Link>
-                </div>
-                <div>
-                  <Link to="/app/Plants"><i className="fa fa-leaf fa-2x" aria-hidden="true"></i></Link>
-                </div>
-                <div>
-                  <Link to="/app/AddPlant"><i className="fa fa-plus fa-2x" aria-hidden="true"></i></Link>
-                </div>
-                <div>
-                  <a href="/Profile"><i className="fa fa-user fa-2x" aria-hidden="true"></i></a>
-                </div>
-              </div>
-            <div className="col-xs-11" id="content-wrapper">
-              {/* Here we will deploy the sub components */}
-              {/* These sub-components are getting passed as this.props.children */}
-              {this.props.children}
-            </div>
-        </div>
-
-          {/*footer*/}
           <div className="row">
-            <footer className="footer">
-              <div className="col-xs-offset-4 col-xs-4">
-                <p className="text-center">&copy; 2017 Plant App</p>
+            <div className="col-xs-12">
+              <div className="row">
+                {/*header*/}
+                <h1 className="align-middle">Plantr</h1>
               </div>
-              <div className="col-xs-4">
-                <span className="pull-right">
-                  <a href="#"><i className="fa fa-info-circle" aria-hidden="true"></i></a>
-                  <a href="#"><i className="fa fa-github-alt" aria-hidden="true"></i></a>
-                </span>
+              {/*Navigation*/}
+              <div className="row">
+                <div className="col-md-1 col-xs-12" id="nav-column">
+                    <div className="nav-icon">
+                      <Link to="/app/Reminders"><i className="fa fa-exclamation fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>
+                    </div>
+                    {/*<div className="nav-icon">
+                        <Link to="/app/Calendar"><i className="fa fa-calendar fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>
+                      </div>*/}
+                    <div className="nav-icon">
+                      <Link to="/app/Plants"><i className="fa fa-leaf fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>
+                    </div>
+                    <div className="nav-icon">
+                      <Link to="/app/AddPlant"><i className="fa fa-plus fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>
+                    </div>
+                    <div className="nav-icon">
+                      <a href="/Profile"><i className="fa fa-user fa-lg hvr-bounce-in" aria-hidden="true"></i></a>
+                    </div>
+                    <div className="nav-icon">
+                      <a href="/logout" id="logout-btn"><i className="fa fa-sign-out fa-lg hvr-bounce-in" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div className="col-md-11 col-xs-12">
+                  <div id="content-wrapper">
+                      {/* Here we will deploy the sub components */}
+                      {/* These sub-components are getting passed as this.props.children */}
+                      {this.props.children}
+                  </div>
+                </div>
               </div>
-            </footer>
+            </div>
           </div>
-      </div>
+        </div> 
     );
   }
 });
