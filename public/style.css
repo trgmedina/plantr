@@ -36,6 +36,9 @@ footer {
   height: 5vh;
   margin-top: 5vh;
 }
+.show-hide {
+  display: none;
+}
 
 .fa-github-alt {
   display: inline-block;
