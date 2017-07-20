@@ -79,7 +79,7 @@ function setReminder(createdDate, days, frequency, index) {
 	// console.log("Start Date: ", todaysDate)
 	// console.log("End Date: ", endDate)
 	// console.log("Day: ", day)
-	// console.log("Week: ", week)
+	console.log("Week: ", week)
 	// console.log("===============================")
 
 		// this test works
@@ -101,7 +101,7 @@ function setReminder(createdDate, days, frequency, index) {
 			// setting variable for which weeks the reminders should occur
 			let weeks;
 			var cal;
-			let nextDates;
+			let biWeekEnd = moment().add(14, 'days').format("MM-DD-YYYY")
 			// if the reminder created at date falls in week 0, 1 or 3, set the frequency for same weeks
 			if (week === 0 || 2 ) {
 				weeks = [0,2]
@@ -109,18 +109,19 @@ function setReminder(createdDate, days, frequency, index) {
 			}else {
 				weeks = [1,3]
 			}
-			console.log("days",days)
+
+			var myDate = moment(createdDate)
 			// setting a cal recurrence based on days of week and weeks variable determined above
-			cal = moment(createdDate).recur(todaysDate, endDate).every(days).daysOfWeek()
+			recurrence = myDate.recur(todaysDate, biWeekEnd).every(days).daysOfWeek()
 	                    .every(weeks).weeksOfMonthByDay()
 	        // generate dates
-	        allDates = cal.all("L");
+	        allDates = recurrence.next(1, "L")
 	        // loop through resulting array and push to the reminder object
 			for (let i = 0; i < allDates.length; i++) {
 				displayReminders[index].dates.push(allDates[i])
 			}
 	        // call logger function to display the recurrence dates
-			// logger(days, frequency, allDates)
+			logger(days, frequency, allDates)
 
 		// this test works!
 		}else {
