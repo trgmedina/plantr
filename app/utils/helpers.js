@@ -66,7 +66,10 @@ module.exports = {
     var searchPlant = plantName;
       return axios.get("/api").then(function(results){
          for(var j=0; j < results.data.length; j++){
-          if (results.data[j].name = searchPlant){
+          if (results.data[j].name === searchPlant){
+              // console.log("front end results", results)
+             console.log("front end results.data", results.data)
+             console.log("front end results.data[j]", results.data[j])
              return results.data[j]; 
              break; 
             }

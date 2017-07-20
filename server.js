@@ -68,6 +68,7 @@ app.get("/api", function(req, res) {
     }
     else {
       res.send(doc);
+      console.log("back end results", doc)
     }
   });
 });

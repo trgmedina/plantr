@@ -18,6 +18,7 @@ var AddPlant = React.createClass({
       sunlightAmt: "",
       waterSchedule: "",
       imageURL: "",
+      specialCare: "",
       reminders: {
         reminderType: "",
         days: [],
@@ -67,8 +68,17 @@ var AddPlant = React.createClass({
 
     helpers.searchPlant(searchName)
     .then(function(res){
-           console.log(res);
-      });
+      console.log("component results ", res)
+      this.setState({ 
+        name: res.name,
+        description: res.description,
+        origin: res.origin,
+        sunlightAmt: res.sunlightAmt,
+        waterSchedule: res.waterSchedule,
+        specialCare: res.specialCare,
+        imageURL: res.imageURL
+      })
+    }.bind(this));
   },
 
   handleSubmit: function(event) {
@@ -158,8 +168,8 @@ var AddPlant = React.createClass({
                           className="form-control"
                           id="nickname-input"
                           onChange={this.handleChange}
-                          value={this.state.value}
-                          placeholder="Name of Plant (if new)">
+                          value={this.state.name||this.state.value}
+                          placeholder="Name">
                         </input>
                       </label>
                     </div>
@@ -187,7 +197,7 @@ var AddPlant = React.createClass({
                           className="form-control" 
                           id="image-input" 
                           onChange={this.handleChange}
-                          value={this.state.value}
+                          value={this.state.imageURL||this.state.value}
                           placeholder="Image URL" 
                           required>
                         </input>
@@ -202,7 +212,7 @@ var AddPlant = React.createClass({
                           className="form-control" 
                           id="description-input" 
                           onChange={this.handleChange}
-                          value={this.state.value}
+                          value={this.state.description||this.state.value}
                           placeholder="Add Description Here"
                           rows="3"
                           required>
@@ -218,7 +228,7 @@ var AddPlant = React.createClass({
                           className="form-control" 
                           id="origin-input" 
                           onChange={this.handleChange}
-                          value={this.state.value}
+                          value={this.state.origin||this.state.value}
                           placeholder="Origin">
                         </input>
                       </label>
@@ -235,7 +245,7 @@ var AddPlant = React.createClass({
                               id="light-input" 
                               onChange={this.handleChange}
                               value={this.state.value}>
-                              <option></option>
+                              <option>{this.state.sunlightAmt}</option>
                               <option value="Full Sun">Full Sun</option>
                               <option value="Partial Sun">Partial Sun</option>
                               <option value="Bright Light">Bright Light</option>
@@ -254,7 +264,7 @@ var AddPlant = React.createClass({
                               id="water-input"
                               onChange={this.handleChange}
                               value={this.state.value}>
-                              <option></option>
+                              <option>{this.state.waterSchedule}</option>
                               <option value="Once a Day">Once a Day</option>
                               <option value="Once a Week">Once a Week</option>
                               <option value="Every Other Week">Every Other Week</option>
@@ -267,7 +277,11 @@ var AddPlant = React.createClass({
                     </div>
                     <div className="form-group">
                       <label htmlFor="additional">Additional Special Care Instructions</label>
-                      <textarea className="form-control" id="additional-input" rows="3"></textarea>
+                      <textarea className="form-control"
+                        id="additional-input"
+                        name="specialCare" rows="3"
+                        value={this.state.specialCare||this.state.value}>
+                      </textarea>
                     </div>
                     <h4 className="text-center">Create a Reminder</h4>
                     <div className="row">
