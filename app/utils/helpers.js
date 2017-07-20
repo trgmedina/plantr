@@ -1,5 +1,5 @@
 // Here we will utilize the axios library to perform GET/POST requests
-var axios = require("axios");
+const axios = require("axios");
 
 // Exporting an object with methods for retrieving and posting data to our API
 module.exports = {
@@ -12,8 +12,8 @@ module.exports = {
   savePlant: function(plantData) {
      return axios.get("/user").then(function(results){
             console.log("user id is here",results.data._id);
-            var id = results.data._id;
-            var newPlant = {
+            let id = results.data._id;
+            let newPlant = {
                   plant: plantData,
                   userId: id
             }
@@ -23,24 +23,24 @@ module.exports = {
   // Get the array of plants names in the plants collection and use it for autocomplete
   getPlantsNames: function() {
      return axios.get("/api").then(function(results){
-     	 var plantsNames = [];
-    	    for(var i=0; i < results.data.length; i++){
+     	 let plantsNames = [];
+    	    for(let i=0; i < results.data.length; i++){
     	    	plantsNames.push(results.data[i].name);
     	    }
-    	   console.log(plantsNames); 
+    	   // console.log(plantsNames); 
     	   return plantsNames;
        });
     },
 
   getUserPlants: function() {
-    var displayUserPlants = [];
+    let displayUserPlants = [];
 
     return axios.get("/user/plants").then(function(results){
-      var data = results.data;
+      let data = results.data;
 
       // loop through results from DB 
-      for (var i = 0; i < data.length; i++) {
-          var plantData = {
+      for (let i = 0; i < data.length; i++) {
+          let plantData = {
             name: data[i].name,
             description: data[i].description,
             origin: data[i].origin,
@@ -63,13 +63,10 @@ module.exports = {
 
   searchPlant: function(plantName){
     //find the plant being passed from addPlant search input
-    var searchPlant = plantName;
+    let searchPlant = plantName;
       return axios.get("/api").then(function(results){
-         for(var j=0; j < results.data.length; j++){
+         for(let j=0; j < results.data.length; j++){
           if (results.data[j].name === searchPlant){
-              // console.log("front end results", results)
-             console.log("front end results.data", results.data)
-             console.log("front end results.data[j]", results.data[j])
              return results.data[j]; 
              break; 
             }
