@@ -23,6 +23,7 @@ var Reminders = require("../components/Reminders");
 var AddPlant = require("../components/AddPlant");
 var Calendar = require("../components/Calendar");
 var Plants = require("../components/Plants");
+var PlantProfile = require("../components/PlantProfile");
 
 
 // Export the Routes
@@ -36,6 +37,7 @@ module.exports = (
       <Route path="AddPlant" component={AddPlant} />
       <Route path="Calendar" component={Calendar} />
       <Route path="Plants" component={Plants} />
+      <Route path="PlantProfile" component={PlantProfile} />
 
       {/* If user selects any other path... we get the Home Route */}
     <IndexRoute component={Reminders} />
