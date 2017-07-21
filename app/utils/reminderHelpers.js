@@ -76,12 +76,12 @@ function setReminder(createdDate, days, frequency, index) {
 	let allDates;
 	// and what week in the month it occurs (1-4)
 	let week = moment(createdDate).monthWeek()
-	console.log("----Reminder Information-----")
-	console.log("Created Date: ", createdDate)
-	console.log("Start Date: ", todaysDate)
-	console.log("End Date: ", endDate)
-	console.log("Day: ", day)
-	console.log("===============================")
+	// console.log("----Reminder Information-----")
+	// console.log("Created Date: ", createdDate)
+	// console.log("Start Date: ", todaysDate)
+	// console.log("End Date: ", endDate)
+	// console.log("Day: ", day)
+	// console.log("===============================")
 
 		// this test works
 		if (frequency==="Every week") {
