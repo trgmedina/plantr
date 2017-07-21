@@ -20,6 +20,7 @@ module.exports = {
             return axios.post("/userPlant", newPlant);
      });
   },
+
   // Get the array of plants names in the plants collection and use it for autocomplete
   getPlantsNames: function() {
      return axios.get("/api").then(function(results){
@@ -30,7 +31,7 @@ module.exports = {
     	   // console.log(plantsNames); 
     	   return plantsNames;
        });
-    },
+  },
 
   getUserPlants: function() {
     let displayUserPlants = [];
@@ -41,6 +42,7 @@ module.exports = {
       // loop through results from DB 
       for (let i = 0; i < data.length; i++) {
           let plantData = {
+            id: data[i]._id,
             name: data[i].name,
             description: data[i].description,
             origin: data[i].origin,
@@ -58,6 +60,16 @@ module.exports = {
       }
 
       return displayUserPlants;
+    });
+  },
+
+  deleteUserPlant: function(plantID) {
+
+    console.log(plantID);
+
+    return axios.delete("/app/plants", { _id: plantID }).then(function(results) {
+      console.log("axios results", results);
+      return results;
     });
   },
 

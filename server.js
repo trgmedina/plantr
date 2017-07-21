@@ -143,7 +143,21 @@ app.get("/user/plants", function(req, res){
       res.send(doc);
     }
   });
+});
 
+app.delete("/user/plants", function(req, res){
+
+  var userID = req.user._id;
+  console.log(userID);
+
+  UserPlant.find({ _id: userID }).remove().exec(function(err) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send("Deleted");
+    }
+  });
 });
 
  // load our routes and pass in our app and fully configured passport

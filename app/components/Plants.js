@@ -17,12 +17,32 @@ class Plants extends React.Component {
 
     // When this component mounts, get all user plants
 	componentDidMount() {
-    	helpers.getUserPlants().then(function(data) {
-    		console.log(data);
+    	helpers.getUserPlants().then(function(plantData) {
+    		console.log(plantData);
 
-     		this.setState({ savedPlants: data });
+     		this.setState({ savedPlants: plantData });
 
     	}.bind(this));
+  	}
+
+  	// This code handles the deleting of a user's plant 
+	handleDelete(plant) {
+	    console.log(plant);
+	    console.log(plant.id);
+
+	    // Delete the list!
+	    helpers.deleteUserPlant(
+	    	plant.id
+	    ).then(function() {
+
+	      // Get the revised list!
+	      helpers.getUserPlants().then(function(plantData) {
+	        this.setState({ savedPlants: plantData });
+	        console.log("saved results", plantData );
+
+	      }.bind(this));
+
+	    }.bind(this));
   	}
 
   	renderEmpty() {
@@ -48,7 +68,7 @@ class Plants extends React.Component {
 						<div className="panel-body plant-panel-body">
 						 	<h5 className="plantpg-name">{plant.name}</h5>
 							<img src={plant.imageURL} className="plantpg-img"></img>
-						    <i className="fa fa-minus-square fa-lg" aria-hidden="true"></i>
+						    <i className="fa fa-minus-square fa-lg" aria-hidden="true" onClick={this.handleDelete.bind(this, plant.id)}></i>
 						</div>
 						<div className="panel-group" role="tablist">
 							<div className="panel panel-default">
