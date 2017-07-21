@@ -41,6 +41,7 @@ module.exports = {
       // loop through results from DB 
       for (let i = 0; i < data.length; i++) {
           let plantData = {
+            id: data[i]._id,
             name: data[i].name,
             description: data[i].description,
             origin: data[i].origin,

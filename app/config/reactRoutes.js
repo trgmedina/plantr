@@ -37,7 +37,7 @@ module.exports = (
       <Route path="AddPlant" component={AddPlant} />
       <Route path="Calendar" component={Calendar} />
       <Route path="Plants" component={Plants} />
-      <Route path="PlantProfile" component={PlantProfile} />
+      <Route path="PlantProfile/:id" component={PlantProfile} />
 
       {/* If user selects any other path... we get the Home Route */}
     <IndexRoute component={Reminders} />

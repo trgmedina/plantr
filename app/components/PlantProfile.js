@@ -1,24 +1,30 @@
 // Include React as a dependency
-var React = require("react");
+const React = require("react");
 
 // Include the Helper (for the saved recall)
-var helpers = require("../utils/helpers");
+const helpers = require("../utils/helpers");
 
-var moment = require('moment');
-// Create the Main component
-var PlantProfile = React.createClass({
+const moment = require('moment');
 
-  getInitialState: function() {
+class PlantProfile extends React.Component {
+
+
+
+  getInitialState () {
     
-  },
-
+  }
   
-  render: function() {
+  componentDidMount() {
+    var id = this.props.params.id
+    console.log(id)
+  }
+
+  render () {
     return (
-      
+      <div></div>
     );
   }
-});
+};
 
 // Export the module back to the route
 module.exports = PlantProfile;
