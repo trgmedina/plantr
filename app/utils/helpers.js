@@ -41,12 +41,15 @@ module.exports = {
       // loop through results from DB 
       for (let i = 0; i < data.length; i++) {
           let plantData = {
+            id: data[i]._id,
             name: data[i].name,
+            nickname: data[i].nickname,
             description: data[i].description,
             origin: data[i].origin,
             sunlightAmt: data[i].sunlightAmt,
             waterSchedule: data[i].waterSchedule,
             imageURL: data[i].imageURL,
+            specialCare: data[i].specialCare,
             reminders: {
               reminderType: data[i].reminders.reminderType,
               days: data[i].reminders.days,

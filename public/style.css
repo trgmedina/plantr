@@ -243,6 +243,9 @@ span > i {
   text-align: center;
 }
 
+#profile-img {
+  width: 100%;
+}
 /*FORMS*/
 .form-control, input {
   border-width: 0px;

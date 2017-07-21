@@ -33,6 +33,9 @@ var UserPlantSchema = new Schema({
   imageURL: {
   	type: String
   },
+  specialCare: {
+    type: String
+  },
   reminders: [{
       reminderType: { type: String, required: true },
       days: [{ type: String, required: true }],
