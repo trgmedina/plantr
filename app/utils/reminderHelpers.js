@@ -25,6 +25,7 @@ let reminderHelpers = {
 				for (let j = 0; j<data[i].reminders.length; j++) {
 					let newReminder = {
 							plant: data[i].name,
+							nickname: data[i].nickname,
 							type: data[i].reminders[j].reminderType,
 							dates: [],
 							imageURL: data[i].imageURL
@@ -47,6 +48,7 @@ let reminderHelpers = {
 					let date = displayReminders[i].dates[j]
 					let newObject = {
 						plant: displayReminders[i].plant,
+						nickname: displayReminders[i].nickname,
 						type: displayReminders[i].type,
 						day: moment(date,"MM-DD-YYYY").format("dddd"),
 						date: moment(date,"MM-DD-YYYY").format("MM/DD"),
@@ -97,9 +99,7 @@ function setReminder(createdDate, days, frequency, index) {
 
 		// this test works
 		}else if (frequency==="Every other week"){
-			// Generates dates for the every other week frequency when only one day of week is selected
-			// this function generates accurate dates based on reminder created date, weekday selection and current day
-			// if (days.length===1) {
+	
 				const weekdays = {
 					Sunday: 0,
 					Monday: 1,
@@ -127,37 +127,8 @@ function setReminder(createdDate, days, frequency, index) {
 							displayReminders[index].dates.push(allDates[i])
 						};
 					}
+				// logger(days, frequency, allDates)
 				}
-				// logger(days, frequency, allDates)
-
-			// fall back for now if multiple days are selected. 
-			// very buggy, but don't want entire component to error out.
-			// }else{
-				// setting variable for which weeks the reminders should occur
-				// let weeks;
-
-				// let biWeekEnd = moment().add(14, 'days').format("MM-DD-YYYY")
-				// // if the reminder created at date falls in week 0, 1 or 3, set the frequency for same weeks
-				// if (week === 0 || 2 ) {
-				// 	weeks = [0,2]
-				// // else, set the frequency for weeks 2 & 4
-				// }else {
-				// 	weeks = [1,3]
-				// }
-
-				// var myDate = moment(createdDate)
-				// // setting a cal recurrence based on days of week and weeks variable determined above
-				// recurrence = myDate.recur(todaysDate, biWeekEnd).every(days).daysOfWeek()
-		  //                   .every(weeks).weeksOfMonthByDay()
-		  //       // generate dates
-		  //       allDates = recurrence.next(1, "L")
-		  //       // loop through resulting array and push to the reminder object
-				// for (let i = 0; i < allDates.length; i++) {
-				// 	displayReminders[index].dates.push(allDates[i])
-				// }
-		        // call logger function to display the recurrence dates
-				// logger(days, frequency, allDates)
-			// }
 
 		}else {
 			// setting a cal recurrence based on days of week at monthly frequency

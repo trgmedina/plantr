@@ -124,7 +124,7 @@ app.get("/app/reminders", function(req, res) {
           } 
         }
       // only return the reminders, plant name and image URL from the query
-    }).select('reminders name imageURL');
+    }).select('reminders name nickname imageURL');
       // execute query and send result to front end
     plantQuery.exec(function (err, reminders) {
       res.send(reminders);
