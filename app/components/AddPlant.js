@@ -1,5 +1,6 @@
 // Include React as a dependency
 var React = require("react");
+import { browserHistory } from 'react-router';
 
 // Include the Helper (for the saved recall)
 var helpers = require("../utils/helpers");
@@ -92,9 +93,12 @@ var AddPlant = React.createClass({
       imageURL: this.state.imageURL, 
       reminders: this.state.reminders
     })
-      .then(function() {
+      .then(function(res) {
         console.log("Posted to MongoDB");
+        
+        browserHistory.push('/app/plants');
       })
+
   },
 
   render: function() {
@@ -404,7 +408,7 @@ var AddPlant = React.createClass({
                           </div>
                         </div>
                       </div>
-                      <button type="submit" className="btn btn-success">Submit</button>
+                      <a href="/app"><button onClick={this.handleSubmit} type="submit" className="btn btn-success">Submit</button></a>
                     </form>          
               </div>
             </div>
