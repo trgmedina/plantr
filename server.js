@@ -146,6 +146,21 @@ app.get("/user/plants", function(req, res){
 
 });
 
+// Route to get all of user's plants
+app.get("/app/profile/:id", function(req, res){
+  var plantId = req.params.id
+  UserPlant.findById(plantId, function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+      console.log("Profile Page ", doc)
+    }
+  });
+
+});
+
  // load our routes and pass in our app and fully configured passport
 require('./app/loginRoutes.js')(app, passport);
 

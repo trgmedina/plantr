@@ -43,11 +43,13 @@ module.exports = {
           let plantData = {
             id: data[i]._id,
             name: data[i].name,
+            nickname: data[i].nickname,
             description: data[i].description,
             origin: data[i].origin,
             sunlightAmt: data[i].sunlightAmt,
             waterSchedule: data[i].waterSchedule,
             imageURL: data[i].imageURL,
+            specialCare: data[i].specialCare,
             reminders: {
               reminderType: data[i].reminders.reminderType,
               days: data[i].reminders.days,
