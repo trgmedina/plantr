@@ -48,7 +48,6 @@ let profileHelpers = {
   	},
 
   	saveReminder: function(reminder, plantId) {
-  		console.log("axios reminder ",reminder)
 
   		let newReminder = {
         	reminder: reminder,

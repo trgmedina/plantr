@@ -123,7 +123,7 @@ class PlantProfile extends React.Component {
     }.bind(this));
   }
 
-  renderEmpty() {
+  newReminderModal() {
     return (
       <div>
         <button className="btn btn-success" onClick={this.openModal}>Create New</button>
@@ -238,6 +238,14 @@ class PlantProfile extends React.Component {
           </form>
         </Modal>
       </div>
+    )
+  }
+  renderEmpty() {
+    return (
+      <div>
+        <p>No saved Reminders</p>
+        {this.newReminderModal()}
+      </div>
     );
   }
 
@@ -293,6 +301,7 @@ class PlantProfile extends React.Component {
             <ul className="list-group">
               {/*REMINDERS RENDER HERE*/}
               {this.renderReminders()}
+              {this.newReminderModal()}
             </ul>
           </div>
         </div>
