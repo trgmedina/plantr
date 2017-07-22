@@ -26,6 +26,25 @@ class Plants extends React.Component {
     	}.bind(this));
   	}
 
+  	// This code handles the deleting of a user's plant 
+	handleDelete(plant) {
+		console.log("CLICKED")
+	    console.log(plant);
+	    console.log(plant.id);
+
+	    // Delete the list!
+	    helpers.deleteUserPlant(plant).then(function() {
+
+	      // Get the revised list!
+	      helpers.getUserPlants().then(function(plantData) {
+	        this.setState({ savedPlants: plantData });
+	        console.log("saved results", plantData );
+
+	      }.bind(this));
+
+	    }.bind(this));
+  	}
+
   	renderEmpty() {
     	return (
 	      	<li className="list-group-item">
@@ -49,7 +68,7 @@ class Plants extends React.Component {
 
 			return (
 	        	<div key={index}>
-	        		<div onClick={this.handleClick.bind(null,plant.id)} id={plant.id} type="submit">
+	        		<div onClick={() => this.handleDelete(plant)} id={plant.id} type="submit">
 		          		<div className="panel panel-default plant-panel">
 							<div className="panel-body plant-panel-body">
 							 	<h5 className="plantpg-name">{plant.name}</h5>

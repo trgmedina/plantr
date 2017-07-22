@@ -186,6 +186,21 @@ app.get("/app/profile/:id", function(req, res){
 
 });
 
+app.delete("/user/plants/:id", function(req, res){
+  var plantId = req.params.id;
+  console.log("server", plantId);
+
+  UserPlant.findById(plantId, function(err, res){
+    if (err) {
+      console.log(err);
+    }
+    else {
+      UserPlant.remove();
+      res.send("Deleted");
+    }
+  });
+});
+
  // load our routes and pass in our app and fully configured passport
 require('./app/loginRoutes.js')(app, passport);
 
