@@ -84,7 +84,7 @@ module.exports = function(app, passport) {
         // the callback after google has authenticated the user
         app.get('/auth/google/callback',
             passport.authenticate('google', {
-                successRedirect : '/app',
+                successRedirect : '/profile',
                 failureRedirect : '/'
             }));
 
@@ -110,7 +110,7 @@ module.exports = function(app, passport) {
         // handle the callback after facebook has authorized the user
         app.get('/connect/facebook/callback',
             passport.authorize('facebook', {
-                successRedirect : '/app',
+                successRedirect : '/profile',
                 failureRedirect : '/'
             }));
 
@@ -122,7 +122,7 @@ module.exports = function(app, passport) {
         // handle the callback after twitter has authorized the user
         app.get('/connect/twitter/callback',
             passport.authorize('twitter', {
-                successRedirect : '/app',
+                successRedirect : '/profile',
                 failureRedirect : '/'
             }));
 
@@ -130,12 +130,12 @@ module.exports = function(app, passport) {
     // google ---------------------------------
 
         // send to google to do the authentication
-        app.get('/connect/google', passport.authorize('google', { scope : ['profile', 'email'] }));
+        app.get('/connect/google', passport.authorize('google', { scope : ['https://www.googleapis.com/auth/calendar','profile', 'email']}));
 
         // the callback after google has authorized the user
         app.get('/connect/google/callback',
             passport.authorize('google', {
-                successRedirect : '/app',
+                successRedirect : '/profile',
                 failureRedirect : '/'
             }));
 
@@ -195,7 +195,6 @@ module.exports = function(app, passport) {
     });
    
 };
-
 
 
 
