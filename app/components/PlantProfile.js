@@ -106,18 +106,15 @@ class PlantProfile extends React.Component {
   }
 
   handleSubmit() {
-    console.log("from handlesubmit: newReminder", this.state.newReminder)
     let plantId = this.props.params.id
     let reminder = this.state.newReminder
 
     profileHelpers.saveReminder(reminder, plantId).then(function() {
-      console.log("submitted")
       profileHelpers.getPlantInfo(plantId).then(function(data) {
         this.setState({ 
           plant: data[0],
           reminders: data[1] 
         });
-        console.log("saved results", data);
       }.bind(this));
 
     }.bind(this));
