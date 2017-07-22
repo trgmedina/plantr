@@ -10,14 +10,15 @@ module.exports = {
 
   // Takes in an argument for what to post to the database
   savePlant: function(plantData) {
-     return axios.get("/user").then(function(results){
+     return axios.get("/user/plants").then(function(results){
             console.log("user id is here",results.data._id);
             let id = results.data._id;
             let newPlant = {
                   plant: plantData,
                   userId: id
             }
-            return axios.post("/userPlant", newPlant);
+            console.log("new plant ID: " + plantData.id);
+            return axios.post("/user/plants/" + newPlant.id, newPlant);
      });
   },
 
@@ -65,11 +66,23 @@ module.exports = {
     });
   },
 
-  deleteUserPlant: function(plantID) {
+  deleteUserPlant: function(plant) {
+    console.log("helpers", plant);
 
-    console.log(plantID);
-
-    return axios.delete("/app/plants", { _id: plantID }).then(function(results) {
+    return axios.delete("/user/plants/", {
+      params: {
+        id: plant.id,
+        name: plant.name,
+        nickname: plant.nickname,
+        description: plant.description,
+        origin: plant.origin,
+        sunlightAmt: plant.sunlightAmt,
+        waterSchedule: plant.waterSchedule,
+        imageURL: plant.imageURL,
+        specialCare: plant.specialCare,
+        reminders: plant.reminders
+      }
+    }).then(function(results) {
       console.log("axios results", results);
       return results;
     });
