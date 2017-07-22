@@ -36,6 +36,9 @@ var UserPlantSchema = new Schema({
   specialCare: {
     type: String
   },
+  rating: {
+    type: Number
+  },
   reminders: [{
       reminderType: { type: String, required: true },
       days: [{ type: String, required: true }],
