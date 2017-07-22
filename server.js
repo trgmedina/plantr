@@ -124,7 +124,7 @@ app.get("/app/reminders", function(req, res) {
           } 
         }
       // only return the reminders, plant name and image URL from the query
-    }).select('reminders name imageURL');
+    }).select('reminders name nickname imageURL');
       // execute query and send result to front end
     plantQuery.exec(function (err, reminders) {
       res.send(reminders);
@@ -132,15 +132,55 @@ app.get("/app/reminders", function(req, res) {
   });
 });
 
+// Route to delete an article from saved list
+app.delete("/app/delete/:id", function(req, res) {
+
+  var id = req.params.id;
+  console.log(id)
+  UserPlant.findOne({'reminders._id': id}, function (err, result) {
+
+  // UserPlant.reminders.id(id).remove().exec(function(err) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      result.reminders.id(id).remove();
+      result.save();
+      res.send("Deleted");
+    }
+  });
+});
+
 // Route to get all of user's plants
 app.get("/user/plants", function(req, res){
-  
-  UserPlant.find({}).exec(function(err, doc) {
+  // store logged in user's id
+  var userID = req.user._id;
+  // mongo query to find user by id in the User collection of our DB
+  var userQuery = User.findById(userID).select('plants');
+  // execute query
+  userQuery.exec(function (err, doc) {
+    if (err) return next(err);
+      // mongo query to find and user plant documents for the user and return any reminders they have saved
+      var plantQuery = UserPlant.find({
+      '_id':{ 
+        $in: doc.plants
+      }})
+  plantQuery.exec(function (err, plants) {
+      res.send(plants);
+    });
+  });
+});
+
+// Route to get all of user's plants
+app.get("/app/profile/:id", function(req, res){
+  var plantId = req.params.id
+  UserPlant.findById(plantId, function(err, doc) {
     if (err) {
       console.log(err);
     }
     else {
       res.send(doc);
+      console.log("Profile Page ", doc)
     }
   });
 });

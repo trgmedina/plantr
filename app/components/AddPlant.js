@@ -14,6 +14,7 @@ var AddPlant = React.createClass({
   getInitialState: function() {
     return {
       name: "",
+      nickname: "",
       description: "",
       origin: "",
       sunlightAmt: "",
@@ -86,17 +87,19 @@ var AddPlant = React.createClass({
 
     helpers.savePlant({
       name: this.state.name,
+      nickname: this.state.nickname,
       description: this.state.description,
       origin: this.state.origin,
       sunlightAmt: this.state.sunlightAmt,
       waterSchedule: this.state.waterSchedule,
       imageURL: this.state.imageURL, 
+      specialCare: this.state.specialCare,
       reminders: this.state.reminders
     })
       .then(function(res) {
         console.log("Posted to MongoDB");
         
-        browserHistory.push('/app/plants');
+        browserHistory.push('/app/plants/');
       })
 
   },
@@ -170,13 +173,13 @@ var AddPlant = React.createClass({
                               <label>
                                 Name
                                 <input
-                                      name="name" 
-                                      type="text"
-                                      className="form-control"
-                                      id="nickname-input"
-                                      onChange={this.handleChange}
-                                      value={this.state.name||this.state.value}
-                                      placeholder="Name">
+                                  name="name" 
+                                  type="text"
+                                  className="form-control"
+                                  id="nickname-input"
+                                  onChange={this.handleChange}
+                                  value={this.state.name||this.state.value}
+                                  placeholder="Name">
                                 </input>
                               </label>
                             </div>
@@ -186,15 +189,14 @@ var AddPlant = React.createClass({
                               <label>
                                 Nickname
                                 <input
-                            name="nickname" 
-                            type="text"
-                            className="form-control"
-                            id="nickname-input"
-                            onChange={this.handleChange}
-                            value={this.state.value}
-                            placeholder="Nickname">
+                                  name="nickname" 
+                                  type="text"
+                                  className="form-control"
+                                  id="nickname-input"
+                                  onChange={this.handleChange}
+                                  value={this.state.value}
+                                  placeholder="Nickname">
                                 </input>
-                                <small id="nickname-help" className="form-text text-muted">We'll use this name for your plant if you prefer.</small>
                               </label>
                             </div>
                           </div>
@@ -310,7 +312,10 @@ var AddPlant = React.createClass({
                         </div>
                       </div>
 
-                      <h4 className="text-center">Create a Reminder</h4>
+                      <h4 className="text-center">Create a Plant Care Reminder</h4>
+                      <small className="form-text text-muted">
+                        You will be able to delete or create additional reminders from your plant's info page.
+                      </small>
                       <div className="row">
                         <div className="col-md-4 col-xs-12">
                           <div className="form-group">
@@ -389,6 +394,9 @@ var AddPlant = React.createClass({
                               value="Sunday" />
                             <label htmlFor="weekday-sun">S</label>
                           </div>
+                          <small id="weekday-help" className="form-text text-muted">
+                            For every other week or monthly frequency, only one weekday selection is permitted.
+                          </small>
                         </div>
                         <div className="col-md-4 col-xs-12">
                           <div className="form-group">

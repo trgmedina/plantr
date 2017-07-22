@@ -44,7 +44,7 @@ class Reminders extends React.Component {
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
                   <p className="reminder-date text-right">{reminder.date}</p>
-                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.nickname||reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -64,7 +64,7 @@ class Reminders extends React.Component {
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
                   <p className="reminder-date text-right">{reminder.date}</p>
-                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.nickname||reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -83,7 +83,7 @@ class Reminders extends React.Component {
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
                   <p className="reminder-date text-right">{reminder.date}</p>
-                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.nickname||reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -103,7 +103,7 @@ class Reminders extends React.Component {
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
                   <p className="reminder-date text-right">{reminder.date}</p>
-                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.nickname||reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -123,7 +123,7 @@ class Reminders extends React.Component {
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
                   <p className="reminder-date text-right">{reminder.date}</p>
-                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.nickname||reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -143,7 +143,7 @@ class Reminders extends React.Component {
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
                   <p className="reminder-date text-right">{reminder.date}</p>
-                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.nickname||reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -162,7 +162,7 @@ class Reminders extends React.Component {
                 <span>
                   <img src={reminder.imageURL} alt="{reminder.plant}" className="img-rounded reminder-img pull-left"></img>
                   <p className="reminder-date text-right">{reminder.date}</p>
-                  <p className="reminder-type">{reminder.type} {reminder.plant}</p>
+                  <p className="reminder-type">{reminder.type} {reminder.nickname||reminder.plant}</p>
                 </span>
               </div>
             </div>
@@ -221,14 +221,12 @@ class Reminders extends React.Component {
         </div>
     );
   }
-  // Our render method. Utilizing a few helper methods to keep this logic clean
   render() {
-    // If we have no articles, we will return this.renderEmpty() which in turn returns some HTML
     if (this.state.reminders.length===0) {
       
       return this.renderEmpty();
     }
-    // If we have articles, return this.renderContainer() which in turn returns all saves articles
+    
     return this.renderContainer();
   }
 };

@@ -1,6 +1,7 @@
 // Include React as a dependency
 var React = require("react");
-import Collapsible from "react-collapsible";
+var Link = require("react-router").Link;
+import { browserHistory } from 'react-router';
 
 // Include the Helper (for the saved recall)
 var helpers = require("../utils/helpers");
@@ -57,6 +58,10 @@ class Plants extends React.Component {
     	);
   	}
 
+  	handleClick(id){
+  		browserHistory.push('/app/PlantProfile/' + id);
+  	}
+
 	renderSavedPlants() {
     	return this.state.savedPlants.map(function(plant, index) {
     		// console.log(plant);
@@ -64,6 +69,7 @@ class Plants extends React.Component {
 
 			return (
 	        	<div key={index}>
+<<<<<<< HEAD
 	          		<div className="panel panel-default plant-panel">
 						<div className="panel-body plant-panel-body">
 						 	<h5 className="plantpg-name">{plant.name}</h5>
@@ -105,6 +111,14 @@ class Plants extends React.Component {
 										</li>
 									</ul>
 								</Collapsible>
+=======
+	        		<div onClick={this.handleClick.bind(null,plant.id)} id={plant.id} type="submit">
+		          		<div className="panel panel-default plant-panel">
+							<div className="panel-body plant-panel-body">
+							 	<h5 className="plantpg-name">{plant.name}</h5>
+								<img src={plant.imageURL} className="plantpg-img"></img>
+							    <i className="fa fa-minus-square fa-lg" aria-hidden="true"></i>
+>>>>>>> master
 							</div>
 						</div>
 					</div>
