@@ -132,6 +132,25 @@ app.get("/app/reminders", function(req, res) {
   });
 });
 
+// Route to delete an article from saved list
+app.delete("/app/delete/:id", function(req, res) {
+
+  var id = req.params.id;
+  console.log(id)
+  UserPlant.findOne({'reminders._id': id}, function (err, result) {
+
+  // UserPlant.reminders.id(id).remove().exec(function(err) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      result.reminders.id(id).remove();
+      result.save();
+      res.send("Deleted");
+    }
+  });
+});
+
 // Route to get all of user's plants
 app.get("/user/plants", function(req, res){
   

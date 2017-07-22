@@ -221,14 +221,12 @@ class Reminders extends React.Component {
         </div>
     );
   }
-  // Our render method. Utilizing a few helper methods to keep this logic clean
   render() {
-    // If we have no articles, we will return this.renderEmpty() which in turn returns some HTML
     if (this.state.reminders.length===0) {
       
       return this.renderEmpty();
     }
-    // If we have articles, return this.renderContainer() which in turn returns all saves articles
+    
     return this.renderContainer();
   }
 };

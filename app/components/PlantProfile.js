@@ -28,6 +28,39 @@ class PlantProfile extends React.Component {
     }.bind(this));
   }
 
+  handleClick (reminder) {
+    console.log("CLICKED");
+    console.log(reminder);
+    var reminderId = reminder.id;
+    var id = this.props.params.id
+    // Delete the list!
+    profileHelpers.deleteSaved(reminderId).then(function() {
+
+      // Get the revised list!
+      profileHelpers.getPlantInfo(id).then(function(data) {
+        this.setState({ 
+          plant: data[0],
+          reminders: data[1] 
+        });
+        console.log("saved results", data);
+      }.bind(this));
+
+    }.bind(this));
+  }
+
+  renderEmpty() {
+    return (
+      <ul className="list-group">
+        <li className="list-group-item">
+          There are no care reminders for this plant.
+          <button type="button" className="btn btn-success">
+            Create Reminder
+          </button>
+        </li>
+      </ul>
+    );
+  }
+
   render () {
     return (
       <div className="row">
@@ -88,13 +121,20 @@ class PlantProfile extends React.Component {
   }
 
   renderReminders () {
+    if (this.state.reminders.length===0) {
+      return this.renderEmpty();
+    }
     return this.state.reminders.map(function(reminder, index) {
       return (
         <div key={index}>
           <ul className="list-group">
             <li className="list-group-item">
+              <button type="button" className="btn btn-danger delete-btn" 
+              onClick={() => this.handleClick(reminder)}>
+                <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>
               {reminder.type}, {reminder.days}, {reminder.frequency}
-              {reminder._id}, {reminder.created}
+              {reminder.id}, {reminder.created}
             </li>
           </ul>
         </div>
