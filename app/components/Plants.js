@@ -1,7 +1,6 @@
 // Include React as a dependency
 var React = require("react");
-var Link = require("react-router").Link;
-import { browserHistory } from 'react-router';
+import Collapsible from "react-collapsible";
 
 // Include the Helper (for the saved recall)
 var helpers = require("../utils/helpers");
@@ -28,13 +27,12 @@ class Plants extends React.Component {
 
   	// This code handles the deleting of a user's plant 
 	handleDelete(plant) {
+		console.log("CLICKED")
 	    console.log(plant);
 	    console.log(plant.id);
 
 	    // Delete the list!
-	    helpers.deleteUserPlant(
-	    	plant.id
-	    ).then(function() {
+	    helpers.deleteUserPlant(plant).then(function() {
 
 	      // Get the revised list!
 	      helpers.getUserPlants().then(function(plantData) {
@@ -58,10 +56,6 @@ class Plants extends React.Component {
     	);
   	}
 
-  	handleClick(id){
-  		browserHistory.push('/app/PlantProfile/' + id);
-  	}
-
 	renderSavedPlants() {
     	return this.state.savedPlants.map(function(plant, index) {
     		// console.log(plant);
@@ -69,12 +63,11 @@ class Plants extends React.Component {
 
 			return (
 	        	<div key={index}>
-<<<<<<< HEAD
 	          		<div className="panel panel-default plant-panel">
 						<div className="panel-body plant-panel-body">
 						 	<h5 className="plantpg-name">{plant.name}</h5>
 							<img src={plant.imageURL} className="plantpg-img"></img>
-						    <i className="fa fa-minus-square fa-lg" aria-hidden="true" onClick={this.handleDelete.bind(this, plant.id)}></i>
+						    <i className="fa fa-minus-square fa-lg" aria-hidden="true" onClick={() => this.handleDelete(plant)}></i>
 						</div>
 						<div className="panel-group" role="tablist">
 							<div className="panel panel-default">
@@ -111,14 +104,6 @@ class Plants extends React.Component {
 										</li>
 									</ul>
 								</Collapsible>
-=======
-	        		<div onClick={this.handleClick.bind(null,plant.id)} id={plant.id} type="submit">
-		          		<div className="panel panel-default plant-panel">
-							<div className="panel-body plant-panel-body">
-							 	<h5 className="plantpg-name">{plant.name}</h5>
-								<img src={plant.imageURL} className="plantpg-img"></img>
-							    <i className="fa fa-minus-square fa-lg" aria-hidden="true"></i>
->>>>>>> master
 							</div>
 						</div>
 					</div>
