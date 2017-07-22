@@ -45,6 +45,19 @@ let profileHelpers = {
 	      console.log("axios results", results);
 	      return results;
 	    });
+  	},
+
+  	saveReminder: function(reminder, plantId) {
+  		console.log("axios reminder ",reminder)
+
+  		let newReminder = {
+        	reminder: reminder,
+        }
+
+  		let route1 = "/app/new/"
+  		let route = route1.concat(plantId)
+
+  		return axios.post(route, reminder)
   	}
 };
 
