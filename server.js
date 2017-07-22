@@ -48,7 +48,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // MongoDB configuration (Change this URL to your own DB)
 // mongoose.connect("mongodb://heroku_6hktlx01:9r0nhq6bqf0cf7efnncpb4jtla@ds153732.mlab.com:53732/heroku_6hktlx01");
 //local: mongodb://localhost:27017/plantsdb
-mongoose.connect("mongodb://heroku_6hktlx01:9r0nhq6bqf0cf7efnncpb4jtla@ds153732.mlab.com:53732/heroku_6hktlx01", { useMongoClient: true });
+//test: mongodb://heroku_zvxsf3ss:88phc030n4lqsr1eitgg8ca4bi@ds115583.mlab.com:15583/heroku_zvxsf3ss
+mongoose.connect("mongodb://heroku_zvxsf3ss:88phc030n4lqsr1eitgg8ca4bi@ds115583.mlab.com:15583/heroku_zvxsf3ss", { useMongoClient: true });
 var db = mongoose.connection;
 
 db.on("error", function(err) {
