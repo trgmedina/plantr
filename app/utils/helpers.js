@@ -17,8 +17,12 @@ module.exports = {
                   plant: plantData,
                   userId: id
             }
+<<<<<<< HEAD
             console.log("new plant ID: " + plantData.id);
             return axios.post("/user/plants/" + newPlant.id, newPlant);
+=======
+            return axios.post("/user/plants", newPlant);
+>>>>>>> fbb392036edebd3edfe96114745b4f193c8b567e
      });
   },
 
@@ -67,10 +71,17 @@ module.exports = {
   },
 
   deleteUserPlant: function(plant) {
+<<<<<<< HEAD
     console.log("helpers", plant);
 
     return axios.delete("/user/plants/", {
       params: {
+=======
+    console.log("helpers", plant.id);
+
+    return axios.delete("/user/plants/" +plant.id, {
+      data: {
+>>>>>>> fbb392036edebd3edfe96114745b4f193c8b567e
         id: plant.id,
         name: plant.name,
         nickname: plant.nickname,

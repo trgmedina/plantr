@@ -185,11 +185,19 @@ app.get("/app/profile/:id", function(req, res){
   });
 });
 
+<<<<<<< HEAD
 app.delete("/user/plants", function(req, res){
   var plantId = req.params.id;
   console.log("server", plantId);
 
   UserPlant.findById(plantId, function(err, res){
+=======
+app.delete("/user/plants/:id", function(req, res){
+  var plantId = req.params.id;
+  console.log("server", plantId);
+
+  UserPlant.remove({"_id" : plantId}, function(err, res){
+>>>>>>> fbb392036edebd3edfe96114745b4f193c8b567e
     if (err) {
       console.log(err);
     }
