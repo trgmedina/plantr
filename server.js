@@ -153,16 +153,22 @@ app.delete("/app/delete/:id", function(req, res) {
 
 // Route to get all of user's plants
 app.get("/user/plants", function(req, res){
-  
-  UserPlant.find({}).exec(function(err, doc) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.send(doc);
-    }
+  // store logged in user's id
+  var userID = req.user._id;
+  // mongo query to find user by id in the User collection of our DB
+  var userQuery = User.findById(userID).select('plants');
+  // execute query
+  userQuery.exec(function (err, doc) {
+    if (err) return next(err);
+      // mongo query to find and user plant documents for the user and return any reminders they have saved
+      var plantQuery = UserPlant.find({
+      '_id':{ 
+        $in: doc.plants
+      }})
+  plantQuery.exec(function (err, plants) {
+      res.send(plants);
+    });
   });
-
 });
 
 // Route to get all of user's plants
