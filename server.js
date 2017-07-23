@@ -220,7 +220,7 @@ app.delete("/user/plants/:id", function(req, res){
     }
     else {
       UserPlant.remove();
-      res.send("Deleted");
+      console.log("Deleted");
     }
   });
 });
