@@ -98,7 +98,7 @@ var AddPlant = React.createClass({
       .then(function(res) {
         console.log("Posted to MongoDB");
         
-        browserHistory.push('/app/plants/');
+        browserHistory.push("/app/plants/");
       })
 
   },

@@ -79,20 +79,24 @@ module.exports = {
 
   deleteUserPlant: function(plant) {
 
-    return axios.delete("/user/plants/" +plant.id, {
-      data: {
-        id: plant.id,
-        name: plant.name,
-        nickname: plant.nickname,
-        description: plant.description,
-        origin: plant.origin,
-        sunlightAmt: plant.sunlightAmt,
-        waterSchedule: plant.waterSchedule,
-        imageURL: plant.imageURL,
-        specialCare: plant.specialCare,
-        reminders: plant.reminders
-      }
-    }).then(function(results) {
+    let id = plant.id;
+
+    return axios.delete("/user/plants/" + id
+    //   , {
+    //   data: {
+    //     id: plant.id,
+    //     name: plant.name,
+    //     nickname: plant.nickname,
+    //     description: plant.description,
+    //     origin: plant.origin,
+    //     sunlightAmt: plant.sunlightAmt,
+    //     waterSchedule: plant.waterSchedule,
+    //     imageURL: plant.imageURL,
+    //     specialCare: plant.specialCare,
+    //     reminders: plant.reminders
+    //   }
+    // }
+    ).then(function(results) {
       console.log("axios results", results);
       return results;
     });
