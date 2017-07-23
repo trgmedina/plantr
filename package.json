@@ -26,7 +26,9 @@
     "react-collapsible": "^1.4.0",
     "react-dom": "^15.1.0",
     "react-modal": "^2.2.2",
-    "react-router": "^2.4.1"
+    "react-router": "^2.4.1",
+    "semantic-ui-css": "^2.2.11",
+    "semantic-ui-react": "^0.71.1"
   },
   "devDependencies": {
     "axios": "^0.12.0",

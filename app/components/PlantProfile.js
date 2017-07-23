@@ -1,5 +1,6 @@
 // Include React as a dependency
 const React = require("react");
+import { Rating } from 'semantic-ui-react'
 
 // Include the Helper (for the saved recall)
 const profileHelpers = require("../utils/profileHelpers");
@@ -39,7 +40,7 @@ class PlantProfile extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
-  
+
   componentDidMount() {
     var id = this.props.params.id
     profileHelpers.getPlantInfo(id).then(function(data) {
@@ -300,6 +301,15 @@ class PlantProfile extends React.Component {
               {this.renderReminders()}
             </ul>
           </div>
+          <div className="panel panel-success" id="rating-panel">
+            <div className="panel-heading">
+              Rate This Plant
+            </div>
+            <br/>
+            <Rating maxRating={5} defaultRating={0} icon='star' size='massive' />
+            <br/>
+            <a href="#">write a review</a>
+        </div>
         </div>
       </div>
     );
