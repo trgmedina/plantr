@@ -1,3 +1,4 @@
+/*GENERAL*/
 body {
   font-family: 'Lato', sans-serif;
   background-color: #e8fff2;
@@ -29,19 +30,6 @@ body {
   height: 90vh;
 }
 
-footer {
-  /*flex-shrink: 0;  Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
-  height: 5vh;
-  margin-top: 5vh;
-}
-.show-hide {
-  display: none;
-}
-
-.fa-github-alt {
-  display: inline-block;
-}
-
 h1 {
   font-family: 'Yellowtail', cursive;
   font-size: 44px;
@@ -50,7 +38,7 @@ h1 {
 
 h2 {
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: 0;
     margin-bottom: 15px;
 }
 
@@ -75,6 +63,16 @@ span > i {
 
 .fa {
   padding: 10px;
+}
+
+/*FOOTER CSS*/
+footer {
+  height: 5vh;
+  margin-top: 5vh;
+}
+
+.fa-github-alt {
+  display: inline-block;
 }
 
 /*Icon Hover Effects*/
@@ -134,7 +132,7 @@ span > i {
 .calendar-panel {
   height: 75px;
   overflow: hidden;
-  border: 1px solid rgba(24, 188, 156, 0.19);
+  border: 2px solid #18bc9c;
   margin-top: 10px;
   padding: 2px;
 }
@@ -143,11 +141,18 @@ span > i {
   position: relative;
   display: inline-block;
   width: 13.6%;
-  margin-right: 5px;
+  margin-right: 2px;
+  border-right: none;
+  height: 70vh;
+}
+
+.calendar:last-of_type {
+  margin-right: 0;
 }
 
 #calendar-wrap {
   margin: 0 auto;
+  min-height: 70vh;
 }
 
 .calendar-day {
@@ -156,7 +161,7 @@ span > i {
   padding: 10px;
   background-color: #18bc9c;
   color: #fff;
-  border-radius: 2px;
+  /*border-radius: 2px;*/
 }
 
 .calendar-body {

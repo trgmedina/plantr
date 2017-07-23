@@ -146,22 +146,7 @@ function setReminder(createdDate, days, frequency, index) {
 	}
 }
 
-		// }else {
-		// 	// setting a cal recurrence based on days of week at monthly frequency
-		// 	cal = moment(createdDate).recur(todaysDate, endDate).every(days).daysOfWeek()
-	 //                    .every(week).weekOfMonth()
-
-	 //        // generate dates
-	 //        allDates = cal.all("L");
-	 //        // loop through resulting array and push to the reminder object
-		// 	for (let i = 0; i < allDates.length; i++) {
-		// 		displayReminders[index].dates.push(allDates[i])
-		// 	};
-		// 	// call logger function to display the recurrence dates
-		// 	// logger(days, frequency, allDates)
-		// };
-// }
-	// function created for development purposes to test accuracy
+// function created for development purposes to test accuracy
 function logger (days, frequency, dates) {
 	console.log("-----Reminder Information-----")
 	console.log("Days of the Week: ", days)
