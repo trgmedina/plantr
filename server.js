@@ -195,6 +195,15 @@ app.get("/user/plants", function(req, res){
   });
 });
 
+// app.get("/calendar", function(req, res){
+//      console.log(res);
+//      res.send();
+// });
+
+app.post("/calendar", function(req, res){
+     console.log(req.body);
+});
+
 // Route to get data for plant profile page
 app.get("/app/profile/:id", function(req, res){
   let plantId = req.params.id

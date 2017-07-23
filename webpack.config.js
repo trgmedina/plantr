@@ -8,6 +8,8 @@ module.exports = {
     filename: "public/bundle.js"
   },
 
+  target: 'node',
+
   // This section desribes the transformations we will perform
   module: {
     loaders: [

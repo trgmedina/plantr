@@ -3,6 +3,7 @@ const axios = require("axios");
 const moment = require('moment');
 require('moment-recur');
 
+
 // Global variables
 let displayReminders = [];
 let sortedDisplayReminders = [];
@@ -20,8 +21,16 @@ const weekdays = {
 	Saturday: 6,
 };
 
+
 // helper function for reminder component
 let reminderHelpers = {
+
+	getCalendar: function(data){
+
+		 return axios.post('/calendar', data);
+        
+	},
+
 	getReminders: function() {
 		displayReminders = [];
 		sortedDisplayReminders = [];
@@ -74,8 +83,9 @@ let reminderHelpers = {
 
 			// return to the react component for rendering
 			return sortedDisplayReminders
-		});
-	}
+  
+    	});	  
+   }
 };
 
 // function to grab reminder dates based on user settings

@@ -93,7 +93,7 @@ module.exports = {
         reminders: plant.reminders
       }
     }).then(function(results) {
-      console.log("axios results", results);
+      // console.log("axios results", results);
       return results;
     });
   }
