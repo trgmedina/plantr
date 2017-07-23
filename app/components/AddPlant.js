@@ -66,8 +66,7 @@ var AddPlant = React.createClass({
   handleSearchSubmit: function(event){
     event.preventDefault();
     var searchName = this.state.searchPlant;
-    var foundPlant;
-
+    
     helpers.searchPlant(searchName)
     .then(function(res){
       this.setState({ 

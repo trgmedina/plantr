@@ -302,14 +302,13 @@ class PlantProfile extends React.Component {
             </ul>
           </div>
           <div className="panel panel-success" id="rating-panel">
-            <div className="panel-heading">
-              Rate This Plant
-            </div>
-            <br/>
-            <Rating maxRating={5} defaultRating={0} icon='star' size='massive' />
-            <br/>
-            <a href="#">write a review</a>
-        </div>
+              <div className="panel-heading">Rate This Plant</div>
+                  <br/>
+                  <Rating maxRating={5} defaultRating={0} icon='star' size='massive' />
+                  <br/>
+                  <a href="#">write a review</a>
+                  <br/>
+              </div>
         </div>
       </div>
     );
