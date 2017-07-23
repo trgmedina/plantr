@@ -66,14 +66,14 @@ class Plants extends React.Component {
     		// console.log(plant);
     		// console.log(index);
 
-			return (
+    		return (
 	        	<div key={index}>
-	        		<div onClick={() => this.handleDelete(plant)} id={plant.id} type="submit">
+	        		<div onClick={this.handleClick.bind(null,plant.id)} id={plant.id} type="submit">
 		          		<div className="panel panel-default plant-panel">
 							<div className="panel-body plant-panel-body">
 							 	<h5 className="plantpg-name">{plant.name}</h5>
 								<img src={plant.imageURL} className="plantpg-img"></img>
-							    <i className="fa fa-minus-square fa-lg" aria-hidden="true"></i>
+							    <i onClick={() => this.handleDelete(plant)} className="fa fa-minus-square fa-lg" aria-hidden="true"></i>
 							</div>
 						</div>
 					</div>
