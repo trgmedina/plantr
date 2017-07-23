@@ -36,11 +36,11 @@ class Plants extends React.Component {
 	    helpers.deleteUserPlant(plant).then(function() {
 
 	      // Get the revised list!
-	      helpers.getUserPlants().then(function(plantData) {
-	        this.setState({ savedPlants: plantData });
-	        console.log("saved results", plantData );
-
-	      }.bind(this));
+	      	helpers.getUserPlants().then(function(plantData) {
+	      		console.log(plantData);
+	      		
+		        this.setState({ savedPlants: plantData });
+      		}.bind(this));
 
 	    }.bind(this));
   	}
