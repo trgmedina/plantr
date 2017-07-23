@@ -97,6 +97,30 @@ app.post("/userPlant", function(req, res) {
     });
 });
 
+// Route to post new reminder for plant
+app.post("/app/new/:id", function(req, res) {
+
+  let plantId = req.params.id;
+
+  UserPlant.findOneAndUpdate({
+    _id: plantId
+  }, { 
+    $push: { 
+        "reminders": req.body 
+      } 
+  }, { new: true 
+  }, function(err, newdoc) {
+    // Send any errors to the browser
+    if (err) {
+      res.send(err);
+    }
+    // Or send the newdoc to the browser
+    else {
+      res.send(newdoc);
+    }
+  });
+});
+
 //test Google OAuth
 app.get("/logintest", function(req, res){
   console.log("hey!");
@@ -132,7 +156,7 @@ app.get("/app/reminders", function(req, res) {
   });
 });
 
-// Route to delete an article from saved list
+// Route to delete a saved reminder route
 app.delete("/app/delete/:id", function(req, res) {
 
   var id = req.params.id;
@@ -171,9 +195,9 @@ app.get("/user/plants", function(req, res){
   });
 });
 
-// Route to get all of user's plants
+// Route to get data for plant profile page
 app.get("/app/profile/:id", function(req, res){
-  var plantId = req.params.id
+  let plantId = req.params.id
   UserPlant.findById(plantId, function(err, doc) {
     if (err) {
       console.log(err);

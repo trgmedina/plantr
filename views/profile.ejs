@@ -32,8 +32,7 @@
                     <p>
                         <strong>id</strong>: <%= user._id %><br>
                         <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                        <strong>myplants</strong>: <%= user.local.myplants %>
+                        <!-- <strong>password</strong>: <%= user.local.password %> -->
                     </p>
                     
                     <a href="/unlink/local" class="btn btn-default">Unlink</a>
@@ -45,28 +44,25 @@
         </div>
 
         <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
+        <!-- <div class="col-sm-6">
             <div class="well">
                 <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
 
-                <!-- check if the user has this token (is the user authenticated with this social account) -->
-                <% if (user.facebook.token) { %>
+                <! check if the user has this token (is the user authenticated with this social account) -->
+                <!-- <% if (user.facebook.token) { %>
                     <p>
                         <strong>id</strong>: <%= user.facebook.id %><br>
                         <strong>token</strong>: <%= user.facebook.token %><br>
                         <strong>email</strong>: <%= user.facebook.email %><br>
                         <strong>name</strong>: <%= user.facebook.name %><br>
                     </p>
-
-                    <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
+ -->
+                   <!--  <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
                 <% } else { %>
                     <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
                 <% } %>
 
-            </div>
-        </div>
-    </div>
-    <div class="row">
+            </div> -->
 
         <!-- TWITTER INFORMATION -->
         <div class="col-sm-6">
@@ -76,7 +72,7 @@
                 <% if (user.twitter.token) { %>
                     <p>
                         <strong>id</strong>: <%= user.twitter.id %><br>
-                        <strong>token</strong>: <%= user.twitter.token %><br>
+                        <!-- <strong>token</strong>: <%= user.twitter.token %><br> -->
                         <strong>display name</strong>: <%= user.twitter.displayName %><br>
                         <strong>username</strong>: <%= user.twitter.username %>
                     </p>
@@ -88,7 +84,9 @@
 
             </div>
         </div>
-
+   </div>
+   
+   <div class="row"> 
         <!-- GOOGLE INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
@@ -97,7 +95,7 @@
                 <% if (user.google.token) { %>
                     <p>
                         <strong>id</strong>: <%= user.google.id %><br>
-                        <strong>token</strong>: <%= user.google.token %><br>
+                       <!--  <strong>token</strong>: <%= user.google.token %><br> -->
                         <strong>email</strong>: <%= user.google.email %><br>
                         <strong>name</strong>: <%= user.google.name %>
                     </p>
