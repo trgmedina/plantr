@@ -1,7 +1,10 @@
 // Include React as a dependency
 const React = require("react");
 import { Button, Popup } from 'semantic-ui-react'
+
 const moment = require('moment');
+
+
 // Include the Helper (for the saved recall)
 const reminderHelpers = require("../utils/reminderHelpers");
 
@@ -25,8 +28,13 @@ class Reminders extends React.Component {
       this.setState({ 
         reminders: reminderData,
         todaysDate: dateToDisplay });
+      // console.log("4. reminder data ", reminderData)
+      this.setState({ reminders: reminderData });
     }.bind(this));
-  }
+
+    reminderHelpers.getCalendar(this.state.reminders);
+   
+    }
 
   renderEmpty() {
     return (
@@ -231,11 +239,10 @@ class Reminders extends React.Component {
             <div className="col-md-3"></div>
             <div className="col-md-6 text-center">
             <Popup
-                trigger={<Button size='huge' icon='add' color='olive' content='Export to iCalendar' />}
+                trigger={<a href="/plantr_calendar.ics" download="plantr_calendar.ics"><Button size='huge' icon='add' color='olive' content='Export to iCalendar'/></a>}
                 content='download ics'
                 on='hover'
                 size='huge'
-                fluid='true'
               />
             </div>
             <div className="col-md-3"></div>  
