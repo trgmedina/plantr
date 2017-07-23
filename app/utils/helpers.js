@@ -79,7 +79,7 @@ module.exports = {
 
   deleteUserPlant: function(plant) {
 
-    return axios.delete("/user/plants/" +plant.id, {
+    return axios.post("/user/plants/" +plant.id, {
       data: {
         id: plant.id,
         name: plant.name,

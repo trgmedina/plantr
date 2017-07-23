@@ -210,19 +210,22 @@ app.get("/app/profile/:id", function(req, res){
 
 });
 
-app.delete("/user/plants/:id", function(req, res){
+app.post("/user/plants/:id", function(req, res){
   var plantId = req.params.id;
   console.log("server", plantId);
+  console.log(req.user.id);
+  var userId = req.user.id;
 
-  UserPlant.findById(plantId, function(err, res){
-    if (err) {
-      console.log(err);
-    }
-    else {
-      UserPlant.remove();
-      res.send("Deleted");
-    }
-  });
+  User.findOneAndUpdate({ _id: userId}, { $pull: { plants: plantId } }, { new: true }, function(err, newdoc) {
+                // Send any errors to the browser
+                if (err) {
+                    res.send(err);
+                }
+                // Or send the newdoc to the browser
+                else {
+                    res.send(newdoc);
+                }
+            });
 });
 
  // load our routes and pass in our app and fully configured passport
