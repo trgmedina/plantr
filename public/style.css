@@ -246,6 +246,28 @@ span > i {
 #profile-img {
   width: 100%;
 }
+
+/*Plant Profile Page*/
+.delete-reminder-btn {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  cursor: pointer;
+}
+
+.list-group-item {
+  padding: 5px;
+}
+
+.create-remndr-div {
+  padding: 10px;
+}
+
+.created-date {
+  font-size: 12px;
+}
+
+
 /*FORMS*/
 .form-control, input {
   border-width: 0px;

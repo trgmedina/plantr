@@ -103,7 +103,6 @@ class PlantProfile extends React.Component {
     this.setState({
       newReminder: addReminder
     })
-    console.log("from handlereminders: addReminder", addReminder)
   }
 
   handleSubmit() {
@@ -242,7 +241,6 @@ class PlantProfile extends React.Component {
     return (
       <div>
         <p>No saved Reminders</p>
-        {this.newReminderModal()}
       </div>
     );
   }
@@ -297,18 +295,23 @@ class PlantProfile extends React.Component {
               Plant Care Reminders
             </div>
             <ul className="list-group">
-              {/*REMINDERS RENDER HERE*/}
+              {/*RENDER EXISTING REMINDERS*/}
               {this.renderReminders()}
+              <div className="create-remndr-div">
+                {/*NEW REMINDER MODAL*/}
+                {this.newReminderModal()}
+              </div>
             </ul>
           </div>
+          <br></br>
           <div className="panel panel-success" id="rating-panel">
-              <div className="panel-heading">Rate This Plant</div>
-                  <br/>
-                  <Rating maxRating={5} defaultRating={0} icon='star' size='massive' />
-                  <br/>
-                  <a href="#">write a review</a>
-                  <br/>
-              </div>
+            <div className="panel-heading">Rate This Plant</div>
+              <br/>
+              <Rating maxRating={5} defaultRating={0} icon='star' size='massive' />
+              <br/>
+              <a href="#">write a review</a>
+              <br/>
+            </div>
         </div>
       </div>
     );
@@ -320,21 +323,12 @@ class PlantProfile extends React.Component {
     }
     return this.state.reminders.map(function(reminder, index) {
       return (
-        <div>
-          <div key={index}>
-            <ul className="list-group">
-              <li className="list-group-item">
-                <button type="button" className="btn btn-danger delete-btn" 
-                onClick={() => this.handleClick(reminder)}>
-                  <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
-                {reminder.type}, {reminder.days}, {reminder.frequency}
-                {reminder.id}, {reminder.created}
-              </li>
-            </ul>
-          </div>
-          {this.newReminderModal()}
-        </div>
+        <li key={index} className="list-group-item">
+          <i className="fa fa-times delete-reminder-btn text-danger hvr-bounce-in" aria-hidden="true" type="button"
+          onClick={() => this.handleClick(reminder)}></i>
+          <p><b>{reminder.type} on {reminder.days} - {reminder.frequency}</b></p>
+          <p className="created-date">Created: {reminder.created}</p>
+        </li>
       )
     }.bind(this));
   }
