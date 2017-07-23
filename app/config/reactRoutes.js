@@ -21,7 +21,7 @@ var browserHistory = router.browserHistory;
 var Main = require("../components/Main");
 var Reminders = require("../components/Reminders");
 var AddPlant = require("../components/AddPlant");
-var Calendar = require("../components/Calendar");
+var Reviews = require("../components/Reviews");
 var Plants = require("../components/Plants");
 var PlantProfile = require("../components/PlantProfile");
 
@@ -35,7 +35,7 @@ module.exports = (
       {/* If user selects Search or Saved show the appropriate component */}
       <Route path="Reminders" component={Reminders} />
       <Route path="AddPlant" component={AddPlant} />
-      <Route path="Calendar" component={Calendar} />
+      <Route path="Reviews" component={Reviews} />
       <Route path="Plants" component={Plants} />
       <Route path="PlantProfile/:id" component={PlantProfile} />
 
