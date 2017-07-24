@@ -85,6 +85,19 @@ span > i {
     right: 15px;
 }
 
+.modal-button {
+  display: block;
+  margin: 20px auto 0 auto;
+  width: 50%;
+}
+
+.modal-close {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
 /*FOOTER CSS*/
 footer {
   height: 5vh!important;
