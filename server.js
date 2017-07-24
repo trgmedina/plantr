@@ -22,7 +22,8 @@ var app = express();
 // Sets an initial port
 var PORT = process.env.PORT || 3000;
 
-require('./config/passport')(passport); // pass passport for configuration
+// pass passport for configuration
+require('./config/passport')(passport);
 
 // set up our express application
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -58,8 +59,13 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
+//test Google OAuth
+app.get("/logintest", function(req, res){
+  console.log("hey!");
+  res.sendFile(__dirname + "/public/login.html");
+});
 
-//Gets Plant data
+//Gets all Plant data from Plant API
 app.get("/api", function(req, res) {
   // This GET request will search all the plant data
   Plant.find({}).exec(function(err, doc) {
@@ -75,7 +81,7 @@ app.get("/api", function(req, res) {
 
 // The route we will send POST requests to save new plants.
 app.post("/userPlant", function(req, res) {
-
+  //Creates a new plant using the UserPlant model
   var newPlant = new UserPlant(req.body.plant);
   
   newPlant.save(function(err, doc) {
@@ -83,18 +89,23 @@ app.post("/userPlant", function(req, res) {
       res.send(err);
     }
     else {
-      User.findOneAndUpdate({ _id: req.body.userId}, { $push: { "plants": doc._id } }, { new: true }, function(err, newdoc) {
-                // Send any errors to the browser
-                if (err) {
-                    res.send(err);
-                }
-                // Or send the newdoc to the browser
-                else {
-                    res.send(newdoc);
-                }
-            });
+      User.findOneAndUpdate({ 
+        _id: req.body.userId}, { 
+          $push: { "plants": doc._id } 
+        }, { 
+          new: true 
+        }, function(err, newdoc) {
+        // Send any errors to the browser
+        if (err) {
+          res.send(err);
         }
-    });
+        // Or send the newdoc to the browser
+        else {
+          res.send(newdoc);
+        }
+      });
+    }
+  });
 });
 
 // Route to post new reminder for plant
@@ -106,9 +117,10 @@ app.post("/app/new/:id", function(req, res) {
     _id: plantId
   }, { 
     $push: { 
-        "reminders": req.body 
-      } 
-  }, { new: true 
+      "reminders": req.body 
+    } 
+  }, { 
+    new: true 
   }, function(err, newdoc) {
     // Send any errors to the browser
     if (err) {
@@ -119,12 +131,6 @@ app.post("/app/new/:id", function(req, res) {
       res.send(newdoc);
     }
   });
-});
-
-//test Google OAuth
-app.get("/logintest", function(req, res){
-  console.log("hey!");
-  res.sendFile(__dirname + "/public/login.html");
 });
 
 // GET route to display reminders
@@ -210,22 +216,30 @@ app.get("/app/profile/:id", function(req, res){
 
 });
 
+//Route to delete a User's plant 
 app.post("/user/plants/:id", function(req, res){
   var plantId = req.params.id;
-  console.log("server", plantId);
-  console.log(req.user.id);
+  // console.log("server", plantId);
+  // console.log(req.user.id);
   var userId = req.user.id;
 
-  User.findOneAndUpdate({ _id: userId}, { $pull: { plants: plantId } }, { new: true }, function(err, newdoc) {
-                // Send any errors to the browser
-                if (err) {
-                    res.send(err);
-                }
-                // Or send the newdoc to the browser
-                else {
-                    res.send(newdoc);
-                }
-            });
+  User.findOneAndUpdate({ 
+    _id: userId}, { 
+      $pull: {
+        plants: plantId
+      } 
+    }, { 
+      new: true 
+    }, function(err, newdoc) {
+      // Send any errors to the browser
+      if (err) {
+        res.send(err);
+      }
+      // Or send the newdoc to the browser
+      else {
+        res.send(newdoc);
+      }
+  });
 });
 
  // load our routes and pass in our app and fully configured passport
