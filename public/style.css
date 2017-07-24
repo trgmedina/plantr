@@ -258,6 +258,12 @@ footer {
   width: 100%;
 }
 
+<<<<<<< HEAD
+=======
+.plantpg-img:hover {
+  cursor: pointer;
+}
+>>>>>>> reviews
 /*FORMS*/
 .form-control, input {
   border-width: 0px;
@@ -326,6 +332,10 @@ input:-webkit-autofill {
   .fa-github-alt {
     float: none;
   }
+}
+
+.fa-plus {
+    color: #ff6666;
 }
 
 

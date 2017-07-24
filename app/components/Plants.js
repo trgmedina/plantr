@@ -28,16 +28,16 @@ class Plants extends React.Component {
 
   	// This code handles the deleting of a user's plant 
 	handleDelete(plant) {
-		console.log("CLICKED")
-	    console.log(plant);
-	    console.log(plant.id);
+		// console.log("CLICKED")
+	 //    console.log(plant);
+	 //    console.log(plant.id);
 
-	    // Delete the list!
+	    // Delete from the user's plants list
 	    helpers.deleteUserPlant(plant).then(function() {
 
-	      // Get the revised list!
+	      // Get the revised list
 	      	helpers.getUserPlants().then(function(plantData) {
-	      		console.log(plantData);
+	      		// console.log(plantData);
 	      		
 		        this.setState({ savedPlants: plantData });
       		}.bind(this));
