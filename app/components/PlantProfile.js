@@ -11,13 +11,27 @@ const moment = require('moment');
 
 const customStyles = {
   content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
+    position                   : 'absolute',
+    top                        : '10%',
+    left                       : '30%',
+    right                      : '30%',
+    bottom                     : '20%',
+    border                     : '1px solid #ccc',
+    background                 : '#fff',
+    overflow                   : 'auto',
+    WebkitOverflowScrolling    : 'touch',
+    borderRadius               : '4px',
+    outline                    : 'none',
+    padding                    : '20px'
+  },
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(229, 255, 242, 0.75)'
+  },
 }
 
 class PlantProfile extends React.Component {
@@ -130,10 +144,8 @@ class PlantProfile extends React.Component {
         onRequestClose={this.closeModal} 
         style={customStyles} 
         contentLabel="Example Modal">
-          <h2 ref={subtitle => this.subtitle = subtitle}>New Reminder</h2>
-          <button className="btn btn-danger" onClick={this.closeModal}>
-            <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </button>
+          <h2 className="text-center">New Reminder</h2>
+          <span type="button" className="glyphicon glyphicon-remove modal-close hvr-bounce-in" aria-hidden="true" onClick={this.closeModal}></span>
           <form>
             <div className="row">
               <div className="form-group">
@@ -157,11 +169,19 @@ class PlantProfile extends React.Component {
                 <input 
                   name="days"
                   type="checkbox" 
+                  id="weekday-sun" 
+                  className="reminders weekday" 
+                  onChange={this.handleReminders.bind(this)}
+                  value="Sunday" />
+                <label htmlFor="weekday-sun">SUN</label>
+                <input 
+                  name="days"
+                  type="checkbox" 
                   id="weekday-mon" 
                   className="reminders weekday" 
                   onChange={this.handleReminders.bind(this)}
                   value="Monday" />
-                <label htmlFor="weekday-mon">M</label>
+                <label htmlFor="weekday-mon">MON</label>
                 <input 
                   name="days"
                   type="checkbox" 
@@ -169,7 +189,7 @@ class PlantProfile extends React.Component {
                   className="reminders weekday" 
                   onChange={this.handleReminders.bind(this)}
                   value="Tuesday" />
-                <label htmlFor="weekday-tue">T</label>
+                <label htmlFor="weekday-tue">TUE</label>
                 <input 
                   name="days"
                   type="checkbox" 
@@ -177,7 +197,7 @@ class PlantProfile extends React.Component {
                   className="reminders weekday" 
                   onChange={this.handleReminders.bind(this)}
                   value="Wednesday" />
-                <label htmlFor="weekday-wed">W</label>
+                <label htmlFor="weekday-wed">WED</label>
                 <input 
                   name="days"
                   type="checkbox" 
@@ -185,7 +205,7 @@ class PlantProfile extends React.Component {
                   className="reminders weekday" 
                   onChange={this.handleReminders.bind(this)}
                   value="Thursday" />
-                <label htmlFor="weekday-thu">T</label>
+                <label htmlFor="weekday-thu">TUE</label>
                 <input 
                   name="days"
                   type="checkbox" 
@@ -193,7 +213,7 @@ class PlantProfile extends React.Component {
                   className="reminders weekday" 
                   onChange={this.handleReminders.bind(this)}
                   value="Friday" />
-                <label htmlFor="weekday-fri">F</label>
+                <label htmlFor="weekday-fri">FRI</label>
                 <input 
                   name="days"
                   type="checkbox" 
@@ -201,19 +221,8 @@ class PlantProfile extends React.Component {
                   className="reminders weekday" 
                   onChange={this.handleReminders.bind(this)}
                   value="Saturday" />
-                <label htmlFor="weekday-sat">Sa</label>
-                <input 
-                  name="days"
-                  type="checkbox" 
-                  id="weekday-sun" 
-                  className="reminders weekday" 
-                  onChange={this.handleReminders.bind(this)}
-                  value="Sunday" />
-                <label htmlFor="weekday-sun">Su</label>
+                <label htmlFor="weekday-sat">SAT</label>
               </div>
-              <small id="weekday-help" className="form-text text-muted">
-                For every other week or monthly frequency, only one weekday selection is permitted.
-              </small>
             </div>
             <div className="row">
               <div className="form-group">
@@ -232,7 +241,7 @@ class PlantProfile extends React.Component {
                 </label>
               </div>
             </div>
-            <button type="button" className="btn btn-success" onClick={(e)=>{ e.preventDefault(); this.closeModal(); this.handleSubmit() }}>Save</button>
+            <button type="button" className="btn btn-success modal-button" onClick={(e)=>{ e.preventDefault(); this.closeModal(); this.handleSubmit() }}>Save</button>
           </form>
         </Modal>
       </div>

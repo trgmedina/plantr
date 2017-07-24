@@ -71,6 +71,19 @@ span > i {
   padding: 10px;
 }
 
+.modal-button {
+  display: block;
+  margin: 20px auto 0 auto;
+  width: 50%;
+}
+
+.modal-close {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
 /*FOOTER CSS*/
 footer {
   height: 5vh;
@@ -96,28 +109,6 @@ footer {
   transform: scale(1.2);
   -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-}
-
-/*Add Plant Form*/
-.weekdays-selector input {
-  display: none!important;
-}
-
-.weekdays-selector > [type=checkbox] + label {
-  display: inline-block;
-  border-radius: 6px;
-  background: #dddddd;
-  height: 40px;
-  width: 30px;
-  margin-right: 3px;
-  line-height: 40px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.weekdays-selector >[type=checkbox]:checked + label {
-  background: #18bc9c;
-  color: #ffffff;
 }
 
 /*Reminders*/
@@ -239,6 +230,27 @@ footer {
 }
 
 /*FORMS*/
+.weekdays-selector input {
+  display: none!important;
+}
+
+.weekdays-selector > [type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 50px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekdays-selector >[type=checkbox]:checked + label {
+  background: #18bc9c;
+  color: #ffffff;
+}
+
 .form-control, input {
   border-width: 0px;
   border: 1px solid rgba(24, 188, 156, 0.41)
