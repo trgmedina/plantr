@@ -70,7 +70,7 @@ app.get("/api", function(req, res) {
             console.log(err);
         } else {
             res.send(doc);
-            console.log("back end results", doc)
+            // console.log("back end results", doc)
         }
     });
 });
@@ -198,13 +198,13 @@ app.get("/user/plants", function(req, res) {
     });
 });
 
-
+//write ics file for user download
 app.post("/calendar", function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     var event = req.body[0];
-    console.log(event);
+    // console.log(event);
     var date = event.date.split("/");
-    console.log(date);
+    // console.log(date);
 
     var ics = new ICS();
 
@@ -249,6 +249,7 @@ app.get("/app/profile/:id", function(req, res) {
 
 });
 
+//delet user plant
 app.post("/user/plants/:id", function(req, res) {
     var plantId = req.params.id;
     console.log("server", plantId);

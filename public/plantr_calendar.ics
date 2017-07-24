@@ -3,11 +3,11 @@ VERSION:2.0
 CALSCALE:GREGORIAN
 PRODID:-//Adam Gibbons//agibbons.com//ICS: iCalendar Generator
 BEGIN:VEVENT
-UID:04fe7b30-7084-11e7-a0e1-73a614937262
-DTSTAMP:20170724T152317Z
+UID:e7627f10-7086-11e7-88a1-3753e238ed9b
+DTSTAMP:20170724T154356Z
 DTSTART:20170724T180000
 DTEND:20170724T210000
-SUMMARY:Water Snapdragon (Antirrhinum)
+SUMMARY:Water Zebra Plant
 DESCRIPTION:Trees and plants always look like the people they live with, somehow.
 URL:http://plantr.com
 STATUS:confirmed
