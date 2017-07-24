@@ -5,6 +5,7 @@ PRODID:-//Adam Gibbons//agibbons.com//ICS: iCalendar Generator
 BEGIN:VEVENT
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 UID:efce6fb0-70b3-11e7-8b9c-85daed0c8246
 DTSTAMP:20170724T210618Z
 DTSTART:20170724T180000
@@ -21,6 +22,13 @@ DTSTART:20170724T180000
 DTEND:20170724T210000
 SUMMARY:Water Zebra Plant
 >>>>>>> 92e666908578817526df0df92781f92d55db076e
+=======
+UID:2405c550-70bc-11e7-b205-491825e3a956
+DTSTAMP:20170724T220501Z
+DTSTART:20170724T180000
+DTEND:20170724T210000
+SUMMARY:Water Begonia
+>>>>>>> fixed modal styling
 DESCRIPTION:Trees and plants always look like the people they live with, somehow.
 URL:http://plantr.com
 STATUS:confirmed

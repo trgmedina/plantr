@@ -9,13 +9,27 @@ const helpers = require("../utils/helpers");
 
 const customStyles = {
   content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
+    position                   : 'absolute',
+    top                        : '15%',
+    left                       : '20%',
+    right                      : '20%',
+    bottom                     : '50%',
+    border                     : '1px solid #ccc',
+    background                 : '#fff',
+    overflow                   : 'auto',
+    WebkitOverflowScrolling    : 'touch',
+    borderRadius               : '4px',
+    outline                    : 'none',
+    padding                    : '20px'
+  },
+  overlay : {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(229, 255, 242, 0.75)'
+  },
 }
 // Create the Main component
 class Reminders extends React.Component {
@@ -78,12 +92,10 @@ class Reminders extends React.Component {
         onRequestClose={this.closeModal} 
         style={customStyles} 
         contentLabel="Example Modal">
-          <h2 ref={subtitle => this.subtitle = subtitle}>No saved plants</h2>
-          <button className="btn btn-danger" onClick={this.closeModal}>
-            <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </button>
-          <p>You have not saved any plants. Get started using Plantr by adding a plant. Clicking the plus sign in the navigation menu or the green button below.</p>
-          <button type="button" className="btn btn-success" onClick={(e)=>{ e.preventDefault(); this.closeModal(); this.redirect() }}>Add Plant</button>
+          <span type="button" className="glyphicon glyphicon-remove modal-close hvr-bounce-in" aria-hidden="true" onClick={this.closeModal}></span>
+          <h2 className="text-center">Hello There!</h2>
+          <p className="text-center">You do not have any saved plants. Click the plus sign in the navigation menu or the button below to add a plant and get started using Plantr!</p>
+          <button type="button" className="btn btn-success modal-button" onClick={(e)=>{ e.preventDefault(); this.closeModal(); this.redirect() }}>Add a Plant</button>
         </Modal>
         <h3>
           <span>

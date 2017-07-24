@@ -77,6 +77,19 @@ span > i {
   padding: 10px!important;
 }
 
+.modal-button {
+  display: block;
+  margin: 20px auto 0 auto;
+  width: 50%;
+}
+
+.modal-close {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
 /*FOOTER CSS*/
 footer {
   height: 5vh!important;
@@ -102,28 +115,6 @@ footer {
   transform: scale(1.2)!important;
   -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36)!important;
   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36)!important;
-}
-
-/*Add Plant Form*/
-.weekdays-selector input {
-  display: none!important;
-}
-
-.weekdays-selector > [type=checkbox] + label {
-  display: inline-block!important;
-  border-radius: 6px!important;
-  background: #dddddd!important;
-  height: 40px!important;
-  width: 30px!important;
-  margin-right: 3px!important;
-  line-height: 40px!important;
-  text-align: center!important;
-  cursor: pointer!important;
-}
-
-.weekdays-selector >[type=checkbox]:checked + label {
-  background: #18bc9c!important;
-  color: #ffffff!important;
 }
 
 /*Reminders*/
@@ -232,19 +223,10 @@ footer {
 }
 
 .plantpg-img {
-<<<<<<< HEAD
-  position: relative;
-  width: 325px;
-  height: auto;
-  opacity: 0.8;
-  cursor: pointer;
-=======
   position: relative!important;
   height: auto!important;
   width: 350px!important;
-  opacity: 0.9!important;
   cursor: pointer!important;
->>>>>>> reviews
 }
 
 
@@ -253,6 +235,27 @@ footer {
 }
 
 /*FORMS*/
+.weekdays-selector input {
+  display: none!important;
+}
+
+.weekdays-selector > [type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 50px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekdays-selector >[type=checkbox]:checked + label {
+  background: #18bc9c;
+  color: #ffffff;
+}
+
 .form-control, input {
   border-width: 0px;
   border: 1px solid rgba(24, 188, 156, 0.41);
