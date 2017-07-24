@@ -1,13 +1,22 @@
 // Include React as a dependency
 const React = require("react");
 import { Button, Popup } from 'semantic-ui-react'
-
+import Modal from 'react-modal';
+import { browserHistory } from 'react-router';
 const moment = require('moment');
-
-
-// Include the Helper (for the saved recall)
 const reminderHelpers = require("../utils/reminderHelpers");
+const helpers = require("../utils/helpers");
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+}
 // Create the Main component
 class Reminders extends React.Component {
 
@@ -15,8 +24,14 @@ class Reminders extends React.Component {
     super(props);
     this.state = {
       reminders: [],
-      todaysDate: ""
+      todaysDate: "",
+      savedPlants: [],
+      modalIsOpen: false
     };
+
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
     // When this component mounts, get all reminders
@@ -24,24 +39,71 @@ class Reminders extends React.Component {
     let date = moment().format("dddd, MMMM Do YYYY");
     let dateToDisplay = "Today is " + date;
     reminderHelpers.getReminders().then(function(reminderData) {
-      console.log("4. reminder data ", reminderData)
-      this.setState({ 
-        reminders: reminderData,
-        todaysDate: dateToDisplay });
-      // console.log("4. reminder data ", reminderData)
-      this.setState({ reminders: reminderData });
-      reminderHelpers.getCalendar(reminderData);
-    }.bind(this));
+      helpers.getUserPlants().then(function(plantData) {
+        this.setState({ 
+          reminders: reminderData,
+          todaysDate: dateToDisplay,
+          savedPlants: plantData
+          });
+        if (plantData.length===0){
+          this.setState({modalIsOpen:true})
+        }
+        reminderHelpers.getCalendar(reminderData);
+      }.bind(this)); 
+    }.bind(this));   
+  }
 
-   
-    }
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = '#f00';
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+  redirect() {
+    browserHistory.push('/app/AddPlant/');
+  }
+
+  renderModal() {
+    return (
+      <li className="list-group-item">
+        <Modal isOpen={this.state.modalIsOpen} 
+        onAfterOpen={this.afterOpenModal} 
+        onRequestClose={this.closeModal} 
+        style={customStyles} 
+        contentLabel="Example Modal">
+          <h2 ref={subtitle => this.subtitle = subtitle}>No saved plants</h2>
+          <button className="btn btn-danger" onClick={this.closeModal}>
+            <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+          <p>You have not saved any plants. Get started using Plantr by adding a plant. Clicking the plus sign in the navigation menu or the green button below.</p>
+          <button type="button" className="btn btn-success" onClick={(e)=>{ e.preventDefault(); this.closeModal(); this.redirect() }}>Add Plant</button>
+        </Modal>
+        <h3>
+          <span>
+            <em>No upcoming reminders to display...</em>
+          </span>
+        </h3>
+      </li>
+    )
+  }
+
+  redirect() {
+    browserHistory.push('/app/AddPlant/');
+  }
 
   renderEmpty() {
     return (
       <li className="list-group-item">
         <h3>
           <span>
-            <em>No reminders to display...</em>
+            <em>No upcoming reminders to display...</em>
           </span>
         </h3>
       </li>
@@ -253,11 +315,14 @@ class Reminders extends React.Component {
 
   render() {
     if (this.state.reminders.length===0) {
-      
+      if (this.state.savedPlants.length===0) {
+        return this.renderModal()
+      }
       return this.renderEmpty();
     }
     
     return this.renderContainer();
+    
   }
 };
 
