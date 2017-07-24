@@ -1,4 +1,6 @@
+
 /*GENERAL*/
+
 body {
   font-family: 'Lato', sans-serif;
   background-color: #e8fff2;
@@ -30,6 +32,10 @@ body {
 #wrap {
   flex: 1;
   height: 90vh;
+}
+
+.fa-github-alt {
+  display: inline-block;
 }
 
 h1 {
@@ -251,6 +257,7 @@ footer {
 #profile-img {
   width: 100%;
 }
+
 /*FORMS*/
 .form-control, input {
   border-width: 0px;
@@ -276,7 +283,7 @@ input:-webkit-autofill {
     display: flex;
     justify-content: space-around;
     margin-bottom: 5px;
-  }
+}
 
   .hvr-bounce-in {
     width: 10%;
@@ -4815,3 +4822,6 @@ input:-webkit-autofill {
 /*******************************
          Site Overrides
 
+=======
+}
+>>>>>>> c825144ce8b4c5a56c4a56d8d75b1da1618eb2aa
