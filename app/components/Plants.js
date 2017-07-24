@@ -19,7 +19,7 @@ class Plants extends React.Component {
     // When this component mounts, get all user plants
 	componentDidMount() {
     	helpers.getUserPlants().then(function(data) {
-    		console.log(data);
+    		// console.log(data);
 
      		this.setState({ savedPlants: data });
 

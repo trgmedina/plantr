@@ -3,9 +3,11 @@
 <head>
     <title>Plant Signup</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Yellowtail" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <style>
         body         { padding-top:80px; }
@@ -16,7 +18,7 @@
 <div class="container">
 <div class="col-sm-6 col-sm-offset-3">
 
-    <h1><span class="fa fa-pagelines"></span> Signup</h1>
+    <h1><span class="fa fa-user"></span> Signup</h1>
 
     <% if (message.length > 0) { %>
         <div class="alert alert-danger"><%= message %></div>
@@ -33,12 +35,12 @@
             <input type="password" class="form-control" name="password">
         </div>
 
-        <button type="submit" class="btn btn-warning active">Signup</button>
+        <button type="submit" class="btn btn-warning btn-block">SIGN UP<i class="fa fa-long-arrow-right"></i></button>
     </form>
 
     <hr>
     <div class="text-center">
-    <p>Already have an account? <a href="/login">Login</a></p>
+    <p>Already have an account? <a href="/login">Log in</a></p>
     <p>Or go <a href="/">home</a>.</p>
     </div>
 
