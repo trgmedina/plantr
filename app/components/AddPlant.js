@@ -172,6 +172,7 @@ var AddPlant = React.createClass({
                               <label>
                                 Name
                                 <input
+                                  editable="true"
                                   name="name" 
                                   type="text"
                                   className="form-control"
@@ -302,9 +303,14 @@ var AddPlant = React.createClass({
                         <div className="col-xs-12">
                           <div className="form-group">
                             <label htmlFor="additional">Additional Special Care Instructions</label>
-                            <textarea className="form-control"
+                            <textarea
+                              name="specialCare"
+                              type="text"
+                              className="form-control"
+                              editable="true"
                               id="additional-input"
-                              name="specialCare" rows="3"
+                              onChange={this.handleChange}
+                              rows="3"
                               value={this.state.specialCare||this.state.value}>
                             </textarea>
                           </div>
