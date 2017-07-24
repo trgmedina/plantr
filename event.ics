@@ -3,11 +3,11 @@ VERSION:2.0
 CALSCALE:GREGORIAN
 PRODID:-//Adam Gibbons//agibbons.com//ICS: iCalendar Generator
 BEGIN:VEVENT
-UID:bfb39150-7015-11e7-9d79-d33a68c935f4
-DTSTAMP:20170724T021357Z
+UID:50dc6b20-701b-11e7-bfac-1508d3c13498
+DTSTAMP:20170724T025348Z
 DTSTART:20170724T180000
 DTEND:20170724T210000
-SUMMARY:Water Heartleaf Philodendron
+SUMMARY:Water Aloe Vera
 DESCRIPTION:Trees and plants always look like the people they live with, somehow.
 URL:http://plantr.com
 STATUS:confirmed
