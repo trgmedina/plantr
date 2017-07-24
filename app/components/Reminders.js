@@ -94,7 +94,10 @@ class Reminders extends React.Component {
         contentLabel="Example Modal">
           <span type="button" className="glyphicon glyphicon-remove modal-close hvr-bounce-in" aria-hidden="true" onClick={this.closeModal}></span>
           <h2 className="text-center">Hello There!</h2>
-          <p className="text-center">You do not have any saved plants. Click the plus sign in the navigation menu or the button below to add a plant and get started using Plantr!</p>
+          <span className="text-center">
+            You do not have any saved plants. Click 
+            <i className="fa fa-plus fa-lg" aria-hidden="true"/>
+            in the navigation menu or the button below to add a plant and get started using Plantr!</span>
           <button type="button" className="btn btn-success modal-button" onClick={(e)=>{ e.preventDefault(); this.closeModal(); this.redirect() }}>Add a Plant</button>
         </Modal>
         <h3>
