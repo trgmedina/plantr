@@ -172,7 +172,6 @@ var AddPlant = React.createClass({
                               <label>
                                 Name
                                 <input
-                                  editable="true"
                                   name="name" 
                                   type="text"
                                   className="form-control"
@@ -307,7 +306,6 @@ var AddPlant = React.createClass({
                               name="specialCare"
                               type="text"
                               className="form-control"
-                              editable="true"
                               id="additional-input"
                               onChange={this.handleChange}
                               rows="3"
@@ -322,7 +320,7 @@ var AddPlant = React.createClass({
                         You will be able to delete or create additional reminders from your plant's info page.
                       </small>
                       <div className="row">
-                        <div className="col-md-4 col-xs-12">
+                        <div className="col-md-6 col-xs-12">
                           <div className="form-group">
                             <label>Type
                               <select 
@@ -339,71 +337,8 @@ var AddPlant = React.createClass({
                             </label>
                           </div>
                         </div>
-                        <div className="col-md-4 col-xs-12">
-                          <div className="weekdays-selector form-group">
-                            <label>Day(s) of the week</label><br></br>
-                            <input 
-                              name="days"
-                              type="checkbox" 
-                              id="weekday-mon" 
-                              className="reminders weekday" 
-                              onChange={this.handleReminders}
-                              value="Monday" />
-                            <label htmlFor="weekday-mon">M</label>
-                            <input 
-                              name="days"
-                              type="checkbox" 
-                              id="weekday-tue" 
-                              className="reminders weekday" 
-                              onChange={this.handleReminders}
-                              value="Tuesday" />
-                            <label htmlFor="weekday-tue">T</label>
-                            <input 
-                              name="days"
-                              type="checkbox" 
-                              id="weekday-wed" 
-                              className="reminders weekday" 
-                              onChange={this.handleReminders}
-                              value="Wednesday" />
-                            <label htmlFor="weekday-wed">W</label>
-                            <input 
-                              name="days"
-                              type="checkbox" 
-                              id="weekday-thu" 
-                              className="reminders weekday" 
-                              onChange={this.handleReminders}
-                              value="Thursday" />
-                            <label htmlFor="weekday-thu">T</label>
-                            <input 
-                              name="days"
-                              type="checkbox" 
-                              id="weekday-fri" 
-                              className="reminders weekday" 
-                              onChange={this.handleReminders}
-                              value="Friday" />
-                            <label htmlFor="weekday-fri">F</label>
-                            <input 
-                              name="days"
-                              type="checkbox" 
-                              id="weekday-sat" 
-                              className="reminders weekday" 
-                              onChange={this.handleReminders}
-                              value="Saturday" />
-                            <label htmlFor="weekday-sat">S</label>
-                            <input 
-                              name="days"
-                              type="checkbox" 
-                              id="weekday-sun" 
-                              className="reminders weekday" 
-                              onChange={this.handleReminders}
-                              value="Sunday" />
-                            <label htmlFor="weekday-sun">S</label>
-                          </div>
-                          <small id="weekday-help" className="form-text text-muted">
-                            For every other week or monthly frequency, only one weekday selection is permitted.
-                          </small>
-                        </div>
-                        <div className="col-md-4 col-xs-12">
+
+                        <div className="col-md-6 col-xs-12">
                           <div className="form-group">
                             <label>Frequency
                               <select 
@@ -418,6 +353,68 @@ var AddPlant = React.createClass({
                                 <option value="Once a month">Once a month</option>
                               </select>
                             </label>
+                          </div>
+                        </div>
+
+                        <div className="col-xs-12">
+                          <div className="weekdays-selector form-group">
+                            <label className="text-left" id="check-label">Day(s) of the week</label>
+                              <input 
+                                name="days"
+                                type="checkbox" 
+                                id="weekday-sun" 
+                                className="reminders-weekday" 
+                                onChange={this.handleReminders}
+                                value="Sunday" />
+                              <label htmlFor="weekday-sun">SUN</label>
+                              <input 
+                                name="days"
+                                type="checkbox" 
+                                id="weekday-mon" 
+                                className="reminders-weekday" 
+                                onChange={this.handleReminders}
+                                value="Monday" />
+                              <label htmlFor="weekday-mon">MON</label>
+                              <input 
+                                name="days"
+                                type="checkbox" 
+                                id="weekday-tue" 
+                                className="reminders-weekday" 
+                                onChange={this.handleReminders}
+                                value="Tuesday" />
+                              <label htmlFor="weekday-tue">TUE</label>
+                              <input 
+                                name="days"
+                                type="checkbox" 
+                                id="weekday-wed" 
+                                className="reminders-weekday" 
+                                onChange={this.handleReminders}
+                                value="Wednesday" />
+                              <label htmlFor="weekday-wed">WED</label>
+                              <input 
+                                name="days"
+                                type="checkbox" 
+                                id="weekday-thu" 
+                                className="reminders-weekday" 
+                                onChange={this.handleReminders}
+                                value="Thursday" />
+                              <label htmlFor="weekday-thu">THU</label>
+                              <input 
+                                name="days"
+                                type="checkbox" 
+                                id="weekday-fri" 
+                                className="reminders-weekday" 
+                                onChange={this.handleReminders}
+                                value="Friday" />
+                              <label htmlFor="weekday-fri">FRI</label>
+                              <input 
+                                name="days"
+                                type="checkbox" 
+                                id="weekday-sat" 
+                                className="reminders-weekday" 
+                                onChange={this.handleReminders}
+                                value="Saturday" />
+                              <label htmlFor="weekday-sat">SAT</label>
                           </div>
                         </div>
                       </div>

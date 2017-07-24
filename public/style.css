@@ -8,8 +8,6 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
- /* background-image: url(background.jpg);
-  background-position: center;*/
 }
 
 .container-fluid {
@@ -132,7 +130,7 @@ footer {
 .reminder-img {
   position: relative;
   width: 35px;
-  max-height: 35px;
+  height: auto;
   top: 2px;
   left: 2px;
 }
@@ -151,7 +149,6 @@ footer {
   width: 13.6%;
   margin-right: 2px;
   border-right: none;
-  height: 70vh;
 }
 
 .calendar:last-of_type {
@@ -186,7 +183,6 @@ footer {
 }
 
 .reminder-type {
-  float: left;
   position: relative;
   display: block;
   margin: 0 auto;
@@ -202,6 +198,7 @@ footer {
 .plant-panel, .panel-group {
   margin-bottom: 0px;
 }
+
 .plant-panel {
   position: relative;
   float: left;
@@ -213,7 +210,9 @@ footer {
 
 .plant-panel-body {
   padding: 0;
-  overflow: hidden;
+  margin: 0;
+  width: 250px;
+  height: 250px;
 }
 
 .plantpg-name, .fa-minus-square {
@@ -234,28 +233,10 @@ footer {
 
 .plantpg-img {
   position: relative;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.panel-default>.panel-heading {
-  color: #fff;
-  background-color: transparent;
-  border-color: transparent;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  left: 0px;
-}
-
-.fa-chevron-circle-down {
-  margin: 0 auto;
-  display: block;
-  text-align: center;
-}
-
-#profile-img {
-  width: 100%;
+  width: 325px;
+  height: auto;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 
@@ -282,13 +263,45 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
+.col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+label {
+  width: 100%;
+  padding: 5px;
+}
+
+#weekday-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*PLANT PROFILE*/
+#profile-img {
+  width: 100%;
+}
+
+.text-muted {
+  color: #74958e;
+  text-align: center;
+  display: block;
+}
+
+#main-prof-panel, #care-prof-panel, #reminder-prof-panel, #rating-panel {
+  margin: 15px;
+}
+
+/*MEDIA QUERY*/
+
 @media screen and (max-width:767px) {
   
   div#nav-column {
     display: flex;
     justify-content: space-around;
     margin-bottom: 5px;
-}
+  }
 
   .hvr-bounce-in {
     width: 10%;
@@ -331,6 +344,7 @@ input:-webkit-autofill {
   .fa-github-alt {
     float: none;
   }
+<<<<<<< HEAD
 }
 
 .fa-plus {
@@ -338,7 +352,13 @@ input:-webkit-autofill {
 }
 
 
+=======
+>>>>>>> frontend
 
+  .plant-panel {
+    width: 45%;
+  }
+}
 
 
 
