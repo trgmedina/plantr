@@ -221,7 +221,7 @@ app.post("/calendar", function(req, res) {
         ]
     }, function(req, res){
 
-     console.log(res);
+     // console.log(res);
 
     fs.writeFile(__dirname + "/public/plantr_calendar.ics", res, function(err) {
 
@@ -230,7 +230,7 @@ app.post("/calendar", function(req, res) {
             return console.log(err);
         }
         // Otherwise, it will print: "movies.txt was updated!"
-        console.log("plantr_calendar.ics was updated!");
+        // console.log("plantr_calendar.ics was updated!");
       });
    });
 });
