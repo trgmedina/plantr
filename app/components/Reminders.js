@@ -234,7 +234,6 @@ class Reminders extends React.Component {
             </div>
 	        </div>
           <div>
-            <br/><br/><br/><br/><br/><br/><br/>
             <div className="row">
             <div className="col-md-3"></div>
             <div className="col-md-6 text-center">
