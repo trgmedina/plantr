@@ -251,6 +251,10 @@ footer {
 #profile-img {
   width: 100%;
 }
+
+.plantpg-img:hover {
+  cursor: pointer;
+}
 /*FORMS*/
 .form-control, input {
   border-width: 0px;
@@ -319,6 +323,10 @@ input:-webkit-autofill {
   .fa-github-alt {
     float: none;
   }
+}
+
+.fa-plus {
+    color: #ff6666;
 }
 
 
