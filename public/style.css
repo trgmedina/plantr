@@ -2,7 +2,7 @@
 /*GENERAL*/
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif!important; 
   background-color: #e8fff2;
   color: #18bc9c;
   display: flex;
@@ -11,8 +11,14 @@ body {
 }
 
 .container-fluid {
-  padding: 0 10px;
+  padding: 0 10px!important;
+  margin-top: 30px!important;
 }
+
+.fa-plus {
+    color: #f08080!important;
+}
+
 
 .jumbotron {
   background-color: transparent;
@@ -28,12 +34,12 @@ body {
 }
 
 #wrap {
-  flex: 1;
-  height: 90vh;
+  flex: 1!important;
+  height: 90vh!important;
 }
 
 .fa-github-alt {
-  display: inline-block;
+  display: inline-block!important;
 }
 
 h1 {
@@ -57,45 +63,45 @@ a:focus {
 }
 
 span > i {
-  padding-right: 5px;
+  padding-right: 5px!important;
 }
 
 .panel {
-  margin-bottom: 0px;
-  box-shadow: none;
+  margin-bottom: 0px!important;
+  box-shadow: none!important;
   border: none;
-  border-radius: 2px;
+  border-radius: 2px!important;
 }
 
 .fa {
-  padding: 10px;
+  padding: 10px!important;
 }
 
 /*FOOTER CSS*/
 footer {
-  height: 5vh;
-  margin-top: 5vh;
+  height: 5vh!important;
+  margin-top: 5vh!important;
 }
 
 .fa-github-alt {
-  display: inline-block;
+  display: inline-block!important;
 }
 
 /*Icon Hover Effects*/
 .hvr-bounce-in {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
+  display: inline-block !important;
+  vertical-align: middle !important;
+  -webkit-transform: perspective(1px) translateZ(0) !important;
+  transform: perspective(1px) translateZ(0)!important;
   box-shadow: 0 0 1px transparent;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s!important;
+  transition-duration: 0.5s!important;
 }
 .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  -webkit-transform: scale(1.2)!important;
+  transform: scale(1.2)!important;
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36)!important;
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36)!important;
 }
 
 /*Add Plant Form*/
@@ -104,143 +110,144 @@ footer {
 }
 
 .weekdays-selector > [type=checkbox] + label {
-  display: inline-block;
-  border-radius: 6px;
-  background: #dddddd;
-  height: 40px;
-  width: 30px;
-  margin-right: 3px;
-  line-height: 40px;
-  text-align: center;
-  cursor: pointer;
+  display: inline-block!important;
+  border-radius: 6px!important;
+  background: #dddddd!important;
+  height: 40px!important;
+  width: 30px!important;
+  margin-right: 3px!important;
+  line-height: 40px!important;
+  text-align: center!important;
+  cursor: pointer!important;
 }
 
 .weekdays-selector >[type=checkbox]:checked + label {
-  background: #18bc9c;
-  color: #ffffff;
+  background: #18bc9c!important;
+  color: #ffffff!important;
 }
 
 /*Reminders*/
 .reminder-img {
-  position: relative;
-  width: 35px;
-  height: auto;
-  top: 2px;
-  left: 2px;
+  position: relative!important;
+  width: 35px!important;
+  height: auto!important;
+  top: 2px!important;
+  left: 2px!important;
 }
 
 .calendar-panel {
-  height: 75px;
-  overflow: hidden;
-  border: 2px solid #18bc9c;
-  margin: 5px 2px;
-  padding: 2px;
+  height: 75px!important;
+  overflow: hidden!important;
+  border: 2px solid #18bc9c!important;
+  margin: 5px 2px!important;
+  padding: 2px!important;
 }
 
 .calendar {
-  position: relative;
-  display: inline-block;
-  width: 13.6%;
-  margin-right: 2px;
-  border-right: none;
+  position: relative!important;
+  display: inline-block!important;
+  width: 13.6%!important;
+  margin-right: 2px!important;
+  border-right: none!important;
 }
 
 .calendar:last-of_type {
-  margin-right: 0;
+  margin-right: 0!important;
 }
 
 #calendar-wrap {
-  margin: 0 auto;
-  min-height: 70vh;
+  margin: 0 auto!important;
+  min-height: 70vh!important;
 }
 
 .calendar-day {
-  margin-bottom: 0;
-  margin-top: 0;
+  margin-bottom: 0!important;
+  margin-top: 0!important;
   padding: 10px;
-  background-color: #18bc9c;
-  color: #fff;
+  background-color: #18bc9c!important;
+  color: #fff!important;
   /*border-radius: 2px;*/
 }
 
 .calendar-body {
-  padding: 0;
+  padding: 0!important;
 }
 
 .calendar-body {
-  font-size: 12px;
-  overflow: hidden;
+  font-size: 12px!important;
+  overflow: hidden!important;
 }
 
 .reminder-date {
-  padding: 2px;
+  padding: 2px!important;
 }
 
 .reminder-type {
-  position: relative;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
+  position: relative!important;
+  display: block!important;
+  margin: 0 auto!important;
+  text-align: center!important;
 }
 
 /*Plants Page*/
 .panel-collapse {
-  height: 0px;
-  font-size: 12px;
+  height: 0px!important;
+  font-size: 12px!important;
 }
 
 .plant-panel, .panel-group {
-  margin-bottom: 0px;
+  margin-bottom: 0px!important;
 }
 
 .plant-panel {
-  position: relative;
-  float: left;
-  margin: 10px;
-  width: 30%;
-  height: auto;
-  overflow: hidden;
+  position: relative!important;
+  float: left!important;
+  margin: 10px!important;
+  width: 30%!important;
+  height: auto!important;
+  overflow: hidden!important;
 }
 
 .plant-panel-body {
-  padding: 0;
-  margin: 0;
-  width: 250px;
-  height: 250px;
+  padding: 0!important;
+  margin: 0!important;
+  width: 250px!important;
+  height: 250px!important;
 }
 
 .plantpg-name, .fa-minus-square {
-  position: absolute;
-  z-index: 100;
-  top: 5px;
+  position: absolute!important;
+  z-index: 100!important;
+  top: 5px!important;
 }
 
 .plantpg-name {
-  left: 5px;
-  color: white;
+  left: 5px!important;
+  color: white!important;
 }
 .fa-minus-square {
-  cursor: pointer;
-  right: 5px;
-  color: #ff3f3f;
+  cursor: pointer!important;
+  right: 5px!important;
+  color: #ff3f3f!important;
 }
 
 .plantpg-img {
-  position: relative;
-  height: auto;
-  opacity: 0.9;
-  cursor: pointer;
+  position: relative!important;
+  height: auto!important;
+  width: 350px!important;
+  opacity: 0.9!important;
+  cursor: pointer!important;
 }
 
 
 .plantpg-img:hover {
-  cursor: pointer;
+  cursor: pointer!important;
 }
 
 /*FORMS*/
 .form-control, input {
   border-width: 0px;
-  border: 1px solid rgba(24, 188, 156, 0.41)
+  border: 1px solid rgba(24, 188, 156, 0.41);
 }
 
 .form-control:focus {
@@ -267,23 +274,23 @@ label {
 }
 
 #weekday-wrap {
-  display: flex;
-  justify-content: space-between;
+  display: flex!important;
+  justify-content: space-between!important;
 }
 
 /*PLANT PROFILE*/
 #profile-img {
-  width: 100%;
+  width: 100%!important;
 }
 
 .text-muted {
   color: #74958e;
-  text-align: center;
-  display: block;
+  text-align: center!important;
+  display: block!important;
 }
 
 #main-prof-panel, #care-prof-panel, #reminder-prof-panel, #rating-panel {
-  margin: 15px;
+  margin: 15px!important;
 }
 
 /*MEDIA QUERY*/
@@ -291,15 +298,15 @@ label {
 @media screen and (max-width:767px) {
   
   div#nav-column {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 5px;
+    display: flex!important;
+    justify-content: space-around!important;
+    margin-bottom: 5px!important;
   }
 
   .hvr-bounce-in {
-    width: 10%;
-    float: left;
-    padding: 0;
+    width: 10%;!important
+    float: left!important;
+    padding: 0!important;
   }
 
   h1 {
@@ -311,38 +318,39 @@ label {
   }
 
   .calendar {
-    width: 100%;
-    margin-right: 0px;
+    width: 100%!important;
+    margin-right: 0px!important;
   }
 
   .calendar-panel {
-    height: 50px;
-    margin-top: 0;
-    border: 0.5px solid rgba(24, 188, 156, 0.19);
-    border-bottom: none;
+    height: 50px!important;
+    margin-top: 0!important;
+    border: 0.5px solid rgba(24, 188, 156, 0.19)!important;
+    border-bottom: none!important;
   }
 
   .reminder-type {
-    float: none;
-    position: relative;
-    text-align: center;
-    bottom: 20px;
-    font-size: 16px;
+    float: none!important;
+    position: relative!important;
+    text-align: center!important;
+    bottom: 20px!important;
+    font-size: 16px!important;
   }
 
   .calendar-day {
-    margin-top: 15px;
+    margin-top: 15px!important;
   }
 
   .fa-github-alt {
-    float: none;
+    float: none!important;
   }
 
- .fa-plus {
-    color: #f08080;
+ .plant-panel {
+    width: 45% !important;
 }
 
-  .plant-panel {
-    width: 45%;
-  }
+
+
+
+
 

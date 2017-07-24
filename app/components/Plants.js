@@ -65,14 +65,14 @@ class Plants extends React.Component {
     	return this.state.savedPlants.map(function(plant, index) {
     		return (
 	        	<div key={index}>
-	        		<div id={plant.id} type="submit">
+	        		{/*<div id={plant.id} type="submit">*/}
 		          		<div className="panel panel-success plant-panel">
 		          			<div className="panel-heading">{plant.name}<i onClick={() => this.handleDelete(plant)} className="fa fa-minus-square fa-lg" aria-hidden="true"></i></div>
 							<div className="panel-body plant-panel-body">
 								<img src={plant.imageURL} onClick={this.handleClick.bind(null,plant.id)} className="plantpg-img"></img>
 							</div>
 						</div>
-					</div>
+					{/*</div>*/}
 	        	</div>
 	      	);
     	}.bind(this));

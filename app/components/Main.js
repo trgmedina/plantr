@@ -29,7 +29,7 @@ class Main extends React.Component {
                       <Link to="/app/Plants"><i className="fa fa-leaf fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>
                     </div>
                     <div className="nav-icon">
-                      <Link to="/app/AddPlant"><i className="fa fa-plus fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>
+                      <Link to="/app/AddPlant"><i className="fa fa-plus fa-lg hvr-bounce-in" aria-hidden="true" id="addsign"></i></Link>
                     </div>
                     <div className="nav-icon">
                       <a href="/Profile"><i className="fa fa-user fa-lg hvr-bounce-in" aria-hidden="true"></i></a>
