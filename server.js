@@ -70,7 +70,7 @@ app.get("/api", function(req, res) {
             console.log(err);
         } else {
             res.send(doc);
-            console.log("back end results", doc)
+            // console.log("back end results", doc)
         }
     });
 });

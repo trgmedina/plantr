@@ -34,6 +34,12 @@
 <body>
 	<div id="fakeLoader"></div>
 	<!-- This is where React will deploy the contents it generates -->
+	<script type="text/javascript">
+
+		$("#fakeLoader").fakeLoader()
+
+	</script>
+
 	<div id="app"></div>
 
     <div class="row">
@@ -49,16 +55,6 @@
 
 	<!-- All of our JS code will be transpiled into this bundle.js file -->
 	<script src="bundle.js"></script>
-
-	<script type="text/javascript">
-
-		// $(".footer").hide()
-		$("#fakeLoader").fakeLoader()
-		// $(".footer").show()
-		
-		$('.collapse').collapse()
-
-	</script>
 	
 </body>
 </html>
