@@ -3,11 +3,11 @@ VERSION:2.0
 CALSCALE:GREGORIAN
 PRODID:-//Adam Gibbons//agibbons.com//ICS: iCalendar Generator
 BEGIN:VEVENT
-UID:fcd703e0-7025-11e7-8718-2d8884a15c21
-DTSTAMP:20170724T041011Z
+UID:04fe7b30-7084-11e7-a0e1-73a614937262
+DTSTAMP:20170724T152317Z
 DTSTART:20170724T180000
 DTEND:20170724T210000
-SUMMARY:Fertilize Swedish Ivy
+SUMMARY:Water Snapdragon (Antirrhinum)
 DESCRIPTION:Trees and plants always look like the people they live with, somehow.
 URL:http://plantr.com
 STATUS:confirmed
