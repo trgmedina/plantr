@@ -120,12 +120,6 @@ footer {
   color: #ffffff;
 }
 
-.btn-success {
-  margin: 0 auto;
-  display: block;
-  width: 20%;
-}
-
 /*Reminders*/
 .reminder-img {
   position: relative;
@@ -347,7 +341,7 @@ label {
 <<<<<<< HEAD
 }
 
-.fa-plus {
+ .fa-plus {
     color: #f08080;
 }
 
