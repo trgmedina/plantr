@@ -38,7 +38,7 @@ jspm_packages/
 bundle.js
 
 #ics files
-public/plantr_calendar.ics
+plantr_calendar.ics
 event.ics
 
 # Typescript v1 declaration files
