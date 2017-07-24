@@ -250,7 +250,7 @@ class PlantProfile extends React.Component {
     return (
       <div className="row">
 
-        <div className="col-xs-6">
+        <div className="col-xs-12 col-md-6">
           <div className="panel panel-success" id="main-prof-panel">
             <div className="panel-heading">
               {this.state.plant.name} AKA {this.state.plant.nickname}
@@ -267,7 +267,7 @@ class PlantProfile extends React.Component {
           </div>
         </div>
                 
-        <div className="col-xs-6">
+        <div className="col-xs-12 col-md-6">
           <div className="panel panel-success" id="care-prof-panel">
             <div className="panel-heading">
               Plant Care Information
@@ -290,7 +290,6 @@ class PlantProfile extends React.Component {
               </li>
             </ul>
           </div>
-          <br></br>
           <div className="panel panel-success" id="reminder-prof-panel">
             <div className="panel-heading">
               Plant Care Reminders
@@ -303,13 +302,16 @@ class PlantProfile extends React.Component {
             </ul>
           </div>
           <div className="panel panel-success" id="rating-panel">
-              <div className="panel-heading">Rate This Plant</div>
-                  <br/>
-                  <Rating maxRating={5} defaultRating={0} icon='star' size='massive' />
-                  <br/>
-                  <a href="#">write a review</a>
-                  <br/>
-              </div>
+            <div className="panel-heading">
+              Rate This Plant
+            </div>
+            <ul className="list-group">
+              <li className="list-group-item">
+                <Rating maxRating={5} defaultRating={0} icon='star' size='massive' /><br/>
+                <a className="text-center" href="#">Write a Review</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     );
