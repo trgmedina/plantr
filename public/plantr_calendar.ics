@@ -3,11 +3,11 @@ VERSION:2.0
 CALSCALE:GREGORIAN
 PRODID:-//Adam Gibbons//agibbons.com//ICS: iCalendar Generator
 BEGIN:VEVENT
-UID:6f953490-70aa-11e7-a9ee-ef7159b474f7
-DTSTAMP:20170724T195817Z
-DTSTART:20170727T180000
-DTEND:20170727T210000
-SUMMARY:Fertilize Swedish Ivy
+UID:efce6fb0-70b3-11e7-8b9c-85daed0c8246
+DTSTAMP:20170724T210618Z
+DTSTART:20170724T180000
+DTEND:20170724T210000
+SUMMARY:Water African Violet
 DESCRIPTION:Trees and plants always look like the people they live with, somehow.
 URL:http://plantr.com
 STATUS:confirmed

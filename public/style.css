@@ -338,19 +338,19 @@ label {
   .fa-github-alt {
     float: none;
   }
-<<<<<<< HEAD
-}
-
- .fa-plus {
-    color: #f08080;
-}
-
-
-=======
->>>>>>> frontend
 
   .plant-panel {
     width: 45%;
+  }
+
+  .jumbotron>hr {
+    width: 100%;
+  }
+        
+  .btn-css {
+    width: 100%;
+    font-size: 70%;
+    padding: 5px;
   }
 }
 
@@ -486,6 +486,7 @@ label {
   background: transparent;
   color: rgba(0, 0, 0, 0.15);
   text-shadow: none;
+  float: left;
 }
 
 /* Active Star */
