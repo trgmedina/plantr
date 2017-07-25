@@ -14,13 +14,13 @@ class Main extends React.Component {
             <div className="col-xs-12">
               <div className="row">
                 {/*header*/}
-                <h1 className="align-middle">Plantr</h1>
+                <h1 className="align-middle">Plantr<span className="fa fa-leaf fa"></span></h1>
               </div>
               {/*Navigation*/}
               <div className="row">
                 <div className="col-md-1 col-xs-12" id="nav-column">
                     <div className="nav-icon">
-                      <Link to="/app/Reminders"><i className="fa fa-exclamation fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>
+                      <Link to="/app"><i className="fa fa-exclamation fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>
                     </div>
                     {/*<div className="nav-icon">
                         <Link to="/app/Calendar"><i className="fa fa-calendar fa-lg hvr-bounce-in" aria-hidden="true"></i></Link>

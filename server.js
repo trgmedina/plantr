@@ -198,42 +198,42 @@ app.get("/user/plants", function(req, res) {
     });
 });
 
-// //write ics file for user download
-// app.post("/calendar", function(req, res) {
-//     // console.log(req.body);
-//     var event = req.body[0];
-//     // console.log(event);
-//     var date = event.date.split("/");
-//     // console.log(date);
+//write ics file for user download
+app.post("/calendar", function(req, res) {
+    // console.log(req.body);
+    var event = req.body[0];
+    // console.log(event);
+    var date = event.date.split("/");
+    // console.log(date);
 
-//     var ics = new ICS();
+    var ics = new ICS();
 
-//     ics.createEvent({ 
-//         start: "2017-"+date[0]+"-"+date[1]+" 18:00",
-//         end: "2017-"+date[0]+"-"+date[1]+" 21:00",
-//         title: event.type+" "+ event.plant,
-//         description: 'Trees and plants always look like the people they live with, somehow.',
-//         url: 'http://plantr.com',
-//         status: 'confirmed',
-//         alarms: [
-//             { action: 'DISPLAY', trigger: '-PT24H', description: 'Reminder', repeat: true, duration: 'PT15M' },
-//             { action: 'AUDIO', trigger: '-PT30M' }
-//         ]
-//     }, function(req, res){
+    ics.createEvent({ 
+        start: "2017-"+date[0]+"-"+date[1]+" 18:00",
+        end: "2017-"+date[0]+"-"+date[1]+" 21:00",
+        title: event.type+" "+ event.plant,
+        description: 'Trees and plants always look like the people they live with, somehow.',
+        url: 'http://plantr.com',
+        status: 'confirmed',
+        alarms: [
+            { action: 'DISPLAY', trigger: '-PT24H', description: 'Reminder', repeat: true, duration: 'PT15M' },
+            { action: 'AUDIO', trigger: '-PT30M' }
+        ]
+    }, function(req, res){
 
-//      // console.log(res);
+     // console.log(res);
 
-//     fs.writeFile(__dirname + "/public/plantr_calendar.ics", res, function(err) {
+    fs.writeFile(__dirname + "/public/plantr_calendar.ics", res, function(err) {
 
-//         // If the code experiences any errors it will log the error to the console.
-//         if (err) {
-//             return console.log(err);
-//         }
-//         // Otherwise, it will print: "movies.txt was updated!"
-//         // console.log("plantr_calendar.ics was updated!");
-//       });
-//    });
-// });
+        // If the code experiences any errors it will log the error to the console.
+        if (err) {
+            return console.log(err);
+        }
+        // Otherwise, it will print: "movies.txt was updated!"
+        // console.log("plantr_calendar.ics was updated!");
+      });
+   });
+});
 
 // Route to get data for plant profile page
 app.get("/app/profile/:id", function(req, res) {
