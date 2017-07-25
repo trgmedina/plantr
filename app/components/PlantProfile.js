@@ -48,14 +48,10 @@ class PlantProfile extends React.Component {
         created: ""
       },
       modalIsOpen: false,
-      deleteModalIsOpen: false,
     }
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-
-    this.deleteOpenModal = this.deleteOpenModal.bind(this);
-    this.deleteCloseModal = this.deleteCloseModal.bind(this);
   }
 
   componentDidMount() {
@@ -338,15 +334,7 @@ class PlantProfile extends React.Component {
     return this.state.reminders.map(function(reminder, index) {
       return (
         <li className="list-group-item" key={index}>
-          <i type="button" className="fa fa-minus-square fa-lg hvr-bounce-in minus-rmndr" aria-hidden="true" onClick={this.deleteOpenModal}></i>
-          <Modal isOpen={this.state.deleteModalIsOpen} 
-          onAfterOpen={this.deleteAfterOpenModal} 
-          onRequestClose={this.deleteCloseModal} 
-          style={customStyles} >
-            <h2 className="text-center">Are you sure you want to Delete?</h2>
-            <button type="button" className="btn btn-danger" onClick={(e)=>{ e.preventDefault(); this.deleteCloseModal(); this.handleClick(reminder) }}>Delete</button>
-            <button type="button" className="btn btn-danger" onClick={(e)=>{ e.preventDefault(); this.deleteCloseModal()}}>Cancel</button>
-          </Modal>
+          <i type="button" className="fa fa-minus-square fa-lg hvr-bounce-in minus-rmndr" aria-hidden="true" onClick={() => this.handleClick(reminder)}></i>
           {reminder.type} on {reminder.days} - {reminder.frequency}<br/>
           Created: {reminder.created}
         </li>

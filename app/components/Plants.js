@@ -1,10 +1,10 @@
 // Include React as a dependency
-var React = require("react");
-var Link = require("react-router").Link;
+const React = require("react");
+const Link = require("react-router").Link;
 import { browserHistory } from 'react-router';
 
 // Include the Helper (for the saved recall)
-var helpers = require("../utils/helpers");
+const helpers = require("../utils/helpers");
 
 // Create the Main component
 class Plants extends React.Component {
@@ -30,11 +30,8 @@ class Plants extends React.Component {
 
 	    // Delete from the user's plants list
 	    helpers.deleteUserPlant(plant).then(function() {
-
 	      // Get the revised list
 	      	helpers.getUserPlants().then(function(plantData) {
-	      		// console.log(plantData);
-	      		
 		        this.setState({ savedPlants: plantData });
       		}.bind(this));
 
