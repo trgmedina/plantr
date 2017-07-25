@@ -266,11 +266,11 @@ class Reminders extends React.Component {
   renderContainer() {
     return (
 
-        <div className="container-fluid">
+        <div className="row">
 	        <div className="row">
 	          	<div className="col-xs-12 text-center">
 	          		<h2>Upcoming Plant Care Reminders</h2>
-                {this.state.todaysDate}
+                <p id="todays-date">{this.state.todaysDate}</p>
 	          	</div>
 	        </div>
 	        <div className="row" id="calendar-wrap">

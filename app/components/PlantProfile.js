@@ -117,7 +117,6 @@ class PlantProfile extends React.Component {
     this.setState({
       newReminder: addReminder
     })
-    console.log("from handlereminders: addReminder", addReminder)
   }
 
   handleSubmit() {

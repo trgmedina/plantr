@@ -2,7 +2,7 @@
 /*GENERAL*/
 
 body {
-  font-family: 'Lato', sans-serif!important; 
+  font-family: 'Lato', sans-serif; 
   background-color: #e8fff2;
   color: #18bc9c;
   display: flex;
@@ -11,8 +11,8 @@ body {
 }
 
 .container-fluid {
-  padding: 0 10px!important;
-  margin-top: 30px!important;
+  padding: 0 10px;
+  margin-top: 30px;
 }
 
 .jumbotron {
@@ -34,7 +34,7 @@ body {
 }
 
 .fa-github-alt {
-  display: inline-block!important;
+  display: inline-block;
 }
 
 h1 {
@@ -46,7 +46,7 @@ h1 {
 h2 {
     font-size: 30px;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 15px!important;
 }
 
 a:hover, a:focus {
@@ -58,18 +58,18 @@ a:focus {
 }
 
 span > i {
-  padding-right: 5px!important;
+  padding-right: 5px;
 }
 
 .panel {
-  margin-bottom: 0px!important;
-  box-shadow: none!important;
+  margin-bottom: 0px;
+  box-shadow: none;
   border: none;
-  border-radius: 2px!important;
+  border-radius: 2px;
 }
 
 .fa {
-  padding: 10px!important;
+  padding: 10px;
 }
 
 .modal-button {
@@ -96,12 +96,16 @@ span > i {
     position: absolute;
     top: 15px;
     right: 15px;
+}
+
+#content-wrapper, #nav-column {
+  margin-top: 10px;
 }
 
 /*FOOTER CSS*/
 footer {
-  height: 5vh!important;
-  margin-top: 5vh!important;
+  height: 5vh;
+  margin-top: 5vh;
 }
 
 .fa-github-alt {
@@ -155,8 +159,8 @@ footer {
 }
 
 #calendar-wrap {
-  margin: 0 auto!important;
-  min-height: 70vh!important;
+  margin: 0 auto;
+  min-height: 60vh;
 }
 
 .calendar-day {
@@ -165,7 +169,6 @@ footer {
   padding: 10px;
   background-color: #18bc9c!important;
   color: #fff!important;
-  /*border-radius: 2px;*/
 }
 
 .calendar-body {
@@ -182,10 +185,14 @@ footer {
 }
 
 .reminder-type {
-  position: relative!important;
-  display: block!important;
-  margin: 0 auto!important;
-  text-align: center!important;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#todays-date {
+  margin: 0 0 15px 0;
 }
 
 /*Plants Page*/
@@ -333,6 +340,10 @@ label {
   }
 
   h2 {
+    font-size: 20px;
+  }
+
+  h2:last-child {
     font-size: 20px;
   }
 

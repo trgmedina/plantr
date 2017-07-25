@@ -19,7 +19,6 @@ class Plants extends React.Component {
     // When this component mounts, get all user plants
 	componentDidMount() {
     	helpers.getUserPlants().then(function(data) {
-    		// console.log(data);
 
      		this.setState({ savedPlants: data });
 
@@ -28,9 +27,6 @@ class Plants extends React.Component {
 
   	// This code handles the deleting of a user's plant 
 	handleDelete(plant) {
-		// console.log("CLICKED")
-	 //    console.log(plant);
-	 //    console.log(plant.id);
 
 	    // Delete from the user's plants list
 	    helpers.deleteUserPlant(plant).then(function() {
@@ -65,14 +61,12 @@ class Plants extends React.Component {
     	return this.state.savedPlants.map(function(plant, index) {
     		return (
 	        	<div key={index}>
-	        		{/*<div id={plant.id} type="submit">*/}
-		          		<div className="panel panel-success plant-panel">
-		          			<div className="panel-heading">{plant.name}<i onClick={() => this.handleDelete(plant)} className="fa fa-minus-square fa-lg" aria-hidden="true"></i></div>
-							<div className="panel-body plant-panel-body">
-								<img src={plant.imageURL} onClick={this.handleClick.bind(null,plant.id)} className="plantpg-img"></img>
-							</div>
+		          	<div className="panel panel-success plant-panel">
+		          		<div className="panel-heading">{plant.name}<i onClick={() => this.handleDelete(plant)} className="fa fa-minus-square fa-lg hvr-bounce-in" aria-hidden="true"></i></div>
+						<div className="panel-body plant-panel-body">
+							<img src={plant.imageURL} onClick={this.handleClick.bind(null,plant.id)} className="plantpg-img"></img>
 						</div>
-					{/*</div>*/}
+					</div>
 	        	</div>
 	      	);
     	}.bind(this));
@@ -82,7 +76,7 @@ class Plants extends React.Component {
 	renderContainer() {
 
 		return (
-	    	<div className="container-fluid">
+	    	<div className="row">
 		        <div className="row">
 		          	<div className="col-xs-12 text-center">
 		          		<h2>Your Plants</h2>

@@ -106,7 +106,7 @@ var AddPlant = React.createClass({
   render: function() {
 
       return (
-        <div className="container-fluid">
+        <div className="row">
           <div className="row">
             <div className="col-xs-12 text-center">
               <h2>Add a Plant</h2>
