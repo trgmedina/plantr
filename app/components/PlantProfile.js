@@ -305,9 +305,8 @@ class PlantProfile extends React.Component {
             <ul className="list-group">
               {/*REMINDERS RENDER HERE*/}
               {this.renderReminders()}
-
-              {this.newReminderModal()}
             </ul>
+            {this.newReminderModal()}
           </div>
           <div className="panel panel-success" id="rating-panel">
             <div className="panel-heading">
@@ -331,20 +330,11 @@ class PlantProfile extends React.Component {
     }
     return this.state.reminders.map(function(reminder, index) {
       return (
-        <div>
-          <div key={index}>
-            <ul className="list-group">
-              <li className="list-group-item">
-                <button type="button" className="btn btn-danger delete-btn" 
-                onClick={() => this.handleClick(reminder)}>
-                  <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
-                {reminder.type}, {reminder.days}, {reminder.frequency}
-                {reminder.id}, {reminder.created}
-              </li>
-            </ul>
-          </div>
-        </div>
+        <li className="list-group-item" key={index}>
+          <i type="button" className="fa fa-minus-square fa-lg hvr-bounce-in" aria-hidden="true" onClick={() => this.handleDelete(plant)}></i>
+          {reminder.type} on {reminder.days} - {reminder.frequency}<br/>
+          Created: {reminder.created}
+        </li>
       )
     }.bind(this));
   }

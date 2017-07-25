@@ -99,6 +99,10 @@ span > i {
   width: 50%;
 }
 
+html [type=button] {
+  -webkit-appearance: none; 
+}
+
 .modal-close {
     cursor: pointer;
     position: absolute;
