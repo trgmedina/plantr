@@ -78,6 +78,14 @@ span > i {
   width: 50%;
 }
 
+#new-remndr-btn {
+  width: 30%;
+}
+
+#modal-div {
+  padding-bottom: 10px;
+}
+
 .modal-close {
     cursor: pointer;
     position: absolute;
@@ -206,12 +214,12 @@ footer {
 }
 
 .plant-panel {
-  position: relative!important;
-  float: left!important;
-  margin: 10px!important;
-  width: 30%!important;
-  height: auto!important;
-  overflow: hidden!important;
+  position: relative;
+  float: left;
+  margin: 10px;
+  width: 30%;
+  height: auto;
+  overflow: hidden;
 }
 
 .plant-panel-body {
@@ -232,21 +240,22 @@ footer {
   color: white!important;
 }
 .fa-minus-square {
-  cursor: pointer!important;
-  right: 5px!important;
-  color: #ff3f3f!important;
+  cursor: pointer;
+  right: 5px;
+  top: 5px;
+  color: #d22700;
+  font-size: 22px;
 }
 
 .plantpg-img {
-  position: relative!important;
-  height: auto!important;
-  width: 350px!important;
-  cursor: pointer!important;
+  position: relative;
+  height: auto;
+  width: 400px;
+  height: auto;
 }
 
-
 .plantpg-img:hover {
-  cursor: pointer!important;
+  cursor: pointer;
 }
 
 /*FORMS*/
@@ -306,7 +315,7 @@ label {
 
 /*PLANT PROFILE*/
 #profile-img {
-  width: 100%!important;
+  width: 100%;
 }
 
 .text-muted {
@@ -376,8 +385,12 @@ label {
   }
 
  .plant-panel {
-    width: 45% !important;
-}
+    width: 47%;
+  }
+
+  .plantpg-img {
+    width: 400px;
+  }
 
   .jumbotron>hr {
     width: 100%;
@@ -387,6 +400,17 @@ label {
     width: 100%;
     font-size: 70%;
     padding: 5px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .plant-panel {
+    width: 90%;
+    margin: 15px;
+  }
+
+  .plantpg-img {
+    width: 600px;
   }
 }
 

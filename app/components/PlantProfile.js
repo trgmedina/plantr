@@ -136,8 +136,8 @@ class PlantProfile extends React.Component {
 
   newReminderModal() {
     return (
-      <div>
-        <button className="btn btn-success" onClick={this.openModal}>Create New</button>
+      <div id="modal-div">
+        <button className="btn btn-success modal-button" id="new-remndr-btn" onClick={this.openModal}>Create New</button>
         <Modal isOpen={this.state.modalIsOpen} 
         onAfterOpen={this.afterOpenModal} 
         onRequestClose={this.closeModal} 

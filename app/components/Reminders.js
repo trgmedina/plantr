@@ -315,7 +315,7 @@ class Reminders extends React.Component {
             <div className="col-md-3"></div>
             <div className="col-md-6 text-center">
             <Popup
-                trigger={<a href="./plantr_calendar.ics" download="plantr_calendar.ics"><Button size='huge' icon='add' color='olive' content='Export to iCalendar'/></a>}
+                trigger={<a href="./plantr_calendar.ics" download="plantr_calendar.ics"><Button size='huge' icon='add' color='teal' content='Export to iCalendar'/></a>}
                 content='download ics'
                 on='hover'
                 size='huge'
