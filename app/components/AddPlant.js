@@ -418,7 +418,7 @@ var AddPlant = React.createClass({
                           </div>
                         </div>
                       </div>
-                      <a href="/app"><button onClick={this.handleSubmit} type="submit" className="btn btn-success">Submit</button></a>
+                      <a href="/app"><button onClick={this.handleSubmit} type="submit" id="app-plant-btn" className="btn btn-success">Submit</button></a>
                     </form>          
               </div>
             </div>
