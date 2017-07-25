@@ -247,7 +247,7 @@ footer {
   cursor: pointer;
   right: 5px;
   top: 5px;
-  color: #d22700;
+  color: #fff;
   font-size: 22px;
 }
 
@@ -321,7 +321,9 @@ label {
 #profile-img {
   width: 100%;
 }
-
+.minus-rmndr {
+  color: #18bc9c;
+}
 .text-muted {
   color: #74958e;
   text-align: center!important;

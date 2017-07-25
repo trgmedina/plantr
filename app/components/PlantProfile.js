@@ -331,7 +331,7 @@ class PlantProfile extends React.Component {
     return this.state.reminders.map(function(reminder, index) {
       return (
         <li className="list-group-item" key={index}>
-          <i type="button" className="fa fa-minus-square fa-lg hvr-bounce-in" aria-hidden="true" onClick={() => this.handleDelete(plant)}></i>
+          <i type="button" className="fa fa-minus-square fa-lg hvr-bounce-in minus-rmndr" aria-hidden="true" onClick={() => this.handleClick(reminder)}></i>
           {reminder.type} on {reminder.days} - {reminder.frequency}<br/>
           Created: {reminder.created}
         </li>
