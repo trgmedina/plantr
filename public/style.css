@@ -414,8 +414,16 @@ label {
     margin: 15px;
   }
 
+  .calendar {
+    width: auto;
+  }
+
   .plantpg-img {
     width: 600px;
+  }
+
+  .calendar-panel {
+    width: auto;
   }
 }
 
