@@ -4,13 +4,15 @@
 
 ## Screenshots
 Login Page:
-![](LINK HERE)
+![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Login-1.PNG?raw=true)
+![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Login-2.PNG?raw=true)
 
 Reminders:
-![](LINK HERE)
+![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Reminders.PNG?raw=true)
 
 Plants:
-![](LINK HERE)
+![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Plants-1.PNG?raw=true)
+![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Plants-2.PNG?raw=true)
 
 Add Plants:
 ![](LINK HERE)
