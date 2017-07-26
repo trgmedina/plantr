@@ -42,7 +42,7 @@ let profileHelpers = {
 		let id = reminderId;
 	    return axios.delete("/app/delete/"+id)
 	    .then(function(results) {
-	      console.log("axios results", results);
+	      // console.log("axios results", results);
 	      return results;
 	    });
   	},

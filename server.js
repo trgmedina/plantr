@@ -201,29 +201,56 @@ app.get("/user/plants", function(req, res) {
 //write ics file for user download
 app.post("/calendar", function(req, res) {
     // console.log(req.body);
-    var event = req.body[0];
+    var event = req.body;
     // console.log(event);
-    var date = event.date.split("/");
-    // console.log(date);
+    var icsString = "";
 
-    var ics = new ICS();
+    for (var i = 0; i < event.length; i++) {
 
-    ics.createEvent({ 
-        start: "2017-"+date[0]+"-"+date[1]+" 18:00",
-        end: "2017-"+date[0]+"-"+date[1]+" 21:00",
-        title: event.type+" "+ event.plant,
-        description: 'Trees and plants always look like the people they live with, somehow.',
-        url: 'http://plantr.com',
-        status: 'confirmed',
-        alarms: [
-            { action: 'DISPLAY', trigger: '-PT24H', description: 'Reminder', repeat: true, duration: 'PT15M' },
-            { action: 'AUDIO', trigger: '-PT30M' }
-        ]
-    }, function(req, res){
+        var date = event[i].date.split("/");
+        // console.log(date);
 
-     // console.log(res);
+        var ics = new ICS();
 
-    fs.writeFile(__dirname + "/public/plantr_calendar.ics", res, function(err) {
+        ics.createEvent({
+            start: "2017-" + date[0] + "-" + date[1] + " 18:00",
+            end: "2017-" + date[0] + "-" + date[1] + " 21:00",
+            title: event[i].type + " " + event[i].plant,
+            description: 'Trees and plants always look like the people they live with, somehow.',
+            url: 'http://plantr.com',
+            status: 'confirmed',
+            alarms: [
+                { action: 'DISPLAY', trigger: '-PT24H', description: 'Reminder', repeat: true, duration: 'PT15M' },
+                { action: 'AUDIO', trigger: '-PT30M' }
+            ]
+        }, function(req, res) {
+
+            // console.log(res);
+            var newString1 = res.split("PRODID:-//Adam Gibbons//agibbons.com//ICS: iCalendar Generator");
+            var newString2 = newString1[1].split("END:VCALENDAR");
+            // console.log(newString2[0]);
+
+            icsString = icsString + "\r\n" + newString2[0];
+            icsWrite(icsString);
+
+        });
+    }   
+});
+
+
+function icsWrite(icsString){
+
+    //combining all new events together
+    var finalString = "BEGIN:VCALENDAR\r\nPRODID:-//Google Inc//Google Calendar 70.9054//EN\r\nVERSION:2.0\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\nX-WR-TIMEZONE:America/Chicago\r\nBEGIN:VTIMEZONE\r\nTZID:America/Chicago\r\nX-LIC-LOCATION:America/Chicago\r\nBEGIN:DAYLIGHT\r\nTZOFFSETFROM:-0600\r\nTZOFFSETTO:-0500\r\nTZNAME:CDT\r\nDTSTART:19700308T020000\r\nRRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU\r\nEND:DAYLIGHT\r\nBEGIN:STANDARD\r\nTZOFFSETFROM:-0500\r\nTZOFFSETTO:-0600\r\nTZNAME:CST\r\nDTSTART:19701101T020000\r\nRRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU\r\nEND:STANDARD\r\nEND:VTIMEZONE"
+
+        +
+        "\r\n" + icsString +
+
+        "\r\nEND:VCALENDAR";
+
+      // console.log(finalString);
+
+    fs.writeFile(__dirname + "/public/plantr_calendar.ics", finalString, function(err) {
 
         // If the code experiences any errors it will log the error to the console.
         if (err) {
@@ -231,9 +258,9 @@ app.post("/calendar", function(req, res) {
         }
         // Otherwise, it will print: "movies.txt was updated!"
         // console.log("plantr_calendar.ics was updated!");
-      });
-   });
-});
+    });
+}
+
 
 // Route to get data for plant profile page
 app.get("/app/profile/:id", function(req, res) {
@@ -243,7 +270,7 @@ app.get("/app/profile/:id", function(req, res) {
             console.log(err);
         } else {
             res.send(doc);
-            console.log("Profile Page ", doc)
+            // console.log("Profile Page ", doc)
         }
     });
 
@@ -252,8 +279,8 @@ app.get("/app/profile/:id", function(req, res) {
 //delet user plant
 app.post("/user/plants/:id", function(req, res) {
     var plantId = req.params.id;
-    console.log("server", plantId);
-    console.log(req.user.id);
+    // console.log("server", plantId);
+    // console.log(req.user.id);
     var userId = req.user.id;
 
     User.findOneAndUpdate({ _id: userId }, { $pull: { plants: plantId } }, { new: true }, function(err, newdoc) {

@@ -11,7 +11,7 @@ module.exports = {
   // Takes in an argument for what to post to the database
   savePlant: function(plantData) {
      return axios.get("/user").then(function(results){
-            console.log("user id is here",results.data._id);
+            // console.log("user id is here",results.data._id);
             let id = results.data._id;
             let newPlant = {
                   plant: plantData,
