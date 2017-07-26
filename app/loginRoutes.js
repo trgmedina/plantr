@@ -185,7 +185,7 @@ module.exports = function(app, passport) {
 
     app.get('/user', isLoggedIn, function(req, res) {
         var user = req.user;
-        console.log(user);
+        // console.log(user);
         res.send(user);
     });
 
