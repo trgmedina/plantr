@@ -206,7 +206,7 @@ class PlantProfile extends React.Component {
                   className="reminders weekday" 
                   onChange={this.handleReminders.bind(this)}
                   value="Thursday" />
-                <label htmlFor="weekday-thu">TUE</label>
+                <label htmlFor="weekday-thu">THU</label>
                 <input 
                   name="days"
                   type="checkbox" 
