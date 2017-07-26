@@ -1,5 +1,4 @@
 # Plantr
-----
 An easy to use houseplant web application for new or busy plant owners. 
 
 ## Description
