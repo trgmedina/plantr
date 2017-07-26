@@ -18,8 +18,7 @@ Plants:
 ![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Plants-2.PNG?raw=true)
 
 Add Plants:
-![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/AddPlant-1.PNG?raw=true)
-![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/AddPlant-2.PNG?raw=true)
+![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/AddPlant.png?raw=true)
 
 ## Languages/Libraries Used
 * HTML
