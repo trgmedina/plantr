@@ -1,25 +1,24 @@
 # Plantr
-An easy to use houseplant web application for new or busy plant owners. 
-
 ----
+An easy to use houseplant web application for new or busy plant owners. 
 
 ## Description
 
 Plantr gives useful care details for specfic plants, allow plant owners to add and save all their plants in one convenient place, and remind plant owners when to water, fertilize, or prune specific plants. 
 
 ## Screenshots
-###Login Page:
+Login Page:
 ![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Login-1.PNG?raw=true)
 ![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Login-2.PNG?raw=true)
 
-###Reminders:
+Reminders:
 ![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Reminders.PNG?raw=true)
 
-###Plants:
+Plants:
 ![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Plants-1.PNG?raw=true)
 ![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/Plants-2.PNG?raw=true)
 
-###Add Plants:
+Add Plants:
 ![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/AddPlant-1.PNG?raw=true)
 ![](https://github.com/trgmedina/plantapp/blob/master/public/Screenshots/AddPlant-2.PNG?raw=true)
 
@@ -55,14 +54,14 @@ For optimal performance, user will need to have Google Chrome browser. Developme
 
 ## Web Application
 
-![Plantr](https://plantr-dev3.herokuapp.com)
+[Plantr](https://plantr-dev3.herokuapp.com)
 
 ## Built With
 * Sublime
 * Heroku
 
 ## File and Directory Structure
-.
+```
 |   .gitignore
 |   npm-debug.log
 |   package-lock.json
@@ -120,6 +119,7 @@ For optimal performance, user will need to have Google Chrome browser. Developme
         login.ejs
         profile.ejs
         signup.ejs
+```
         
 ## Authors
 
