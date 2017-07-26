@@ -30,7 +30,7 @@ body {
 
 #wrap {
   flex: 1!important;
-  height: 90vh!important;
+  height: 80vh!important;
 }
 
 .fa-github-alt {
@@ -116,8 +116,8 @@ html [type=button] {
 
 /*FOOTER CSS*/
 footer {
-  height: 5vh;
-  margin-top: 5vh;
+  height: 3vh;
+  margin-top: 3vh;
 }
 
 .fa-github-alt {
@@ -162,7 +162,7 @@ footer {
 .calendar {
   position: relative!important;
   display: inline-block!important;
-  width: 13.6%!important;
+  width: 13.4%!important;
   margin-right: 2px!important;
   border-right: none!important;
 }
