@@ -24,11 +24,9 @@ var UserPlantSchema = new Schema({
   },
   sunlightAmt: {
   	type: String,
-  	required: true
   },
   waterSchedule: {
   	type: String,
-  	required: true
   },
   imageURL: {
   	type: String

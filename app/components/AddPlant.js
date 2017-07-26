@@ -96,9 +96,12 @@ var AddPlant = React.createClass({
       reminders: this.state.reminders
     })
       .then(function(res) {
-        console.log("Posted to MongoDB");
-        
-        browserHistory.push('/app/plants/');
+        console.log("res ", res)
+        if(!res.data.errors) {
+          browserHistory.push('/app/plants/');
+        }else{
+          alert("Please fill in all required fields.")
+        }
       })
 
   },
@@ -170,7 +173,7 @@ var AddPlant = React.createClass({
                           <div className="col-xs-6">
                             <div> 
                               <label>
-                                Name
+                                Name (required)
                                 <input
                                   name="name" 
                                   type="text"
@@ -178,7 +181,8 @@ var AddPlant = React.createClass({
                                   id="nickname-input"
                                   onChange={this.handleChange}
                                   value={this.state.name||this.state.value}
-                                  placeholder="Name">
+                                  placeholder="Name"
+                                  required={true}>
                                 </input>
                               </label>
                             </div>
@@ -322,13 +326,14 @@ var AddPlant = React.createClass({
                       <div className="row">
                         <div className="col-md-6 col-xs-12">
                           <div className="form-group">
-                            <label>Type
+                            <label>Type (required)
                               <select 
                                 name="reminderType"
                                 className="reminders form-control" 
                                 id="frequency-input"
                                 onChange={this.handleReminders}
-                                value={this.state.value}>
+                                value={this.state.value}
+                                required={true}>
                                 <option></option>
                                 <option value="Water">Water</option>
                                 <option value="Fertilize">Fertilize</option>
@@ -340,13 +345,14 @@ var AddPlant = React.createClass({
 
                         <div className="col-md-6 col-xs-12">
                           <div className="form-group">
-                            <label>Frequency
+                            <label>Frequency (required)
                               <select 
                                 name="frequency"
                                 className="reminders form-control" 
                                 id="frequency-input"
                                 onChange={this.handleReminders}
-                                value={this.state.value}>
+                                value={this.state.value}
+                                required={true}>
                                 <option></option>
                                 <option value="Every week">Every week</option>
                                 <option value="Every other week">Every other week</option>
@@ -358,7 +364,7 @@ var AddPlant = React.createClass({
 
                         <div className="col-xs-12">
                           <div className="weekdays-selector form-group">
-                            <label className="text-left" id="check-label">Day(s) of the week</label>
+                            <label className="text-left" id="check-label">Day(s) of the week (required)</label>
                               <input 
                                 name="days"
                                 type="checkbox" 
