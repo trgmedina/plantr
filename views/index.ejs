@@ -47,6 +47,16 @@
             padding: 0;
             padding-right: 5px;
         }
+
+        .fa-leaf {
+            display: none;
+        }
+
+        #plantr {
+            display: flex;
+            justify-content: center;
+        }
+
         @media screen and (max-width:767px) {
             .jumbotron>hr {
                 width: 100%;
@@ -66,7 +76,7 @@
 <body>
     <div class="container">
         <div class="jumbotron text-center">
-            <h1>Plantr<span class="fa fa-leaf fa"></span></h1>
+            <h1 id="plantr">Plantr<span class="fa fa-leaf"></span></h1>
             <a href="/login" class="btn btn-success btn-css"><span class="fa fa-pagelines"></span> LOG IN</a>
             <a href="/signup" class="btn btn-success btn-css"><span class="fa fa-user"></span> SIGN UP </a>
             <hr>
@@ -76,5 +86,9 @@
             </div>
        </div>
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    $('.fa-leaf').show("scale",{}, 1300).css('display','block');
+</script>
 </html>
